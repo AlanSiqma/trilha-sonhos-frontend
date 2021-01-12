@@ -1,0 +1,56 @@
+
+.gd{
+  display: grid;
+  grid-auto-rows: minmax(min-content, max-content);
+}
+
+.containerDreamWall{
+  overflow-y: hidden;
+  overflow-x: scroll;
+  background-image: url("../assets/fundoPrincipal.jpg");
+  height: 90vh;
+}
+
+
+.contain{
+/* height: 80vh; */
+display: grid;
+height: 100%;
+width: 900px;
+grid-gap: 15px;
+grid-template-columns: 350px 350px 350px 350px;
+grid-template-rows: minmax(100px, auto) minmax(100px, auto) minmax(100px, auto) minmax(100px, auto);
+grid-auto-rows: auto;
+grid-auto-flow: column;
+grid-auto-columns: 350px;
+}
+
+@media only screen and (max-height: 550px) {
+  .contain{
+  display: grid;
+  height: 100%;
+  width: 900px;
+  grid-gap: 15px;
+  grid-template-columns: 350px 350px 350px 350px;
+  grid-template-rows: minmax(100px, auto) minmax(100px, auto) minmax(100px, auto);
+  /* grid-auto-rows: 140px; */
+  grid-auto-rows: auto;
+  grid-auto-flow: column;
+  grid-auto-columns: 350px;
+  }
+}
+
+
+.item-{
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: center;
+border: 1px solid #bbbbbb36;
+border-radius: 3px;
+font-size: 1em;
+font-family: sans-serif;
+font-weight: bold;
+background-color: #8b8b8b1a;
+}
+

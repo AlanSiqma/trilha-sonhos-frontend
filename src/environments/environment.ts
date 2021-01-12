@@ -3,8 +3,35 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+
+  // apiBase: 'https://localhost:44332/api',
+  apiBase: 'https://localhost:5001/api',
+
+  // Sonho
+  listarSonhos: 'sonho',
+  pegarSonho: 'sonho/',
+  cadastrarSonho: 'sonho/novo-sonho',
+  alterarSonho: 'sonho/alterar-sonho',
+  deletarSonho: 'sonho',
+  sonhoSonhador: 'sonho/sonhos-sonhador',
+  sonhosPublicos: 'sonho/sonhos-visibilidade',
+
+  // Sonhador
+  listarSonhador: 'sonhador',
+  pegarSonhador: 'sonhador',
+  entrar: 'sonhador/entrar',
+  registrar: 'sonhador/nova-conta',
+  alterarConta: 'sonhador/alterar-conta',
+  deletarSonhador: 'sonhador/',
+
+  // Visibilidade
+  listarVisibilidadeSonho: 'VisibilidadeVisibilidadeSonho',
+
+  // Status
+  listarStatus: 'StatusSonho',
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file

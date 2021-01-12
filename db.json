@@ -1,0 +1,48 @@
+{
+  "posts": [
+    { "id": 1, "title": "json-server", "author": "typicode" }
+  ],
+  "comments": [
+    { "id": 1, "body": "some comment", "postId": 1 }
+  ],
+  "profile": { "name": "typicode" },
+  "users": [
+    {
+      "id": 1,
+      "user": "Hugo",
+      "urlPhoto": "\\photos\\hugo.jpg",
+      "dreams": [
+        {"id": 1, "description": "Ficar rico pelo menos 20 anos antes de morrer", "private": false},
+        {"id": 2, "description": "Aquela festinha com 50 profissionais de luxo em um iate", "private": true},
+        {"id": 3, "description": "Perder a pança", "private": false},
+        {"id": 4, "description": "Aumentar o pau para 40 cm e ser chamado do rolinha", "private": true},
+        {"id": 5, "description": "Rever as pessoas que quero mandar tnc e mandar!", "private": true},
+        {"id": 6, "description": "Fazer um show de rock dentro do bahamas!", "private": true},
+        {"id": 7, "description": "Possuir um chácara para descanso, com tudo, alcool, drogas, putas e quadra de tênis", "private": false},
+        {"id": 8, "description": "Na garagem quero dois alcoólatras, um Mustang e um Camaro", "private": false}
+      ]
+    },
+    {
+      "id": 2,
+      "user": "Cleber",
+      "urlPhoto": "\\photos\\hugo.jpg",
+      "dreams": [
+        {"id": 1, "description": "ipsum loren lo loren ips bct pk ppk coco", "private": false},
+        {"id": 2, "description": "ipsum loren lo loren ips bct pk ppk coco", "private": true},
+        {"id": 3, "description": "ppk ppkinha ppkaum loren lila lela big big", "private": false},
+        {"id": 4, "description": "mijar da cobertura simulando chuva ácida", "private": false}
+      ]
+    },
+    {
+      "id": 3,
+      "user": "Alan",
+      "urlPhoto": "\\photos\\hugo.jpg",
+      "dreams": [
+        {"id": 1, "description": "Ser magro comendo parmegiana de franguinho!", "private": false},
+        {"id": 2, "description": "Criar uma linguagem de promação que faça comida pra mim", "private": false},
+        {"id": 3, "description": "Comer muito pastel x-tudo com tudo mesmmoooo", "private": false},
+        {"id": 4, "description": "Ter uma Pizzaria e uma Churrascaria!", "private": false}
+      ]
+    }
+  ]
+}

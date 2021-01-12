@@ -1,0 +1,33 @@
+<section class="grid grid-template-areas-1">
+  <div class="item b"><img src="https://www.w3schools.com/howto/img_avatar.png" class="circleImg"></div>
+  <div class="item a"><span>Registro de Sonho</span></div>
+</section>
+
+  <h1 mat-dialog-title class="subTitle" >Before I Die</h1>
+
+  <form novalidate [formGroup]="formUser" style="width: 100%;">
+    <input matInput formControlName="id" style="visibility:hidden;">
+    <mat-form-field class="fullWidth">
+      <mat-label>Eu quero...</mat-label>
+      <input matInput formControlName="descricaoSonho">
+    </mat-form-field>
+    <div class="toggle">
+      <p class="mp"> Público </p>
+      <!-- <mat-slide-toggle formControlName="isPrivate" color="warn">{{state}}</mat-slide-toggle> -->
+      <mat-slide-toggle formControlName="isPrivate" color="warn"> Privado </mat-slide-toggle>
+    </div>
+    <div class="toggle">
+      <p class="mp"> Em progresso </p>
+      <mat-slide-toggle formControlName="status" color="warn"> Realizado </mat-slide-toggle>
+    </div>
+  </form>
+
+<!-- <div mat-dialog-actions class="buttons"> -->
+<div class="buttons">
+  <button mat-flat-button color="primary" class="buttons" (click)='RegitrarSonho()'>
+    <span class="iconRightButton">
+      <i class="fa fa-floppy-o" aria-hidden="true"></i>
+    </span>
+    Registrar Sonho</button>
+</div>
+
