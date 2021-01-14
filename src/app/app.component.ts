@@ -40,13 +40,12 @@ export class AppComponent implements OnInit{
 
   PopularDream(item){
     let visibilidade = new VisibilidadeSonhoDto();
-
     let dream: Dreams = {
       id: item.id,
       descricaoSonho: item.descricaoSonho,
       idSonhador: item.idSonhador,
-      idStatus: item.idStatus,
-      private: visibilidade.ehPrivada(item.idVisibilidade),
+      Status: item.status,
+      private: visibilidade.ehPrivada(item.visibilidade),
       nomeSonhador: this.usuario == null ? "" : this.usuario.nome
     }
 

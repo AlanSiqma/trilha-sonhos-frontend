@@ -3,16 +3,17 @@ export class VisibilidadeSonhoDto{
   Visibilidade: string;
 
   tipoVisbibilidade = {
-    Publica: "5ff5d43d2228e8f54125e6bc",
-    Privada: "5ff5d45f2228e8f54125e6bd"
+    Publica: "PUBLICA",
+    Privada: "PRIVADA"
   }
 
   getVisibilidade(hash): string{
+    console.log(hash)
     return hash == this.tipoVisbibilidade.Publica ? "Publica" : "Privada";
   }
 
   ehPrivada(hash): boolean {
-    return hash == this.tipoVisbibilidade.Privada;
+    return hash == "Privada";//this.tipoVisbibilidade.Privada;
   }
 }
 // export interface VisibilidadeSonhoDto{
