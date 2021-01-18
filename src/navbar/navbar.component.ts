@@ -14,11 +14,13 @@ export class NavbarComponent implements OnInit {
 
   title = "Before I Die...";
   isLogged: boolean = false;
+  logoBfd = '../assets/logo-bfd.png'
 
   user = {
     name: 'Florinda',
-    photo: '../assets/profile4.jpg'
+    photo: '../assets/picPerfil.png'
   }
+
 
   showDelay = new FormControl(500);
   hideDelay = new FormControl(200);
@@ -37,7 +39,11 @@ export class NavbarComponent implements OnInit {
 
   toggleLogged(username){
     this.isLogged = !this.isLogged;
-    this.user.name = username;
+    this.AtualizarNomeUsuario(username)
+  }
+
+  AtualizarNomeUsuario(usuario){
+    this.user.name = this.util.LimitarTexto(usuario,16);
   }
 
   logOff(){

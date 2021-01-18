@@ -9,6 +9,11 @@
   font-weight: 600;
 }
 
+.logo{
+  height: 102px;
+  margin-top: 20px;
+}
+
 .divtitle{
   width: 200px;
   /* display: inline; */
@@ -76,8 +81,8 @@ p{
 }
 
 .grid-template-areas-1 {
-    grid-template-columns: 260px auto 70px;
-    grid-template-rows: 60px 22px;
+    grid-template-columns: 260px auto 88px;
+    grid-template-rows: 66px 26px;
 	  grid-template-areas:
         "a b grdPhoto"
         "a b grdUser"
@@ -217,6 +222,7 @@ p{
 }
 
 .left {
+  margin-left: 12px;
 	text-align: left;
 }
 

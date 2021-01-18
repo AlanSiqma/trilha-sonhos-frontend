@@ -34,8 +34,8 @@ export class SignInComponent implements OnInit {
   {
     this.formUser = fb.group(
       {
-        email: ['hugo@email.com',[Validators.required, Validators.email]],
-        senha: ['123Quatro',[Validators.required, Validators.minLength(6)]],
+        email: ['',[Validators.required, Validators.email]],
+        senha: ['',[Validators.required, Validators.minLength(6)]],
         nome: [''],
         pais: [''],
         idade: [''],
