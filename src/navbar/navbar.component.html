@@ -1,7 +1,7 @@
 <div class="nav">
   <section class="grid grid-template-areas-2" *ngIf="!isLogged; else logged">
     <div class="item a left">
-      <span class="mt title" (click)="IrParaHome()">{{title}}</span>
+      <img class="logo" [src]="logoBfd" (click)="IrParaHome()"/>
     </div>
     <div class="item right b">
         <span class="mt">
