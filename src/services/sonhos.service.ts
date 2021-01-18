@@ -18,7 +18,7 @@ export class SonhosService {
   }
 
   listarSonhosPublicos(): Observable<any> {
-    return this.httpClient.get(`${apiUrl.apiBase}/${apiUrl.sonhosPublicos}/5ff5d43d2228e8f54125e6bc`);
+    return this.httpClient.get(`${apiUrl.apiBase}/${apiUrl.sonhosPublicos}/Publica`);
   }
 
   pegarSonho(id): Observable<any> {

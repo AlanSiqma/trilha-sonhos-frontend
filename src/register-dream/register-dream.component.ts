@@ -50,6 +50,7 @@ export class RegisterDreamComponent implements OnInit {
   }
 
   PopularForm(model){
+    console.log(model.data)
     let sonho = JSON.parse(model.data);
     this.formUser.patchValue(
       {
@@ -58,7 +59,7 @@ export class RegisterDreamComponent implements OnInit {
         usuarioId: sonho.idSonhador,
         visibilidade: sonho.private,
         isPrivate: sonho.private,
-        status: sonho.idStatus == this.status.Realizado
+        status: sonho.Status == this.status.Realizado
       });
     }
 
@@ -78,27 +79,33 @@ export class RegisterDreamComponent implements OnInit {
   }
 
   PopularTipoStatus(){
-    this.statusService.listar()
-                      .subscribe(
-                        (res: any[]) =>
-                        {
-                          this.status.Realizado = res.find( x => x.status == "Realizado").id;
-                          this.status.Em_Progresso = res.find( x => x.status == "Em Progresso").id;
-                        },
-                        error => this.util.AlertSnack('Não foi possível carregar status.','Erro')
-                      )
+    this.status.Realizado = "Realizado";
+    this.status.Em_Progresso = "Em Progresso";
+
+    // this.statusService.listar()
+    //                   .subscribe(
+    //                     (res: any[]) =>
+    //                     {
+    //                       this.status.Realizado = res.find( x => x.status == "Realizado").id;
+    //                       this.status.Em_Progresso = res.find( x => x.status == "Em Progresso").id;
+    //                     },
+    //                     error => this.util.AlertSnack('Não foi possível carregar status.','Erro')
+    //                   )
   }
 
   PopularTipoVisibilidade(){
-    this.visibilidadeService.listar()
-                            .subscribe(
-                              (res: any[]) =>
-                              {
-                                this.tipoVisbibilidade.Privada = res.find( x => x.visibilidade == "Privada").id;
-                                this.tipoVisbibilidade.Publica = res.find( x => x.visibilidade == "Publica").id;
-                              },
-                              error => this.util.AlertSnack('Não foi possível carregar status.','Erro')
-                            )
+    this.tipoVisbibilidade.Privada = "Privada";
+    this.tipoVisbibilidade.Publica = "Publica";
+
+    // this.visibilidadeService.listar()
+    //                         .subscribe(
+    //                           (res: any[]) =>
+    //                           {
+    //                             this.tipoVisbibilidade.Privada = res.find( x => x.visibilidade == "Privada").id;
+    //                             this.tipoVisbibilidade.Publica = res.find( x => x.visibilidade == "Publica").id;
+    //                           },
+    //                           error => this.util.AlertSnack('Não foi possível carregar status.','Erro')
+    //                         )
   }
 
   SignIn(){
@@ -123,13 +130,13 @@ export class RegisterDreamComponent implements OnInit {
 
 
   getSonho(): SonhoDto {
-
+    console.log(this.usuario);
     let sonho: SonhoDto = {
       Id: this.formUser.get('id').value,
       DescricaoSonho: this.formUser.get('descricaoSonho').value,
       IdSonhador: this.usuario.id,
-      IdVisibilidade: this.visibilidade,
-      IdStatus: this.getIdStatus(),
+      Visibilidade: this.visibilidade,
+      Status: this.getIdStatus(),
       Sonho: ''
     };
 

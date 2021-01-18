@@ -7,7 +7,7 @@ export class Dreams {
   descricaoSonho: string;
   private: boolean;
   // status: string;
-  idStatus: string;
+  Status: string;
   nomeSonhador = '';
   idSonhador: string;
   // ehEdicao = false;
@@ -37,9 +37,17 @@ export class DreamsWallComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  ehRealizado = (sonho) => sonho.idStatus == status.Realizado;
+  ehRealizado(sonho) {
+   
+    sonho.Status == status.Realizado;
+  } 
+    
 
-  ehPrivado = (sonho) => sonho.private;
+  ehPrivado (sonho){
+
+
+    sonho.private;
+  } 
 
   haveDescription(item: any){
     let haveDesc = item.description.length > 0;
