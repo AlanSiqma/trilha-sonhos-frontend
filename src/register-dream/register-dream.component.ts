@@ -24,6 +24,7 @@ export interface DialogData {
 export class RegisterDreamComponent implements OnInit {
 
   visibilidade = '';
+  btRealizar = false;
   formUser: FormGroup;
 
   status = { Realizado: null, Em_Progresso: null };
@@ -33,12 +34,13 @@ export class RegisterDreamComponent implements OnInit {
 
   constructor(
         private sonhosService: SonhosService,
-        private statusService: StatusService,
-        private visibilidadeService: VisibilidadeSonhoService,
+        // private statusService: StatusService,
+        // private visibilidadeService: VisibilidadeSonhoService,
         public dialogRef: MatDialogRef<AppComponent>,
         private util: UtilService,
         @Inject(MAT_DIALOG_DATA) public data: DialogData)
         {
+          this.validarBtRealizar(data);
           this.Startup(data);
         };
 
@@ -49,8 +51,14 @@ export class RegisterDreamComponent implements OnInit {
     if(data) this.PopularForm(data);
   }
 
+  validarBtRealizar(data){
+    if(data)
+      this.btRealizar = true;
+    else
+    this.btRealizar = false;
+  }
+
   PopularForm(model){
-    console.log(model.data)
     let sonho = JSON.parse(model.data);
     this.formUser.patchValue(
       {
@@ -81,31 +89,11 @@ export class RegisterDreamComponent implements OnInit {
   PopularTipoStatus(){
     this.status.Realizado = "Realizado";
     this.status.Em_Progresso = "Em Progresso";
-
-    // this.statusService.listar()
-    //                   .subscribe(
-    //                     (res: any[]) =>
-    //                     {
-    //                       this.status.Realizado = res.find( x => x.status == "Realizado").id;
-    //                       this.status.Em_Progresso = res.find( x => x.status == "Em Progresso").id;
-    //                     },
-    //                     error => this.util.AlertSnack('Não foi possível carregar status.','Erro')
-    //                   )
   }
 
   PopularTipoVisibilidade(){
     this.tipoVisbibilidade.Privada = "Privada";
     this.tipoVisbibilidade.Publica = "Publica";
-
-    // this.visibilidadeService.listar()
-    //                         .subscribe(
-    //                           (res: any[]) =>
-    //                           {
-    //                             this.tipoVisbibilidade.Privada = res.find( x => x.visibilidade == "Privada").id;
-    //                             this.tipoVisbibilidade.Publica = res.find( x => x.visibilidade == "Publica").id;
-    //                           },
-    //                           error => this.util.AlertSnack('Não foi possível carregar status.','Erro')
-    //                         )
   }
 
   SignIn(){
@@ -130,7 +118,6 @@ export class RegisterDreamComponent implements OnInit {
 
 
   getSonho(): SonhoDto {
-    console.log(this.usuario);
     let sonho: SonhoDto = {
       Id: this.formUser.get('id').value,
       DescricaoSonho: this.formUser.get('descricaoSonho').value,
@@ -164,7 +151,6 @@ export class RegisterDreamComponent implements OnInit {
                           error =>
                           {
                             this.util.AlertSnack("Não foi possível efetuar o registro...", "Erro!");
-                              console.log('erro ', error);
                               this.Close();
                           }
                          );
@@ -185,7 +171,6 @@ export class RegisterDreamComponent implements OnInit {
                         error =>
                         {
                             this.util.AlertSnack("Não foi possível efetuar o registro...", "Erro!");
-                            console.log('erro ', error);
                             this.Close();
                         }
                        );

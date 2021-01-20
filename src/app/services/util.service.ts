@@ -22,7 +22,7 @@ export class UtilService {
 
   LimitarTexto(msg: string, qtdCaractere: number): string{
 
-    if( msg.length > qtdCaractere )
+    if( msg != null && msg.length > qtdCaractere )
       msg = msg.substr(0, qtdCaractere).concat("...");
 
     return msg;

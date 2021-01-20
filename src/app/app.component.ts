@@ -102,7 +102,10 @@ export class AppComponent implements OnInit{
                           this.popularListaSonho(result);
                           this.dreamWall.ehMeuSonho = true;
                         },
-                        error => console.log('eh.. erro', error)
+                        error => {
+                          this.util.AlertSnack('Não foi possível abrir Meus Sonhos','Intermitência')
+                          console.log('eh.. erro', error)
+                        }
                       )
   }
 

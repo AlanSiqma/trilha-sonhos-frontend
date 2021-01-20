@@ -37,17 +37,9 @@ export class DreamsWallComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  ehRealizado(sonho) {
-   
-    sonho.Status == status.Realizado;
-  } 
-    
+  ehRealizado = (sonho) => sonho.Status == "Realizado";
 
-  ehPrivado (sonho){
-
-
-    sonho.private;
-  } 
+  ehPrivado = (sonho) => sonho.private;
 
   haveDescription(item: any){
     let haveDesc = item.description.length > 0;
@@ -59,26 +51,11 @@ export class DreamsWallComponent implements OnInit {
   EmitterAdd(id = ""){
     const usuario = localStorage.getItem('usuarioBfd');
 
-    // if(usuario != null)
-    //   this.openEvent.emit({tipo: 'RegistrarSonho', posicao: id});
     if(usuario != null)
       this.openEvent.emit({tipo: 'RegistrarSonho'});
     else
       this.openEvent.emit({tipo: 'Login'});
   }
-
-  // exibirNome(exibir: boolean, id: any){
-  //   id = 'n' + id;
-
-  //   if(exibir){
-  //     let element: HTMLElement = document.getElementById(id);
-  //     element.style.display = "";
-  //   }
-  //   else{
-  //     let element = document.getElementById(id);
-  //     element.style.visibility = "none";
-  //   }
-  // }
 
   atualizarListaSonhos = (lista: Dreams[]) => this.listDreams = lista;
 

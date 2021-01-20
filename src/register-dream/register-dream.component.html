@@ -16,7 +16,7 @@
       <!-- <mat-slide-toggle formControlName="isPrivate" color="warn">{{state}}</mat-slide-toggle> -->
       <mat-slide-toggle formControlName="isPrivate" color="warn"> Privado </mat-slide-toggle>
     </div>
-    <div class="toggle">
+    <div class="toggle" *ngIf="btRealizar">
       <p class="mp"> Em progresso </p>
       <mat-slide-toggle formControlName="status" color="warn"> Realizado </mat-slide-toggle>
     </div>

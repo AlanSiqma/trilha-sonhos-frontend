@@ -43,7 +43,7 @@ export class NavbarComponent implements OnInit {
   }
 
   AtualizarNomeUsuario(usuario){
-    this.user.name = this.util.LimitarTexto(usuario,16);
+    this.user.name = this.util.LimitarTexto(usuario,12);
   }
 
   logOff(){
