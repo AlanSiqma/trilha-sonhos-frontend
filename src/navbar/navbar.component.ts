@@ -14,11 +14,11 @@ export class NavbarComponent implements OnInit {
 
   title = "Before I Die...";
   isLogged: boolean = false;
-  logoBfd = '../assets/logo-bfd.png'
+  logoBfd = './assets/logo-bfd.png'
 
   user = {
     name: 'Florinda',
-    photo: '../assets/picPerfil.png'
+    photo: './assets/picPerfil.png'
   }
 
 
