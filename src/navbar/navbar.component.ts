@@ -18,7 +18,7 @@ export class NavbarComponent implements OnInit {
 
   user = {
     name: 'Florinda',
-    photo: './assets/picPerfil.png'
+    photo: './assets/avatar_v1.png'
   }
 
 

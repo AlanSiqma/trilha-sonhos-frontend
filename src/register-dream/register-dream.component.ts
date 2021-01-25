@@ -3,7 +3,7 @@ import { StatusService } from './../services/status.service';
 import { UtilService } from './../app/services/util.service';
 import { sonhadorLocal } from './../models/sonhadorLocal';
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { AppComponent } from 'src/app/app.component';
 import { SonhosService } from 'src/services/sonhos.service';
@@ -79,7 +79,7 @@ export class RegisterDreamComponent implements OnInit {
     this.formUser = new FormGroup({
       id: new FormControl(),
       usuarioId: new FormControl(),
-      descricaoSonho: new FormControl(),
+      descricaoSonho: new FormControl('', Validators.required),
       visibilidade: new FormControl(),
       isPrivate: new FormControl(false),
       status: new FormControl()

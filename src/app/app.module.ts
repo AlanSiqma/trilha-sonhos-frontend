@@ -21,6 +21,7 @@ import { MatIconModule} from '@angular/material/icon';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { DialogComponent } from './shared/dialog/dialog.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +41,7 @@ import { DialogComponent } from './shared/dialog/dialog.component';
     MatDialogModule,
     MatFormFieldModule,
     MatSlideToggleModule,
+    MatAutocompleteModule,
     ReactiveFormsModule,
     MatInputModule,
     ReactiveFormsModule,

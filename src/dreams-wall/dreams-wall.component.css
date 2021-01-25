@@ -14,7 +14,7 @@
 .dreams-wall{
   overflow-y: hidden;
   overflow-x: scroll;
-  background-image: url("../assets/muroN1.jpg");
+  background-image: url("../assets/muro_fundo.jpg");
   height: 90vh;
 }
 

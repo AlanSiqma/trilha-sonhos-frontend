@@ -33,8 +33,9 @@ export class SonhadorService {
   }
 
   criarConta(data: SonhadorDto): Observable<any> {
-    const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
-    return this.httpClient.post(`${apiUrl.apiBase}/${apiUrl.registrar}`, data);
+    const _headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
+    return this.httpClient.post(
+      `${apiUrl.apiBase}/${apiUrl.registrar}`, data, { headers: _headers });
   }
 
   Entrar(data: loginDto): Observable<any> {

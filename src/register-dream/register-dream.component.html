@@ -9,7 +9,7 @@
     <input matInput formControlName="id" style="visibility:hidden;">
     <mat-form-field class="fullWidth">
       <mat-label>Eu quero...</mat-label>
-      <input matInput formControlName="descricaoSonho">
+      <input matInput type="text" formControlName="descricaoSonho" autocomplete="false">
     </mat-form-field>
     <div class="toggle">
       <p class="mp"> Público </p>
@@ -24,7 +24,7 @@
 
 <!-- <div mat-dialog-actions class="buttons"> -->
 <div class="buttons">
-  <button mat-flat-button color="primary" class="buttons" (click)='RegitrarSonho()'>
+  <button mat-flat-button color="primary" class="buttons" (click)='RegitrarSonho()' [disabled]="this.formUser.invalid">
     <span class="iconRightButton">
       <i class="fa fa-floppy-o" aria-hidden="true"></i>
     </span>
