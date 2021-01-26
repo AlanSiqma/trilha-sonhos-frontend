@@ -6,7 +6,7 @@ export const environment = {
   production: true,
 
   // apiBase: 'https://localhost:44332/api',
-  apiBase: "http://localhost/BeforeIDie/api",
+  apiBase: "http://26.27.214.133/BeforeIDie/api",
   // apiBase: "http://localhost:8070",
 
   // Sonho

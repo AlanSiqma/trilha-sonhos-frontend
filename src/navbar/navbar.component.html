@@ -2,6 +2,12 @@
   <section class="grid grid-template-areas-2" *ngIf="!isLogged; else logged">
     <div class="item a left">
       <img class="logo" [src]="logoBfd" (click)="IrParaHome()"/>
+      <a href="https://forms.gle/A3afNJSrLFxCNRh78" target="_blank" class="byttons" mat-flat-button color="secundary">
+        Feedback
+        <span>
+          <i class="fa fa-commenting-o" aria-hidden="true"></i>
+        </span>
+      </a>
     </div>
     <div class="item right b">
         <span class="mt">
@@ -19,7 +25,14 @@
     <section class="grid grid-template-areas-1">
       <div class="item a left">
         <img class="logo" [src]="logoBfd" (click)="IrParaHome()"/>
+        <a href="https://forms.gle/A3afNJSrLFxCNRh78" target="_blank" class="byttons"  mat-flat-button color="secundary">
+          Feedback
+          <span>
+            <i class="fa fa-commenting-o" aria-hidden="true"></i>
+          </span>
+        </a>
       </div>
+      
       <div class="item b">
         <span class="subTitle link-1" (click)="IrParaMeusSonhos();">
           Meus Sonhos</span>
@@ -41,7 +54,6 @@
       </div>
     </section>
   </ng-template>
-
 </div>
 
 
