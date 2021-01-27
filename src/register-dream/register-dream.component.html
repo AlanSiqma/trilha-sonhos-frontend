@@ -10,6 +10,7 @@
     <mat-form-field class="fullWidth">
       <mat-label>Eu quero...</mat-label>
       <input matInput type="text" formControlName="descricaoSonho" autocomplete="false">
+      <mat-error *ngIf="formUser.get('descricaoSonho').invalid">é necessário ao menos 6 digitos</mat-error>
     </mat-form-field>
     <div class="toggle">
       <p class="mp"> Público </p>

@@ -16,6 +16,8 @@
   overflow-x: scroll;
   background-image: url("../assets/muro_fundo.jpg");
   height: 90vh;
+  background-attachment: local;
+  background-size: contain;
 }
 
 

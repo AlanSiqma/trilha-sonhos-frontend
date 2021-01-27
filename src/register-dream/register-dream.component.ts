@@ -23,7 +23,6 @@ export interface DialogData {
 })
 export class RegisterDreamComponent implements OnInit {
 
-  visibilidade = '';
   btRealizar = false;
   formUser: FormGroup;
 
@@ -34,8 +33,6 @@ export class RegisterDreamComponent implements OnInit {
 
   constructor(
         private sonhosService: SonhosService,
-        // private statusService: StatusService,
-        // private visibilidadeService: VisibilidadeSonhoService,
         public dialogRef: MatDialogRef<AppComponent>,
         private util: UtilService,
         @Inject(MAT_DIALOG_DATA) public data: DialogData)
@@ -46,7 +43,7 @@ export class RegisterDreamComponent implements OnInit {
 
   Startup(data){
     this.PopularTipoStatus();
-    this.PopularTipoVisibilidade();
+    this.PopularTipoVisibilidade(false);
     this.GerarForm();
     if(data) this.PopularForm(data);
   }
@@ -55,7 +52,7 @@ export class RegisterDreamComponent implements OnInit {
     if(data)
       this.btRealizar = true;
     else
-    this.btRealizar = false;
+      this.btRealizar = false;
   }
 
   PopularForm(model){
@@ -72,14 +69,17 @@ export class RegisterDreamComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    this.ViewChangeForm();
+  }
+
+  get visibilidade(): boolean {
+    return this.formUser.get('isPrivate').value;
   }
 
   GerarForm(){
     this.formUser = new FormGroup({
       id: new FormControl(),
       usuarioId: new FormControl(),
-      descricaoSonho: new FormControl('', Validators.required),
+      descricaoSonho: new FormControl('', [Validators.required, Validators.minLength(6)]),
       visibilidade: new FormControl(),
       isPrivate: new FormControl(false),
       status: new FormControl()
@@ -91,9 +91,10 @@ export class RegisterDreamComponent implements OnInit {
     this.status.Em_Progresso = "Em Progresso";
   }
 
-  PopularTipoVisibilidade(){
-    this.tipoVisbibilidade.Privada = "Privada";
-    this.tipoVisbibilidade.Publica = "Publica";
+  PopularTipoVisibilidade(ehPrivado: boolean){
+    return ehPrivado ?
+              this.tipoVisbibilidade.Privada = "Privada":
+              this.tipoVisbibilidade.Publica = "Publica";
   }
 
   SignIn(){
@@ -103,26 +104,13 @@ export class RegisterDreamComponent implements OnInit {
 
   Close = (msg = null) => this.dialogRef.close(msg);
 
-  ViewChangeForm(){
-    this.formUser.valueChanges.subscribe(() =>
-      {
-        let ehPrivado: Boolean = this.formUser.get('isPrivate').value;
-
-        if(ehPrivado)
-          this.visibilidade = this.tipoVisbibilidade.Privada;
-        else
-          this.visibilidade = this.tipoVisbibilidade.Publica;
-      }
-    );
-  }
-
-
   getSonho(): SonhoDto {
+
     let sonho: SonhoDto = {
       Id: this.formUser.get('id').value,
       DescricaoSonho: this.formUser.get('descricaoSonho').value,
       IdSonhador: this.usuario.id,
-      Visibilidade: this.visibilidade,
+      Visibilidade: this.PopularTipoVisibilidade(this.visibilidade),
       Status: this.getIdStatus(),
       Sonho: ''
     };
@@ -135,9 +123,8 @@ export class RegisterDreamComponent implements OnInit {
   }
 
   RegitrarSonho(){
-    if(this.data != null && this.data.tipo =='editar'){
+    if(this.data != null && this.data.tipo =='editar')
       this.EditarSonho();
-    }
     else{
       this.sonhosService.registrarSonho(this.getSonho())
                         .subscribe(
