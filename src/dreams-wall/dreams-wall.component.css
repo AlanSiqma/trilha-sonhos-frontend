@@ -75,12 +75,12 @@ display: flex;
 justify-content: center;
 align-items: center;
 text-align: center;
-border: 1px solid #bbbbbb18;
+/* border: 1px solid #bbbbbb18; */
 border-radius: 3px;
 font-size: 1em;
 font-family: sans-serif;
 font-weight: bold;
-background-color: #8b8b8b14;
+/* background-color: #8b8b8b14; */
 }
 
 .descricaoSonho{
