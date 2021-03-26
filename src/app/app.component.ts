@@ -108,6 +108,38 @@ export class AppComponent implements OnInit{
                         }
                       )
   }
+  atualizarListaMeusSonhos(){
+
+    const usuario = this.sonhadorService.PegarUsuarioLogado();
+    if(this.dreamWall.ehMeuSonho){
+
+      this.sonhosService.listarSonhosPorSonhador(usuario.id)
+                        .subscribe(
+                          result =>
+                          {
+                            this.popularListaSonho(result);
+                            this.dreamWall.ehMeuSonho = true;
+                          },
+                          error => {
+                            this.util.AlertSnack('Não foi possível abrir Meus Sonhos','Intermitência')
+                            console.log('eh.. erro', error)
+                          }
+                        )
+    }else{
+      this.sonhosService.listarSonhosPublicos()
+      .subscribe(
+        result =>
+        {
+          this.popularListaSonho(result);
+          this.dreamWall.ehMeuSonho = false;
+        },
+        error => {
+          this.util.AlertSnack('Não foi possível abrir Meus Sonhos','Intermitência')
+          console.log('eh.. erro', error)
+        }
+      )
+    }
+  }
 
   popularListaSonho(result){
     this.listDreams = [];
@@ -160,7 +192,8 @@ export class AppComponent implements OnInit{
 
     dialogRef.afterClosed().subscribe(result => {
       if(result == "atualizarListaMeusSonhos"){
-        this.AtualizarSonhosPorSonhador();
+        // this.AtualizarSonhosPorSonhador();
+        this.atualizarListaMeusSonhos();
       }
     });
   }
