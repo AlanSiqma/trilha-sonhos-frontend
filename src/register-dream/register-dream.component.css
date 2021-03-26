@@ -97,3 +97,16 @@
   color:#00FA9A;
   margin-right: 2px;
 }
+
+
+.btn-emoji{
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  text-align: left;
+  float: right;
+}
+
+input{
+  height: 120%;
+}

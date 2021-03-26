@@ -22,6 +22,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { DialogComponent } from './shared/dialog/dialog.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { PickerModule } from '@ctrl/ngx-emoji-mart';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +33,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     DialogComponent
   ],
   imports: [
+    PickerModule,
     MatProgressSpinnerModule,
     BrowserModule,
     MatIconModule,

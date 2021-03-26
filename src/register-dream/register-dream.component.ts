@@ -25,11 +25,18 @@ export class RegisterDreamComponent implements OnInit {
 
   btRealizar = false;
   formUser: FormGroup;
+  public isEmojiPickerVisible: boolean;
 
   status = { Realizado: null, Em_Progresso: null };
   tipoVisbibilidade = { Publica: null, Privada: null };
 
   usuario: sonhadorLocal = JSON.parse(localStorage.getItem('usuarioBfd'));
+
+  public addEmoji(event) {
+    var descricaoSonho = this.formUser.get('descricaoSonho').value;
+    this.formUser.get('descricaoSonho').setValue(`${descricaoSonho} ${event.emoji.native}`) ;
+    this.isEmojiPickerVisible = false;
+ }
 
   constructor(
         private sonhosService: SonhosService,
