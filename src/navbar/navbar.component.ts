@@ -14,7 +14,7 @@ export class NavbarComponent implements OnInit {
 
   title = "Before I Die...";
   isLogged: boolean = false;
-  logoBfd = './assets/logo-bfd.png'
+  logoBfd = './assets/logo-bfd-2.png'
 
   user = {
     name: 'Florinda',
