@@ -31,10 +31,22 @@
             <i class="fa fa-commenting-o" aria-hidden="true"></i>
           </span>
         </a>
-    
       </div>
-   
+      
       <div class="item b">
+        <h4>Basic native select</h4>
+        <mat-form-field appearance="fill">
+          <mat-label>Tema</mat-label>
+          <mat-select (selectionChange)="alterarTema($event.value)">
+            <mat-option value="fundo-cinza-2.jpg">Tema 1</mat-option>
+            <mat-option value="fundo-cinza.jpg">Tema 2</mat-option>
+            <mat-option value="fundo-ceu.jpg">Tema 3</mat-option>
+            <mat-option value="fundo-imaginario.jpg">Tema 4</mat-option>
+            <mat-option value="fundo-realista.jpg">Tema 5</mat-option>
+            <mat-option value="fundo-realista-2.jpg">Tema 6</mat-option>
+            <mat-option value="muro_fundo.jpg">Tema 7</mat-option>
+          </mat-select>
+        </mat-form-field>
         <span class="subTitle link-1" (click)="IrParaMeusSonhos();">
           Meus Sonhos</span>
       </div>

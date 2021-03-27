@@ -14,7 +14,7 @@
 .dreams-wall{
   overflow-y: hidden;
   overflow-x: scroll;
-  background-image: url("../assets/fundo-cinza-2.jpg");
+  /* background-image: url("../assets/fundo-cinza-2.jpg"); */
   height: 90vh;
   background-attachment: local;
   background-size: contain;

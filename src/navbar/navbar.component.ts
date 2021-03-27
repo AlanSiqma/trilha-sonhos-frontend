@@ -69,4 +69,8 @@ export class NavbarComponent implements OnInit {
   Logar(){
     this.myEvent.emit({tipo: 'Login'});
   }
+  alterarTema(event ){
+    this.myEvent.emit({tipo: 'Alterar-Tema',tema:event});
+  }
 }
+

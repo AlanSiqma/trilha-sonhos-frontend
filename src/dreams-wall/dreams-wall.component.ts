@@ -32,6 +32,7 @@ export class DreamsWallComponent implements OnInit {
   changeText= false;
   ehMeuSonho = false;
   idSonhoDestaque;
+  tema= 'fundo-cinza-2.jpg';
   renderer:Renderer2
 
     constructor( private util: UtilService) { }
@@ -99,5 +100,8 @@ export class DreamsWallComponent implements OnInit {
     }
 
     this.openEvent.emit(data);
+  }
+  alterarTema(){
+    console.log('alterar tema');
   }
 }

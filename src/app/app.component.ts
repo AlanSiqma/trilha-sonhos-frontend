@@ -71,7 +71,9 @@ export class AppComponent implements OnInit{
       case 'Login':
         this.openLogin();
         break;
-
+      case 'Alterar-Tema':
+        this.AlterarTema(val.tema);
+        break;
       default:
         break;
     }
@@ -92,7 +94,9 @@ export class AppComponent implements OnInit{
     });
   }
 
-
+  AlterarTema(tema){
+    this.dreamWall.tema = tema;
+  }
   AtualizarSonhosPorSonhador(){
     const usuario = this.sonhadorService.PegarUsuarioLogado();
 

@@ -1,4 +1,4 @@
-<div class="dreams-wall">
+<div class="dreams-wall" style='background-image: url("../assets/{{tema}}");'>
   <div class="contain" >
     <div class="item-" *ngFor="let sonho of this.listDreams; let i = index" id="{{i}}" >
         <div  [ngClass]="{'descricao-sonho-destaque':sonho.id==idSonhoDestaque, 'descricaoSonho':sonho.id!=idSonhoDestaque}">
@@ -8,7 +8,7 @@
                 {{LimitarTexto(sonho)}}
               </p>
             </div>
-           
+         
             <div style="display: grid; grid-template-columns: auto auto; margin-bottom: 1px;">
               <div *ngIf="ehRealizado(sonho)">
                 <p class="nome status">
