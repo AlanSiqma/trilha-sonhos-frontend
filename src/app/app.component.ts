@@ -193,7 +193,7 @@ export class AppComponent implements OnInit{
     });
 
     dialogRef.afterClosed().subscribe(result => {      
-      if(result.msg == "atualizarListaMeusSonhos"){       
+      if(result !== null && result.msg == "atualizarListaMeusSonhos"){       
         this.atualizarListaMeusSonhos(result.idSonhoDestaque);
       }
     });
