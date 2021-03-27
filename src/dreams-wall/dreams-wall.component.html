@@ -1,14 +1,14 @@
 <div class="dreams-wall">
   <div class="contain" >
     <div class="item-" *ngFor="let sonho of this.listDreams; let i = index" id="{{i}}" >
-        <div class="descricaoSonho">
+        <div  [ngClass]="{'descricao-sonho-destaque':sonho.id==idSonhoDestaque, 'descricaoSonho':sonho.id!=idSonhoDestaque}">
           <div style="display: grid;">
             <div (click)="exibirSonho(sonho)" >
               <p>
                 {{LimitarTexto(sonho)}}
               </p>
             </div>
-
+           
             <div style="display: grid; grid-template-columns: auto auto; margin-bottom: 1px;">
               <div *ngIf="ehRealizado(sonho)">
                 <p class="nome status">

@@ -5,7 +5,7 @@ import { VisibilidadeSonhoDto } from './../models/visibilidadeDto';
 import { SonhoDto } from './../models/sonhoDto';
 import { sonhadorLocal } from './../models/sonhadorLocal';
 import { SonhosService } from './../services/sonhos.service';
-import { Component, EventEmitter, Output, ViewChild, OnInit } from '@angular/core';
+import { Component,ElementRef, EventEmitter, Output, ViewChild, OnInit } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { Dreams } from 'src/dreams-wall/dreams-wall.component';
 import { NavbarComponent } from 'src/navbar/navbar.component';
@@ -28,6 +28,7 @@ export class AppComponent implements OnInit{
 
   @ViewChild(NavbarComponent) navbar: NavbarComponent;
   @ViewChild(DreamsWallComponent) dreamWall: DreamsWallComponent;
+
 
   constructor(public dialog: MatDialog,
               private util: UtilService,
@@ -108,8 +109,8 @@ export class AppComponent implements OnInit{
                         }
                       )
   }
-  atualizarListaMeusSonhos(){
-
+  atualizarListaMeusSonhos(idSonhoDestaque){
+    
     const usuario = this.sonhadorService.PegarUsuarioLogado();
     if(this.dreamWall.ehMeuSonho){
 
@@ -118,6 +119,7 @@ export class AppComponent implements OnInit{
                           result =>
                           {
                             this.popularListaSonho(result);
+                            this.dreamWall.idSonhoDestaque = idSonhoDestaque;
                             this.dreamWall.ehMeuSonho = true;
                           },
                           error => {
@@ -131,6 +133,7 @@ export class AppComponent implements OnInit{
         result =>
         {
           this.popularListaSonho(result);
+          this.dreamWall.idSonhoDestaque = idSonhoDestaque;
           this.dreamWall.ehMeuSonho = false;
         },
         error => {
@@ -143,7 +146,6 @@ export class AppComponent implements OnInit{
 
   popularListaSonho(result){
     this.listDreams = [];
-
     for (let i = 0; i < result.length; i++) {
       let sonho: any = result[i];
       this.listDreams.push( this.PopularDream(sonho) );
@@ -190,10 +192,9 @@ export class AppComponent implements OnInit{
       data: sonho
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      if(result == "atualizarListaMeusSonhos"){
-        // this.AtualizarSonhosPorSonhador();
-        this.atualizarListaMeusSonhos();
+    dialogRef.afterClosed().subscribe(result => {      
+      if(result.msg == "atualizarListaMeusSonhos"){       
+        this.atualizarListaMeusSonhos(result.idSonhoDestaque);
       }
     });
   }

@@ -96,7 +96,21 @@ font-weight: bold;
   letter-spacing: 1.5px;
   font-weight: 500;
 }
-
+.descricao-sonho-destaque{
+  max-width: 100%;
+  line-height: 24px;
+  cursor: pointer;
+  letter-spacing: 1.5px;
+  color: rgb(253, 232, 206);
+  background: #bf3e3e;
+  font-weight: 500;
+}
+.descricao-sonho-destaque > p{
+  background-color: #bf3e3e;
+}
+.descricao-sonho-destaque > div{
+  background-color: #bf3e3e;
+}
 .btAddDream:hover{
   color: #ffe371;
 }

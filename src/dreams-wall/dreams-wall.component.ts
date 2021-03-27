@@ -1,6 +1,6 @@
 import { UtilService } from './../app/services/util.service';
 import { SonhoDto } from 'src/models/sonhoDto';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component,Renderer2 , EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 export class Dreams {
   id: string;
@@ -31,8 +31,10 @@ export class DreamsWallComponent implements OnInit {
   list = new Array(56).fill(1);;
   changeText= false;
   ehMeuSonho = false;
+  idSonhoDestaque;
+  renderer:Renderer2
 
-  constructor( private util: UtilService) { }
+    constructor( private util: UtilService) { }
 
   ngOnInit(): void {
   }
@@ -59,6 +61,13 @@ export class DreamsWallComponent implements OnInit {
 
   atualizarListaSonhos = (lista: Dreams[]) => this.listDreams = lista;
 
+  ehDestaque(idSonhado){
+    if(idSonhado == this.idSonhoDestaque){
+      return true;
+    }
+    return false;
+  }
+
   Editar(sonho: SonhoDto){
     let sonhoJson = JSON.stringify(sonho);
 
@@ -83,7 +92,6 @@ export class DreamsWallComponent implements OnInit {
   }
 
   exibirSonho(sonho){
-
     let data = {
       tipo: 'exibirSonho',
       data: JSON.stringify(sonho),

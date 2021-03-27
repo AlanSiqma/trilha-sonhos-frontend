@@ -25,6 +25,7 @@ export class RegisterDreamComponent implements OnInit {
 
   btRealizar = false;
   formUser: FormGroup;
+  idSonhoDestaque;
   public isEmojiPickerVisible: boolean;
 
   status = { Realizado: null, Em_Progresso: null };
@@ -52,7 +53,7 @@ export class RegisterDreamComponent implements OnInit {
     this.PopularTipoStatus();
     this.PopularTipoVisibilidade(false);
     this.GerarForm();
-    if(data) this.PopularForm(data);
+    if(data) this.PopularForm(data);    
   }
 
   validarBtRealizar(data){
@@ -137,9 +138,11 @@ export class RegisterDreamComponent implements OnInit {
                         .subscribe(
                           response =>
                           {
+                              this.idSonhoDestaque=response.idSonhoDestaque;
+                              var result={idSonhoDestaque:response.idSonhoDestaque,msg:'atualizarListaMeusSonhos' }
                               if(response != null){
                                 this.util.AlertSnack("Sonho registrado!","CADASTRADO!");
-                                this.Close('atualizarListaMeusSonhos');
+                                this.Close(result);
                               }
                           },
                           error =>
