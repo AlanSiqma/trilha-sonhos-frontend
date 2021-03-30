@@ -25,7 +25,7 @@ export class AppComponent implements OnInit{
   listDreams: Dreams[] = [];
   title = 'before-i-die';
   usuario = this.util.PegarUsuarioLogado();
-
+  tema = "fundo-cinza-2.jpg";
   @ViewChild(NavbarComponent) navbar: NavbarComponent;
   @ViewChild(DreamsWallComponent) dreamWall: DreamsWallComponent;
 
@@ -51,10 +51,10 @@ export class AppComponent implements OnInit{
     }
 
     return dream;
-  }
-
+  } 
 
   EventNavBar(val: any){
+    
     switch (val.tipo) {
 
       case 'MeusSonhos':
@@ -71,7 +71,7 @@ export class AppComponent implements OnInit{
       case 'Login':
         this.openLogin();
         break;
-      case 'Alterar-Tema':
+      case 'Alterar-Tema':       
         this.AlterarTema(val.tema);
         break;
       default:
@@ -90,16 +90,26 @@ export class AppComponent implements OnInit{
       if(result != null){
         let nome = (<sonhadorLocal>result).nome
         this.UpdateNavBar(nome);
+        this.ListarSonhosPublicos();
       }
     });
   }
 
-  AlterarTema(tema){
-    this.dreamWall.tema = tema;
+  AlterarTema(tema:string){   
+    
+    if(this.dreamWall != undefined){
+      this.dreamWall.tema = tema;
+    }
+
+    let usuario = this.sonhadorService.PegarUsuarioLogado();
+
+    if(usuario != null && usuario.temaDoUsuario != tema){      
+      this.sonhadorService.AlterarTema(tema)
+    }
+    
   }
   AtualizarSonhosPorSonhador(){
     const usuario = this.sonhadorService.PegarUsuarioLogado();
-
     this.sonhosService.listarSonhosPorSonhador(usuario.id)
                       .subscribe(
                         result =>
@@ -116,6 +126,7 @@ export class AppComponent implements OnInit{
   atualizarListaMeusSonhos(idSonhoDestaque){
     
     const usuario = this.sonhadorService.PegarUsuarioLogado();
+   
     if(this.dreamWall.ehMeuSonho){
 
       this.sonhosService.listarSonhosPorSonhador(usuario.id)
@@ -159,6 +170,13 @@ export class AppComponent implements OnInit{
   }
 
   ListarSonhosPublicos(){
+    
+    const usuario = this.sonhadorService.PegarUsuarioLogado();
+
+    if(usuario != null && usuario.temaDoUsuario != null){
+      this.tema = usuario.temaDoUsuario;
+    }
+    this.AlterarTema(this.tema);
     this.sonhosService.listarSonhosPublicos()
                       .subscribe(
                         (res: any) =>
@@ -196,7 +214,7 @@ export class AppComponent implements OnInit{
       data: sonho
     });
 
-    dialogRef.afterClosed().subscribe(result => {      
+    dialogRef.afterClosed().subscribe(result => {   
       if(result !== null && result.msg == "atualizarListaMeusSonhos"){       
         this.atualizarListaMeusSonhos(result.idSonhoDestaque);
       }
@@ -217,8 +235,8 @@ export class AppComponent implements OnInit{
   }
 
   EventDreamWall(item: any){
+    
     switch (item.tipo) {
-
       case 'MeusSonhos':
         this.AtualizarSonhosPorSonhador();
         break;

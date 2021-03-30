@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from './../environments/environment';
 import { SonhadorDto } from 'src/models/sonhadorDto';
+import { AlterarSonhadorDto } from 'src/models/alterarSonhadorDto';
 import { sonhadorLocal } from 'src/models/sonhadorLocal';
 
 const apiUrl = environment;
@@ -44,9 +45,41 @@ export class SonhadorService {
     // return this.httpClient.post(`${apiUrl.apiBase}/${apiUrl.entrar}`, data, {headers: headers});
     return this.httpClient.post(`${apiUrl.apiBase}/${apiUrl.entrar}`, data);
   }
+  AlterarTema(tema){
+    let usuario = this.PegarUsuarioLogado();
+  
+    usuario.temaDoUsuario = tema;
+    const dto: AlterarSonhadorDto = {
+      Id: usuario.id,
+      Email: usuario.email,
+      Nome: usuario.nome,
+      TemaDoUsuario:usuario.temaDoUsuario
+    }
+    
+    this.alterarSonhador(dto)
+          .subscribe(
+              response=>{
+                console.log('response')
+                let sonhador: sonhadorLocal = {
+                  id: dto.Id,
+                  nome: dto.Nome,
+                  email: dto.Email,
+                  temaDoUsuario:dto.TemaDoUsuario
+                }
+                this.GravarUsuarioLocal(JSON.stringify(sonhador));
+              },
+              error =>{
+                console.log('error')
+                console.log(error)
+              } 
+          );
+  }
 
   alterar(data: SonhadorDto): Observable<any> {
-    return this.httpClient.put(`${apiUrl.apiBase}/${apiUrl.registrar}`, data);
+    return this.httpClient.put(`${apiUrl.apiBase}/${apiUrl.alterarConta}`, data);
+  }
+  alterarSonhador(data: AlterarSonhadorDto): Observable<any> {
+    return this.httpClient.put(`${apiUrl.apiBase}/${apiUrl.alterarConta}`, data);
   }
 
   apagar(id): Observable<any> {

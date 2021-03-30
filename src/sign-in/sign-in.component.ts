@@ -58,8 +58,7 @@ export class SignInComponent implements OnInit {
     console.log('submited');
   }
 
-  Logar(){
-
+  Logar(){  
     let usuario: loginDto = {
       Email: this.formUser.get('email').value,
       Password: this.formUser.get('senha').value
@@ -70,13 +69,16 @@ export class SignInComponent implements OnInit {
                      .subscribe( (response: sonhadorLocal) =>
                      {
                         if( response != null)
-                        {
+                        {                     
                           let sonhador: sonhadorLocal = {
                             id: response.id,
                             nome: response.nome,
                             email: response.email,
+                            temaDoUsuario:response.temaDoUsuario
                           }
+                         
                           this.sonhadorServ.GravarUsuarioLocal(JSON.stringify(sonhador));
+                          
                           this.dialogRef.close(response);
                         }
                         else{

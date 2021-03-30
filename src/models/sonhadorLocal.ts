@@ -8,5 +8,6 @@ export class sonhadorLocal {
   id: string;
   email: string;
   nome: string;
+  temaDoUsuario:string;
 }
 
