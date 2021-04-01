@@ -104,4 +104,11 @@ export class DreamsWallComponent implements OnInit {
   alterarTema(){
     console.log('alterar tema');
   }
+  selecionarTamanhoFundo(){
+    if(this.listDreams.length < 16){
+      return "cover";
+     
+    }
+    return  "contain";
+  }
 }

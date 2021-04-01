@@ -1,5 +1,5 @@
-<div class="dreams-wall" style='background-image: url("../assets/{{tema}}");'>
-  <div class="contain" >
+<div class="dreams-wall" style='background-image: url("../assets/{{tema}}");background-size:{{selecionarTamanhoFundo()}}'>
+  <div class="contain" >   
     <div class="item-" *ngFor="let sonho of this.listDreams; let i = index" id="{{i}}" >
         <div  [ngClass]="{'descricao-sonho-destaque':sonho.id==idSonhoDestaque, 'descricaoSonho':sonho.id!=idSonhoDestaque}">
           <div style="display: grid;">
