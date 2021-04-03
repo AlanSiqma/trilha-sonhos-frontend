@@ -2,7 +2,7 @@
   <section class="grid grid-template-areas-2" *ngIf="!isLogged; else logged">
     <div class="item a left">
       <img class="logo" [src]="logoBfd" (click)="IrParaHome()"/>
-      <a href="https://forms.gle/A3afNJSrLFxCNRh78" target="_blank" class="byttons" mat-flat-button color="secundary">
+      <a href="https://forms.gle/A3afNJSrLFxCNRh78" target="_blank" class="byttons item-teste" mat-flat-button color="secundary">
         Feedback
         <span>
           <i class="fa fa-commenting-o" aria-hidden="true"></i>
@@ -19,36 +19,36 @@
           </button>
         </span>
       </div>
-    </section>
+  </section>
 
   <ng-template #logged>
     <section class="grid grid-template-areas-1">
-      <div class="item a left">
-        <img class="logo" [src]="logoBfd" (click)="IrParaHome()"/>
-        <a href="https://forms.gle/A3afNJSrLFxCNRh78" target="_blank" class="byttons"  mat-flat-button color="secundary">
-          Feedback
-          <span>
-            <i class="fa fa-commenting-o" aria-hidden="true"></i>
-          </span>
-        </a>
+      <div class="item a left ">        
+          <img class="logo" [src]="logoBfd" (click)="IrParaHome()"/>       
+          <a href="https://forms.gle/A3afNJSrLFxCNRh78" target="_blank" class="byttons item-teste"  mat-flat-button color="secundary">
+            Feedback
+            <span>
+              <i class="fa fa-commenting-o" aria-hidden="true"></i>
+            </span>
+          </a>       
       </div>
-      
-      <div class="item b">
-        <h4>Basic native select</h4>
-        <mat-form-field appearance="fill">
-          <mat-label>Tema</mat-label>
-          <mat-select (selectionChange)="alterarTema($event.value)">
-            <mat-option value="fundo-cinza-2.jpg">Balloon Girl</mat-option>
-            <mat-option value="fundo-cinza.jpg">Floating Love</mat-option>
-            <mat-option value="fundo-ceu.jpg">Blue Sky</mat-option>
-            <mat-option value="fundo-imaginario.jpg">Blackboard</mat-option>
-            <mat-option value="fundo-realista.jpg">Realistic Wall 1</mat-option>
-            <mat-option value="fundo-realista-2.jpg">Realistic Wall 2</mat-option>
-            <!-- <mat-option value="muro_fundo.jpg">Tema 7</mat-option> -->
-          </mat-select>
-        </mat-form-field>
-        <span class="subTitle link-1" (click)="IrParaMeusSonhos();">
-          Meus Sonhos</span>
+      <div class="item-teste">
+        <div class="item b">
+          <h4>Basic native select</h4>
+          <mat-form-field appearance="fill">
+            <mat-label>Tema</mat-label>
+            <mat-select (selectionChange)="alterarTema($event.value)">
+              <mat-option value="fundo-cinza-2.jpg">Balloon Girl</mat-option>
+              <mat-option value="fundo-cinza.jpg">Floating Love</mat-option>
+              <mat-option value="fundo-ceu.jpg">Blue Sky</mat-option>
+              <mat-option value="fundo-imaginario.jpg">Blackboard</mat-option>
+              <mat-option value="fundo-realista.jpg">Realistic Wall 1</mat-option>
+              <mat-option value="fundo-realista-2.jpg">Realistic Wall 2</mat-option>          
+            </mat-select>
+          </mat-form-field>
+          <span class="subTitle link-1" (click)="IrParaMeusSonhos();">
+            Meus Sonhos</span>
+        </div>
       </div>
       <div class="item grdPhoto">
           <img [src]="user.photo"

@@ -362,3 +362,14 @@ p{
 .example-panel-blue.mat-select-panel {
   background: rgba(0, 0, 255, 0.5);
 }
+
+@media(max-width:732px){
+  .item-teste{
+    display:none;
+  }
+}
+@media(min-width:732px){
+  .item-outro-teste{
+    display:none;
+  }
+}
