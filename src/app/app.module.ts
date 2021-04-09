@@ -23,6 +23,9 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { DialogComponent } from './shared/dialog/dialog.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { PickerModule } from '@ctrl/ngx-emoji-mart';
+import {DemoMaterialModule} from '../app/material-module';
+import {MatNativeDateModule} from '@angular/material/core';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,12 +49,13 @@ import { PickerModule } from '@ctrl/ngx-emoji-mart';
     MatAutocompleteModule,
     ReactiveFormsModule,
     MatInputModule,
-    ReactiveFormsModule,
     FormsModule,
     MatTooltipModule,
     MatSelectModule,
     MatSnackBarModule,
-    HttpClientModule
+    HttpClientModule,
+    DemoMaterialModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

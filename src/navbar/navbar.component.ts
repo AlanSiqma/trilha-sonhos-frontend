@@ -24,11 +24,14 @@ export class NavbarComponent implements OnInit {
 
   showDelay = new FormControl(500);
   hideDelay = new FormControl(200);
-
+  mode ={value: "side"};
+  hasBackdrop = {value:true};
+  
   constructor( private util: UtilService) { }
 
   ngOnInit(): void {
     this.ValidarUsuarioLogado();
+  
   }
 
   ValidarUsuarioLogado(){

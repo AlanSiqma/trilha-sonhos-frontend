@@ -9,7 +9,7 @@
         </span>
       </a>
     </div>
-    <div class="item right b">
+    <div class="item right b item-teste">
         <span class="mt">
         <button mat-flat-button color="primary" (click)="Logar()" class="buttons">
           Sign-in
@@ -19,8 +19,58 @@
           </button>
         </span>
       </div>
+      <div class="item grdPhoto item-outro-teste">
+        <button mat-raised-button (click)="drawer.toggle()">menu</button>
+      </div>
   </section>
+  <mat-drawer #drawer [mode]="mode.value" class="item-outro-teste">
+      <ul class="ul-menu">
+        <li>
+          <span class="subTitle link-1" (click)="IrParaMeusSonhos();">
+            Meus Sonhos</span>
+        </li>
+        <li>
+          <div class="">
+            <mat-form-field appearance="fill">
+              <mat-label>Tema</mat-label>
+              <mat-select (selectionChange)="alterarTema($event.value)">
+                <mat-option value="fundo-cinza-2.jpg">Balloon Girl</mat-option>
+                <mat-option value="fundo-cinza.jpg">Floating Love</mat-option>
+                <mat-option value="fundo-ceu.jpg">Blue Sky</mat-option>
+                <mat-option value="fundo-imaginario.jpg">Blackboard</mat-option>
+                <mat-option value="fundo-realista.jpg">Realistic Wall 1</mat-option>
+                <mat-option value="fundo-realista-2.jpg">Realistic Wall 2</mat-option>          
+              </mat-select>
+            </mat-form-field>
+         
+          </div>  
+        </li>
+        <li>
+          <a href="https://forms.gle/A3afNJSrLFxCNRh78" target="_blank" class="byttons"  mat-flat-button color="primary">
+            Feedback
+            <span>
+              <i class="fa fa-commenting-o" aria-hidden="true"></i>
+            </span>
+          </a> 
+        </li>
+        <li *ngIf="isLogged">
+          <button  (click)="logOff()">
+            Sair
+         
+          </button> 
+        </li>
+        <li *ngIf="!isLogged">
+          <button  (click)="Logar()">
+            Entrar
+          </button>
+        </li>
+      </ul>    
+  </mat-drawer> 
 
+  <mat-drawer-container class="example-container" [hasBackdrop]="hasBackdrop.value">
+  
+  </mat-drawer-container>
+  
   <ng-template #logged>
     <section class="grid grid-template-areas-1">
       <div class="item a left ">        
@@ -50,7 +100,7 @@
             Meus Sonhos</span>
         </div>
       </div>
-      <div class="item grdPhoto">
+      <div class="item grdPhoto item-teste">
           <img [src]="user.photo"
                class="circleImg"
                (click)="IrParaHome()"
@@ -58,15 +108,18 @@
                [matTooltipShowDelay]="showDelay.value"
                [matTooltipHideDelay]="hideDelay.value" (click)="logOff()">
       </div>
-      <div class="item grdUser">
+      <div class="item grdUser item-teste">
         <span class="usName" matTooltip="Deslogar?"
                             [matTooltipShowDelay]="showDelay.value"
                             [matTooltipHideDelay]="hideDelay.value" (click)="logOff()">
           {{user.name}}
         </span>
       </div>
+      <div class="item grdPhoto item-outro-teste">
+        <button mat-raised-button (click)="drawer.toggle()"><span class="material-icons">
+          list
+          </span></button>
+      </div>
     </section>
   </ng-template>
 </div>
-
-
