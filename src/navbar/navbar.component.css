@@ -382,23 +382,25 @@ p{
   background-color:#EDEDED;
   list-style:none;
 }
-.menu ul li { 
-  display: inline;  
-
+.menu li { 
+  /* display: inline;   */
+  padding-top: 13px;
+  list-style-type: none!important;
 }
 
-.menu ul li a {
+/* .menu li a {
   padding: 2px 10px;
-  display: inline-block;
-
-  /* visual do link */
+  display: inline-block; 
   background-color:#EDEDED;
   color: #333;
   text-decoration: none;
   border-bottom:3px solid #EDEDED;
-}
-.menu ul li a:hover {
+} */
+.menu li a:hover {
   background-color:#D6D6D6;
   color: #6D6D6D;
   border-bottom:3px solid #EA0000;
+}
+.grdPhoto-outro-teste{
+  margin-top:37%;
 }

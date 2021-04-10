@@ -50,12 +50,14 @@ export class NavbarComponent implements OnInit {
   }
 
   logOff(){
+    
     if(confirm("Deseja deslogar?")){
       this.Deslogar();
     }
   }
 
   Deslogar(){
+   
     this.isLogged = false;
     localStorage.removeItem("usuarioBfd");
     this.IrParaHome();
