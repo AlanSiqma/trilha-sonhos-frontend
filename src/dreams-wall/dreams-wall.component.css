@@ -159,3 +159,9 @@ font-weight: bold;
   letter-spacing: 0.5px;
 }
 
+.btn-adicionar-float{
+    float: right;
+    position: fixed;
+    bottom: 5%;
+    right: 10px;
+}

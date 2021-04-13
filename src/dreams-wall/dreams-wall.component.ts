@@ -1,6 +1,6 @@
 import { UtilService } from './../app/services/util.service';
 import { SonhoDto } from 'src/models/sonhoDto';
-import { Component,Renderer2 , EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component,Renderer2 , EventEmitter, Input, OnInit, Output ,ElementRef,ViewChild } from '@angular/core';
 
 export class Dreams {
   id: string;
@@ -28,6 +28,9 @@ export class DreamsWallComponent implements OnInit {
 
   @Output() openEvent = new EventEmitter();
   @Input() listDreams: Dreams[] = [];
+  @ViewChild('widgetsContent', { read: ElementRef }) public widgetsContent: ElementRef<any>;
+
+
   list = new Array(56).fill(1);;
   changeText= false;
   ehMeuSonho = false;
@@ -110,5 +113,10 @@ export class DreamsWallComponent implements OnInit {
      
     }
     return  "contain";
+  }
+  ScrollRight(){
+    setTimeout(()=>{
+        window.location.href='#descricao-sonho-destaque';
+    }, 1000);
   }
 }

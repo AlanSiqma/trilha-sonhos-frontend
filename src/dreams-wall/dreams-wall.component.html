@@ -1,7 +1,14 @@
 <div class="dreams-wall" style='background-image: url("../assets/{{tema}}");background-size:{{selecionarTamanhoFundo()}}'>
+ 
+  <button mat-fab color="primary" (click)="EmitterAdd()" class="btn-adicionar-float" >
+    <mat-icon>add_task</mat-icon>
+  </button>
   <div class="contain" >   
     <div class="item-" *ngFor="let sonho of this.listDreams; let i = index" id="{{i}}" >
         <div  [ngClass]="{'descricao-sonho-destaque':sonho.id==idSonhoDestaque, 'descricaoSonho':sonho.id!=idSonhoDestaque}">
+          <div *ngIf="sonho.id==idSonhoDestaque"  >
+            <a href="#" id="descricao-sonho-destaque" #widgetsContent autofocus></a>
+          </div>
           <div style="display: grid;">
             <div (click)="exibirSonho(sonho)" >
               <p>
@@ -44,10 +51,13 @@
       <div class="item-">
         <div class="descricaoSonho">
           <div style="display: grid;">
-            <p (click)="EmitterAdd()" class="btAddDream rad"><mat-icon>add</mat-icon></p>
+            <button mat-fab color="primary" (click)="EmitterAdd()" >
+              <mat-icon>add_task</mat-icon>
+            </button>
+            <!-- <p (click)="EmitterAdd()" class="btAddDream rad"><mat-icon>add</mat-icon></p> -->
           </div>
         </div>
       </div>
-  </div>
+  </div> 
 </div>
 

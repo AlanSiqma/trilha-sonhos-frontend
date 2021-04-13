@@ -157,6 +157,8 @@ export class AppComponent implements OnInit{
         }
       )
     }
+    console.log("teste-doidao")
+    this.dreamWall.ScrollRight();
   }
 
   popularListaSonho(result){
