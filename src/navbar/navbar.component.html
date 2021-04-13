@@ -25,56 +25,49 @@
   </section>
 
   <mat-drawer #drawer [mode]="mode.value" class="item-outro-teste">
-    <div *ngIf="isLogged">
-      <p>Ola  {{user.name}}
-      </p>
+    <div class="menu">
+      <div *ngIf="isLogged">
+        <span class="subTitle link-1" (click)="IrParaMeusSonhos();drawer.toggle();">
+          Meus Sonhos</span>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Tema</mat-label>
+          <mat-select (selectionChange)="alterarTema($event.value);drawer.toggle()">
+            <mat-option value="fundo-cinza-2.jpg">Balloon Girl</mat-option>
+            <mat-option value="fundo-cinza.jpg">Floating Love</mat-option>
+            <mat-option value="fundo-ceu.jpg">Blue Sky</mat-option>
+            <mat-option value="fundo-imaginario.jpg">Blackboard</mat-option>
+            <mat-option value="fundo-realista.jpg">Realistic Wall 1</mat-option>
+            <mat-option value="fundo-realista-2.jpg">Realistic Wall 2</mat-option>          
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <a href="https://forms.gle/A3afNJSrLFxCNRh78" target="_blank" class="byttons"  mat-flat-button color="warn" (click)="drawer.toggle()">
+          Feedback
+          <span>
+            <i class="fa fa-commenting-o" aria-hidden="true"></i>
+          </span>
+        </a> 
+      </div>
+      <div *ngIf="isLogged">
+        <button  (click)="logOff();drawer.toggle()" mat-flat-button color="primary" class="buttons">
+          Sair
+          <span class="material-icons">
+            logout
+            </span>
+        </button> 
+      </div>
+      <div *ngIf="!isLogged"> 
+        <button  (click)="Logar();drawer.toggle();" mat-flat-button color="primary" color="primary" class="buttons" >
+          Sign-in
+          <span>
+            <i class="fa fa-sign-in"></i>
+          </span>
+        </button>
+      </div>
     </div>
-      <ul class="menu">
-        <li *ngIf="isLogged">
-          <span class="subTitle link-1" (click)="IrParaMeusSonhos();drawer.toggle();">
-            Meus Sonhos</span>
-        </li>
-        <li>
-          <div class="">
-            <mat-form-field appearance="fill">
-              <mat-label>Tema</mat-label>
-              <mat-select (selectionChange)="alterarTema($event.value);drawer.toggle()">
-                <mat-option value="fundo-cinza-2.jpg">Balloon Girl</mat-option>
-                <mat-option value="fundo-cinza.jpg">Floating Love</mat-option>
-                <mat-option value="fundo-ceu.jpg">Blue Sky</mat-option>
-                <mat-option value="fundo-imaginario.jpg">Blackboard</mat-option>
-                <mat-option value="fundo-realista.jpg">Realistic Wall 1</mat-option>
-                <mat-option value="fundo-realista-2.jpg">Realistic Wall 2</mat-option>          
-              </mat-select>
-            </mat-form-field>
-         
-          </div>  
-        </li>
-        <li>
-          <a href="https://forms.gle/A3afNJSrLFxCNRh78" target="_blank" class="byttons"  mat-flat-button color="primary" (click)="drawer.toggle()">
-            Feedback
-            <span>
-              <i class="fa fa-commenting-o" aria-hidden="true"></i>
-            </span>
-          </a> 
-        </li>
-        <li *ngIf="isLogged" >
-          <button  (click)="logOff();drawer.toggle()" mat-flat-button color="primary" class="buttons">
-            Sair
-            <span class="material-icons">
-              logout
-              </span>
-          </button> 
-        </li>
-        <li *ngIf="!isLogged">
-          <button  (click)="Logar();drawer.toggle();" mat-flat-button color="primary" color="primary" class="buttons" >
-            Sign-in
-            <span>
-              <i class="fa fa-sign-in"></i>
-            </span>
-          </button>
-        </li>
-      </ul>    
   </mat-drawer> 
 
   <mat-drawer-container class="example-container" [hasBackdrop]="hasBackdrop.value">

@@ -373,34 +373,27 @@ p{
     display:none;
   }
 }
-
-
-
-.menu ul {
-  padding:0px;
-  margin:0px;
-  background-color:#EDEDED;
-  list-style:none;
-}
-.menu li { 
-  /* display: inline;   */
-  padding-top: 13px;
-  list-style-type: none!important;
-}
-
-/* .menu li a {
-  padding: 2px 10px;
-  display: inline-block; 
-  background-color:#EDEDED;
-  color: #333;
-  text-decoration: none;
-  border-bottom:3px solid #EDEDED;
-} */
-.menu li a:hover {
-  background-color:#D6D6D6;
-  color: #6D6D6D;
-  border-bottom:3px solid #EA0000;
-}
 .grdPhoto-outro-teste{
   margin-top:37%;
+}
+
+.grdPhoto-outro-teste{
+  margin-top:37%;
+}
+.menu {
+  text-align: center;
+}
+
+.menu div{
+  margin-top: 13px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+.menu button{
+  max-width: none;
+  width: 100%;
+}
+.menu a{
+  max-width: none;
+  width: 100%;
 }
