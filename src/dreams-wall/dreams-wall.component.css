@@ -103,9 +103,7 @@ font-weight: bold;
   letter-spacing: 1.5px;
   color: rgb(253, 232, 206);
   font-weight: 500;
-  border-width: medium;
-  border-style: dashed;
-  border-color:green;
+  box-shadow: 1px 2px 10px 10px #1ed812
 }
 
 .btAddDream:hover{
