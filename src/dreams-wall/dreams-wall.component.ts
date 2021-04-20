@@ -38,10 +38,18 @@ export class DreamsWallComponent implements OnInit {
   tema= 'fundo-cinza-2.jpg';
   renderer:Renderer2
 
-    constructor( private util: UtilService) { }
+    constructor( private util: UtilService) { 
+     
+    }
 
   ngOnInit(): void {
+     
+     if(!this.IsLoggin){
+          this.openEvent.emit({tipo: 'openLoginTeste'});
+       } 
   }
+
+  IsLoggin = this.util.IsLoggin();
 
   ehRealizado = (sonho) => sonho.Status == "Realizado";
 

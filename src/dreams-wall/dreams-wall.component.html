@@ -1,5 +1,8 @@
+<!-- <div *ngIf="!IsLoggin">
+  <app-initial-page></app-initial-page>
+</div> -->
+
 <div class="dreams-wall" style='background-image: url("../assets/{{tema}}");background-size:{{selecionarTamanhoFundo()}}'>
- 
   <button mat-fab color="primary" (click)="EmitterAdd()" class="btn-adicionar-float" >
     <mat-icon>add_task</mat-icon>
   </button>
@@ -26,7 +29,6 @@
               <div *ngIf="ehPrivado(sonho)">
                 <p class="nome status">
                   <i class="fa fa-lock" style="color: #ff9a33;" aria-hidden="true"></i>
-                  <!-- <i class="fa fa-eye" style="color: #ffc340;" aria-hidden="true"></i> -->
                   privado
                 </p>
               </div>
@@ -54,10 +56,9 @@
             <button mat-fab color="primary" (click)="EmitterAdd()" >
               <mat-icon>add_task</mat-icon>
             </button>
-            <!-- <p (click)="EmitterAdd()" class="btAddDream rad"><mat-icon>add</mat-icon></p> -->
           </div>
         </div>
       </div>
   </div> 
 </div>
-
+ 

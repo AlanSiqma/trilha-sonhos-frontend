@@ -1,39 +1,34 @@
-import { UtilService } from './../app/services/util.service';
-import { SonhadorDto } from './../models/sonhadorDto';
-import { loginDto } from './../models/loginDto';
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component,Inject, OnInit } from '@angular/core';
+import { UtilService } from 'src/app/services/util.service';
+import { SonhadorDto } from 'src/models/sonhadorDto';
+import { loginDto } from "src/models/loginDto";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { AppComponent } from 'src/app/app.component';
 import { User } from 'src/models/user';
 import { ConfirmedValidator } from 'src/app/confirmed.validator';
 import { SonhadorService } from 'src/services/sonhador.service';
 import { sonhadorLocal } from 'src/models/sonhadorLocal';
-
+import { Renderer2 , EventEmitter, Input,  Output ,ElementRef,ViewChild } from '@angular/core';
 
 @Component({
-  selector: 'app-sign-in',
-  templateUrl: './sign-in.component.html',
-  styleUrls: ['./sign-in.component.css']
+  selector: 'app-autenticate',
+  templateUrl: './autenticate.component.html',
+  styleUrls: ['./autenticate.component.css']
 })
-export class SignInComponent implements OnInit {
+export class AutenticateComponent implements OnInit {
 
+  
   carregando = false;
   isRegistrar = false;
   isChecked = true;
   submitted = false;
   formUser: FormGroup = new FormGroup({});;
   users: User[];
+  @Output() authEvent = new EventEmitter();
 
 
-
-  constructor( public dialogRef: MatDialogRef<AppComponent>,
-               private util: UtilService,
-               @Inject(MAT_DIALOG_DATA) public data: any,
-               private sonhadorServ: SonhadorService,
-               private fb: FormBuilder
-  )
-  {
+  constructor(private util: UtilService, private fb: FormBuilder,private sonhadorServ: SonhadorService) {
+     console.log("teste constructor")
     this.formUser = fb.group(
       {
         email: ['',[Validators.required, Validators.email]],
@@ -48,13 +43,14 @@ export class SignInComponent implements OnInit {
         validator: ConfirmedValidator('senha', 'confirm_password')
       }
     )
-  }
 
+
+   }
 
   ngOnInit(): void {
-   
+    console.log("teste ngOnInit")
   }
-
+  
   get f() { return this.formUser.controls; }
 
   onSubmit() {
@@ -80,9 +76,9 @@ export class SignInComponent implements OnInit {
                             temaDoUsuario:response.temaDoUsuario
                           }
                          
-                          this.sonhadorServ.GravarUsuarioLocal(JSON.stringify(sonhador));
-                          
-                          this.dialogRef.close(response);
+                          this.sonhadorServ.GravarUsuarioLocal(JSON.stringify(sonhador));     
+                         
+                           this.authEvent.emit({tipo: 'dialogRef-close-openLoginTeste', obj:sonhador});
                         }
                         else{
                           this.util.AlertSnack('Senha ou usuário inválido','Atenção');

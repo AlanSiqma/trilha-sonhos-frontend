@@ -17,6 +17,7 @@ import { SignInComponent } from 'src/sign-in/sign-in.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import { MatSelectModule } from '@angular/material/select';
 import { RegisterDreamComponent } from 'src/register-dream/register-dream.component';
+import { InitialPageComponent } from './initial-page/initial-page.component';
 import { MatIconModule} from '@angular/material/icon';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
@@ -25,6 +26,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { PickerModule } from '@ctrl/ngx-emoji-mart';
 import {DemoMaterialModule} from '../app/material-module';
 import {MatNativeDateModule} from '@angular/material/core';
+import { AutenticateComponent } from './autenticate/autenticate.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import {MatNativeDateModule} from '@angular/material/core';
     RegisterDreamComponent,
     SignInComponent,
     DreamsWallComponent,
-    DialogComponent
+    DialogComponent,
+    InitialPageComponent,
+    AutenticateComponent
   ],
   imports: [
     PickerModule,

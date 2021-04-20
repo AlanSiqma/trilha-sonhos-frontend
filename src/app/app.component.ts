@@ -11,6 +11,7 @@ import { Dreams } from 'src/dreams-wall/dreams-wall.component';
 import { NavbarComponent } from 'src/navbar/navbar.component';
 import { RegisterDreamComponent } from 'src/register-dream/register-dream.component';
 import { SignInComponent } from 'src/sign-in/sign-in.component';
+import {InitialPageComponent} from 'src/app/initial-page/initial-page.component';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { SonhadorService } from 'src/services/sonhador.service';
 
@@ -54,20 +55,17 @@ export class AppComponent implements OnInit{
   } 
 
   EventNavBar(val: any){
-    
     switch (val.tipo) {
 
       case 'MeusSonhos':
         this.AtualizarSonhosPorSonhador();
         break;
-
       case 'Logoff':
+        this.Logoff();
         break;
-
       case 'Home':
         this.ListarSonhosPublicos();
         break;
-
       case 'Login':
         this.openLogin();
         break;
@@ -77,6 +75,9 @@ export class AppComponent implements OnInit{
       default:
         break;
     }
+  }
+  Logoff(){
+    this.dreamWall.IsLoggin = false;
   }
 
   UpdateNavBar = (user: string) => this.navbar.toggleLogged(user);
@@ -88,11 +89,30 @@ export class AppComponent implements OnInit{
 
     dialogRef.afterClosed().subscribe(result => {
       if(result != null){
+        
         let nome = (<sonhadorLocal>result).nome
+        this.dreamWall.IsLoggin = true;
         this.UpdateNavBar(nome);
         this.ListarSonhosPublicos();
       }
     });
+  }
+  openLoginTeste(){
+   
+   const dialogRef = this.dialog.open( InitialPageComponent, {
+      width:window.innerWidth  + "px" 
+    });
+    
+    dialogRef.afterClosed().subscribe(result => {
+      if(result != null){
+        
+        let nome = (<sonhadorLocal>result).nome
+        this.dreamWall.IsLoggin = true;
+        this.UpdateNavBar(nome);
+        this.ListarSonhosPublicos();
+      }
+    });
+    
   }
 
   AlterarTema(tema:string){   
@@ -237,7 +257,7 @@ export class AppComponent implements OnInit{
   }
 
   EventDreamWall(item: any){
-    
+    console.log()
     switch (item.tipo) {
       case 'MeusSonhos':
         this.AtualizarSonhosPorSonhador();
@@ -255,11 +275,12 @@ export class AppComponent implements OnInit{
       case 'editar':
         this.openRegistrarSonho(item)
         break;
-
       case 'Login':
         this.openLogin();
         break;
-
+      case 'openLoginTeste':
+        this.openLoginTeste();
+        break;
       case 'exibirSonho':
         this.abrirSonho(item.data);
         break;

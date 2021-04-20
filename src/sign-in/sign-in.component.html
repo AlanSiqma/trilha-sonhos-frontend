@@ -13,43 +13,22 @@
 
 <div mat-dialog-content>
   <form novalidate [formGroup]="formUser" style="width: 100%;" (ngSubmit)="onSubmit()">
-
     <span *ngIf="isRegistrar">
       <mat-form-field class="fullWidth">
         <mat-label>Nome</mat-label>
         <input matInput formControlName="nome">
       </mat-form-field>
-
-      <!--
-      <mat-form-field class="fullWidth">
-        <mat-label>País</mat-label>
-        <mat-select formControlName="pais">
-          <mat-option value="Alemanha">Alemanha</mat-option>
-          <mat-option value="Brasil">Brasil</mat-option>
-          <mat-option value="Suiça">Suiça</mat-option>
-          <mat-option value="Portugal">Portugal</mat-option>
-          <mat-option value="Suiça">Suiça</mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field class="fullWidth">
-        <mat-label>Idade</mat-label>
-        <input matInput type="number" formControlName="idade" min="18" max="99">
-      </mat-form-field> -->
     </span>
-
     <mat-form-field class="fullWidth">
       <mat-label>Email</mat-label>
       <input matInput formControlName="email" type="email">
       <mat-error>Email incorret</mat-error>
     </mat-form-field>
-
     <mat-form-field class="fullWidth">
       <mat-label>Senha</mat-label>
       <input matInput type="password" formControlName="senha">
       <mat-error>Minimum 6 characters</mat-error>
     </mat-form-field>
-
     <span *ngIf="isRegistrar">
       <mat-form-field class="fullWidth" *ngIf="isRegistrar">
         <mat-label>Confirmar senha</mat-label>
@@ -58,7 +37,6 @@
         <mat-error *ngIf="f.confirm_password.touched && f.confirm_password.invalid && f.confirm_password.errors.required">Campo obrigatório.</mat-error>
       </mat-form-field>
     </span>
-
     <div style="margin-top: 12px">
       <button *ngIf="!isRegistrar" mat-flat-button color="primary" class="buttons" (click)="Logar();">
         <span class="iconRightButton" *ngIf="!carregando" >
@@ -67,7 +45,6 @@
         <i class="fa fa-spinner fa-spin" *ngIf="carregando" ></i>
         Login</button>
     </div>
-
   </form>
 </div>
 
@@ -84,12 +61,6 @@
 </span>
 
 <ng-template #btLogar>
-  <!-- <div mat-dialog-actions class="buttons">
-     mat-raised-button, mat-flat-button
-    <button mat-flat-button  (click)="SignIn()" color="primary" class="buttons">Sign in</button>
-    <button mat-button cdkFocusInitial (click)="SignIn()" class="buttons">Sign in</button>
-  </div> -->
-
   <div class="buttons">
     <p class="center link">Forgot your password?</p>
   </div>

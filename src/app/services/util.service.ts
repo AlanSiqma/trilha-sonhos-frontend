@@ -33,5 +33,15 @@ export class UtilService {
     return sonhador;
   }
 
+  IsLoggin(): boolean{
+    console.log("aqui")
+    var result = false;
+   
+    if(localStorage.getItem('usuarioBfd') != null){
+      result = true;
+    }
+   
+    return result;
+  }
 
 }
