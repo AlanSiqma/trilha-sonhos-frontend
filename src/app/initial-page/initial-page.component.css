@@ -1,10 +1,4 @@
-.container {
-    position: absolute;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-  }
+
   @media (min-width: 768px) {
     .container {
       width: 750px;
@@ -25,21 +19,55 @@
     grid-template-areas: 'myArea myArea';
     grid-gap: 10px;
     padding: 10px;
-    margin-top: 5%;
     margin-left: 5%;
   }
-  .grid-container > div {
-    /* background-color: rgba(255, 255, 255, 0.8); */
-  
-      
-  }
+
   .grid-container > div> div > p{
     margin-top:12px;
     font-weight: bold;
+    font-size: 20px;
   }
   .logo{
     width: 26%;
   }
-  .reference{
-    text-align: right;
+  .reference{   
+    font-style: italic;
+    color:#3f51b5;
   }
+ 
+  .text-1 > p{
+    line-height: 1.0!important;
+  }
+  .autenticate{
+    text-align: center;
+    margin-top: 5%;
+  }
+
+  @media(max-width:1113px){
+    .grid-container > div> div > p{
+      font-size: 13px;
+    }    
+    .text-1 > p{
+      line-height: 1.5!important;
+    }
+  }
+  @media(max-width:659px){
+    .grid-container {
+      display: inline;
+      text-align: center;
+    }    
+  }
+  @media(min-width:732px){
+    .item-outro-teste{
+      display:none;
+    }
+  }
+  @media(max-height:732px){
+    .mat-dialog-container{
+      padding-top: 0px!important;
+    }
+    .grid-container > div> div > p{
+      line-height: 1.0!important;
+    }
+  }
+ 

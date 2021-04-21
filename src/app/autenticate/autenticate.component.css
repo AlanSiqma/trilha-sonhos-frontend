@@ -54,4 +54,8 @@
   
   
   
-  
+  @media(max-height:732px){
+    .login{
+      display: none;
+    }
+  }
