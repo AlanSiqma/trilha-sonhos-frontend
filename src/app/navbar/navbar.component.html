@@ -1,0 +1,128 @@
+<div class="nav">
+  <section class="grid grid-template-areas-1" *ngIf="!isLogged; else logged">
+    <div class="item a left">
+      <img class="logo" [src]="logoBfd" (click)="IrParaHome()"/>
+      <a href="https://forms.gle/A3afNJSrLFxCNRh78" target="_blank" class="byttons item-full-screen" mat-flat-button color="secundary">
+        Feedback
+        <span>
+          <i class="fa fa-commenting-o" aria-hidden="true"></i>
+        </span>
+      </a>
+    </div>  
+    <div class="item right b item-full-screen">
+        <span class="mt">
+          <button mat-flat-button color="primary" (click)="Logar()" class="buttons">
+            Sign-in
+            <span><i class="fa fa-sign-in"></i></span>
+          </button>
+        </span>
+    </div>
+    <div class="grdPhoto item-minimal-screen grdPhoto-minimal-screen">
+      <button mat-icon-button color="primary" (click)="drawer.toggle()" aria-label="Example icon button with a menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+  </section>
+
+  <mat-drawer #drawer [mode]="mode.value" class="item-minimal-screen">
+    <div class="menu">
+      <div *ngIf="isLogged">
+        <span class="subTitle link-1" (click)="IrParaMeusSonhos();drawer.toggle();">
+          Meus Sonhos</span>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Tema</mat-label>
+          <mat-select (selectionChange)="alterarTema($event.value);drawer.toggle()">
+            <mat-option value="fundo-cinza-2.jpg">Balloon Girl</mat-option>
+            <mat-option value="fundo-cinza.jpg">Floating Love</mat-option>
+            <mat-option value="fundo-ceu.jpg">Blue Sky</mat-option>
+            <mat-option value="fundo-imaginario.jpg">Blackboard</mat-option>
+            <mat-option value="fundo-realista.jpg">Realistic Wall 1</mat-option>
+            <mat-option value="fundo-realista-2.jpg">Realistic Wall 2</mat-option>          
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <a href="https://forms.gle/A3afNJSrLFxCNRh78" target="_blank" class="byttons"  mat-flat-button color="warn" (click)="drawer.toggle()">
+          Feedback
+          <span>
+            <i class="fa fa-commenting-o" aria-hidden="true"></i>
+          </span>
+        </a> 
+      </div>
+      <div *ngIf="isLogged">
+        <button  (click)="logOff();drawer.toggle()" mat-flat-button color="primary" class="buttons">
+          Sair
+          <span class="material-icons">
+            logout
+            </span>
+        </button> 
+      </div>
+      <div *ngIf="!isLogged"> 
+        <button  (click)="Logar();drawer.toggle();" mat-flat-button color="primary" color="primary" class="buttons" >
+          Sign-in
+          <span>
+            <i class="fa fa-sign-in"></i>
+          </span>
+        </button>
+      </div>
+    </div>
+  </mat-drawer> 
+
+  <mat-drawer-container class="example-container" [hasBackdrop]="hasBackdrop.value">
+    
+  </mat-drawer-container>
+  
+  <ng-template #logged>
+    <section class="grid grid-template-areas-1">
+      <div class="item a left ">        
+          <img class="logo" [src]="logoBfd" (click)="IrParaHome()"/>       
+          <a href="https://forms.gle/A3afNJSrLFxCNRh78" target="_blank" class="byttons item-full-screen"  mat-flat-button color="secundary">
+            Feedback
+            <span>
+              <i class="fa fa-commenting-o" aria-hidden="true"></i>
+            </span>
+          </a>       
+      </div>
+      <div class="item-full-screen">
+        <div class="item b">
+          <h4>Basic native select</h4>
+          <mat-form-field appearance="fill">
+            <mat-label>Tema</mat-label>
+            <mat-select (selectionChange)="alterarTema($event.value)">
+              <mat-option value="fundo-cinza-2.jpg">Balloon Girl</mat-option>
+              <mat-option value="fundo-cinza.jpg">Floating Love</mat-option>
+              <mat-option value="fundo-ceu.jpg">Blue Sky</mat-option>
+              <mat-option value="fundo-imaginario.jpg">Blackboard</mat-option>
+              <mat-option value="fundo-realista.jpg">Realistic Wall 1</mat-option>
+              <mat-option value="fundo-realista-2.jpg">Realistic Wall 2</mat-option>          
+            </mat-select>
+          </mat-form-field>
+          <span class="subTitle link-1" (click)="IrParaMeusSonhos();">
+            Meus Sonhos</span>
+        </div>
+      </div>
+      <div class="item grdPhoto item-full-screen">
+          <img [src]="user.photo"
+               class="circleImg"
+               (click)="IrParaHome()"
+               matTooltip="Deslogar?"
+               [matTooltipShowDelay]="showDelay.value"
+               [matTooltipHideDelay]="hideDelay.value" (click)="logOff()">
+      </div>
+      <div class="item grdUser item-full-screen">
+        <span class="usName" matTooltip="Deslogar?"
+                            [matTooltipShowDelay]="showDelay.value"
+                            [matTooltipHideDelay]="hideDelay.value" (click)="logOff()">
+          {{user.name}}
+        </span>
+      </div>
+      <div class="grdPhoto item-minimal-screen grdPhoto-minimal-screen">
+          <button mat-icon-button color="primary" (click)="drawer.toggle()" aria-label="Example icon button with a menu icon">
+            <mat-icon>menu</mat-icon>
+          </button>
+      </div>
+    </section>
+  </ng-template>
+</div>

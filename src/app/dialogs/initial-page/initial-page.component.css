@@ -57,11 +57,7 @@
       text-align: center;
     }    
   }
-  @media(min-width:732px){
-    .item-outro-teste{
-      display:none;
-    }
-  }
+
   @media(max-height:732px){
     .mat-dialog-container{
       padding-top: 0px!important;

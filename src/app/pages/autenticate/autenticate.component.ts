@@ -1,13 +1,13 @@
 import { Component,Inject, OnInit } from '@angular/core';
 import { UtilService } from 'src/app/services/util.service';
-import { SonhadorDto } from 'src/models/sonhadorDto';
-import { loginDto } from "src/models/loginDto";
+import { SonhadorDto } from 'src/app/models/sonhadorDto';
+import { loginDto } from "src/app/models/loginDto";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AppComponent } from 'src/app/app.component';
-import { User } from 'src/models/user';
+import { User } from 'src/app/models/user';
 import { ConfirmedValidator } from 'src/app/confirmed.validator';
-import { SonhadorService } from 'src/services/sonhador.service';
-import { sonhadorLocal } from 'src/models/sonhadorLocal';
+import { SonhadorService } from '../../services/sonhador.service';
+import { sonhadorLocal } from 'src/app/models/sonhadorLocal';
 import { Renderer2 , EventEmitter, Input,  Output ,ElementRef,ViewChild } from '@angular/core';
 
 @Component({
@@ -28,7 +28,7 @@ export class AutenticateComponent implements OnInit {
 
 
   constructor(private util: UtilService, private fb: FormBuilder,private sonhadorServ: SonhadorService) {
-     console.log("teste constructor")
+     
     this.formUser = fb.group(
       {
         email: ['',[Validators.required, Validators.email]],
@@ -78,7 +78,7 @@ export class AutenticateComponent implements OnInit {
                          
                           this.sonhadorServ.GravarUsuarioLocal(JSON.stringify(sonhador));     
                          
-                           this.authEvent.emit({tipo: 'dialogRef-close-openLoginTeste', obj:sonhador});
+                           this.authEvent.emit({tipo: 'dialogRef-close-openLoginDialog', obj:sonhador});
                         }
                         else{
                           this.util.AlertSnack('Senha ou usuário inválido','Atenção');

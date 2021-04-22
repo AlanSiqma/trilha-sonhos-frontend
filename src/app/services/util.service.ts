@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
-import { sonhadorLocal } from 'src/models/sonhadorLocal';
+import { sonhadorLocal } from 'src/app/models/sonhadorLocal';
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +34,7 @@ export class UtilService {
   }
 
   IsLoggin(): boolean{
-    console.log("aqui")
+   
     var result = false;
    
     if(localStorage.getItem('usuarioBfd') != null){

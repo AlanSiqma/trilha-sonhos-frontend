@@ -1,20 +1,19 @@
 import { DialogComponent } from './shared/dialog/dialog.component';
 import { UtilService } from './services/util.service';
-import { DreamsWallComponent } from './../dreams-wall/dreams-wall.component';
-import { VisibilidadeSonhoDto } from './../models/visibilidadeDto';
-import { SonhoDto } from './../models/sonhoDto';
-import { sonhadorLocal } from './../models/sonhadorLocal';
-import { SonhosService } from './../services/sonhos.service';
+import { DreamsWallComponent } from './pages/dreams-wall/dreams-wall.component';
+import { VisibilidadeSonhoDto } from './models/visibilidadeDto';
+import { SonhoDto } from './models/sonhoDto';
+import { sonhadorLocal } from './models/sonhadorLocal';
+import { SonhosService } from './services/sonhos.service';
 import { Component,ElementRef, EventEmitter, Output, ViewChild, OnInit } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { Dreams } from 'src/dreams-wall/dreams-wall.component';
-import { NavbarComponent } from 'src/navbar/navbar.component';
-import { RegisterDreamComponent } from 'src/register-dream/register-dream.component';
-import { SignInComponent } from 'src/sign-in/sign-in.component';
-import {InitialPageComponent} from 'src/app/initial-page/initial-page.component';
+import { Dreams } from 'src/app/pages/dreams-wall/dreams-wall.component';
+import { NavbarComponent } from 'src/app/navbar/navbar.component';
+import { DialogRegisterDreamComponent } from 'src/app/dialogs/register-dream/dialog-register-dream.component';
+import { SignInComponent } from 'src/app/dialogs/sign-in/sign-in.component';
+import {InitialPageComponent} from 'src/app/dialogs/initial-page/initial-page.component';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
-import { SonhadorService } from 'src/services/sonhador.service';
-
+import { SonhadorService } from './services/sonhador.service';
 
 @Component({
   selector: 'app-root',
@@ -97,7 +96,7 @@ export class AppComponent implements OnInit{
       }
     });
   }
-  openLoginTeste(){
+  openLoginDialog(){
    
    const dialogRef = this.dialog.open( InitialPageComponent, {
       width:window.innerWidth  + "px" 
@@ -177,7 +176,7 @@ export class AppComponent implements OnInit{
         }
       )
     }
-    console.log("teste-doidao")
+   
     this.dreamWall.ScrollRight();
   }
 
@@ -231,7 +230,7 @@ export class AppComponent implements OnInit{
 
 
   openRegistrarSonho(sonho = null): void {
-    const dialogRef = this.dialog.open(RegisterDreamComponent, {
+    const dialogRef = this.dialog.open(DialogRegisterDreamComponent, {
       width: '500px',
       data: sonho
     });
@@ -257,7 +256,7 @@ export class AppComponent implements OnInit{
   }
 
   EventDreamWall(item: any){
-    console.log()
+    
     switch (item.tipo) {
       case 'MeusSonhos':
         this.AtualizarSonhosPorSonhador();
@@ -278,8 +277,8 @@ export class AppComponent implements OnInit{
       case 'Login':
         this.openLogin();
         break;
-      case 'openLoginTeste':
-        this.openLoginTeste();
+      case 'openLoginDialog':
+        this.openLoginDialog();
         break;
       case 'exibirSonho':
         this.abrirSonho(item.data);
