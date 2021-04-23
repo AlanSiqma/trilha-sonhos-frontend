@@ -22,7 +22,11 @@
     margin-left: 5%;
   }
 
-
+  .item-1 > p{
+    margin-top:12px;
+    font-weight: bold;
+    font-size: 20px;
+  }
   .logo{
     width: 26%;
   }

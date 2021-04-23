@@ -9,7 +9,7 @@ import { Component,ElementRef, EventEmitter, Output, ViewChild, OnInit } from '@
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { Dreams } from 'src/app/pages/dreams-wall/dreams-wall.component';
 import { NavbarComponent } from 'src/app/navbar/navbar.component';
-import { DialogRegisterDreamComponent } from 'src/app/dialogs/register-dream/dialog-register-dream.component';
+import { DialogRegisterDreamComponent } from 'src/app/dialogs/dialog-register-dream/dialog-register-dream.component';
 import { SignInComponent } from 'src/app/dialogs/sign-in/sign-in.component';
 import {InitialPageComponent} from 'src/app/dialogs/initial-page/initial-page.component';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';

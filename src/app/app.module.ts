@@ -16,7 +16,7 @@ import { MatInputModule } from '@angular/material/input';
 import { SignInComponent } from 'src/app/dialogs/sign-in/sign-in.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import { MatSelectModule } from '@angular/material/select';
-import { DialogRegisterDreamComponent } from 'src/app/dialogs/register-dream/dialog-register-dream.component';
+import { DialogRegisterDreamComponent } from 'src/app/dialogs/dialog-register-dream/dialog-register-dream.component';
 import { InitialPageComponent } from './dialogs/initial-page/initial-page.component';
 import { MatIconModule} from '@angular/material/icon';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
@@ -27,7 +27,8 @@ import { PickerModule } from '@ctrl/ngx-emoji-mart';
 import {DemoMaterialModule} from '../app/material-module';
 import {MatNativeDateModule} from '@angular/material/core';
 import { AutenticateComponent } from './pages/autenticate/autenticate.component';
-import {RegisterDreamComponent} from './pages/register-dream/register-dream.component'
+import {RegisterDreamComponent} from './pages/register-dream/register-dream.component';
+import { MotivationComponent } from './pages/motivation/motivation.component'
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import {RegisterDreamComponent} from './pages/register-dream/register-dream.comp
     RegisterDreamComponent,
     DialogComponent,
     InitialPageComponent,
-    AutenticateComponent
+    AutenticateComponent,
+    MotivationComponent
   ],
   imports: [
     PickerModule,

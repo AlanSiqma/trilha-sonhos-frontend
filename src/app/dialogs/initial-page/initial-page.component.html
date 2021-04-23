@@ -1,19 +1,6 @@
 <div class="grid-container">
     <div class="item-1">
-        <div style="text-align: center;" class="div-logo">
-            <img [src]="logoBfd" class="logo" />
-        </div>
-        <div class="text-1">
-            <p>Para se realizar um sonho é preciso busca-lo!
-                O Trilha Sonho ajuda você nessa busca!</p>
-        </div>
-        <div>
-            <p>Registre um sonho, receba apoio para trilhar o caminho, busque ajuda para realizar e ajude outras pessoas a atingirem também seus objetivos.</p>
-        </div>
-        <div class="reference">
-            <p>"Os sonhos existem para tornarem-se realidade."</p>
-            <p>Walt Disney</p>
-        </div>
+       <app-motivation></app-motivation>
     </div>
     <div class="item-2">
      <app-autenticate (authEvent)="EventAuthEvent($event)" class="autenticate"></app-autenticate>
