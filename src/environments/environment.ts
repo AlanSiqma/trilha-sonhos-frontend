@@ -4,13 +4,8 @@
 
 export const environment = {
   production: false,
-
-  // apiBase: 'https://localhost:44332/api',
-  apiBase:"https://localhost:44332/api",
-  // apiBase: 'https://localhost:5001/api',
-  // apiBase: "http://localhost/BeforeIDie/api",
-  // apiBase: "http://localhost:8070",
-
+  apiBase:"http://localhost:1080/api",
+  
   // Sonho
   listarSonhos: 'sonho',
   pegarSonho: 'sonho/',
