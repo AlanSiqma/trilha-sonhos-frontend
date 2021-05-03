@@ -28,8 +28,7 @@ export class DialogRegisterDreamComponent implements OnInit {
  
   ngOnInit(): void {
   }
-  RegisterEvent(msg: any){
-    var item = {msg : msg} ;
+  RegisterEvent(item: any){  
     this.dialogRef.close(item);
   }
 }

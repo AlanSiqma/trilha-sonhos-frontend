@@ -167,7 +167,8 @@ export class RegisterDreamComponent implements OnInit {
                             if(response != null){
                               this.util.AlertSnack("Sonho registrado!","CADASTRADO!");
                               // this.Close('atualizarListaMeusSonhos');
-                              this.registerEvent.emit('atualizarListaMeusSonhos');
+                               var result={idSonhoDestaque:response.idSonhoDestaque,msg:'atualizarListaMeusSonhos' }
+                              this.registerEvent.emit(result);
                             }
                         },
                         error =>

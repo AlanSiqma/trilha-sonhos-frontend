@@ -143,7 +143,7 @@ export class AppComponent implements OnInit{
                       )
   }
   atualizarListaMeusSonhos(idSonhoDestaque){
-   
+    console.log("atualizarListaMeusSonhos")
     const usuario = this.sonhadorService.PegarUsuarioLogado();
    
     if(this.dreamWall.ehMeuSonho){
@@ -176,7 +176,6 @@ export class AppComponent implements OnInit{
         }
       )
     }
-   
     this.dreamWall.ScrollRight();
   }
 
@@ -234,8 +233,8 @@ export class AppComponent implements OnInit{
       width: '500px',
       data: sonho
     });
-    dialogRef.afterClosed().subscribe(result => {   
-      if(result != null && result.msg == "atualizarListaMeusSonhos"){       
+    dialogRef.afterClosed().subscribe(result => {        
+      if(result != null && result.msg == "atualizarListaMeusSonhos"){      
         this.atualizarListaMeusSonhos(result.idSonhoDestaque);
       }
     });
@@ -248,7 +247,7 @@ export class AppComponent implements OnInit{
                         .subscribe( () =>
                         {
                           this.util.AlertSnack('Sonho esquecido...','DELETADO!');
-                          this.AtualizarSonhosPorSonhador();
+                          this.atualizarListaMeusSonhos("");                   
                         }
       );
     }

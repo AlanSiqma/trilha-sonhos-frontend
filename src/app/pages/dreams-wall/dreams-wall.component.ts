@@ -132,7 +132,7 @@ export class DreamsWallComponent implements OnInit {
     }
     return  "contain";
   }
-  ScrollRight(){
+  ScrollRight(){    
     setTimeout(()=>{
         window.location.href='#descricao-sonho-destaque';
     }, 1000);
