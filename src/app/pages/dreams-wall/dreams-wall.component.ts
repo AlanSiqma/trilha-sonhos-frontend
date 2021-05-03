@@ -49,6 +49,16 @@ export class DreamsWallComponent implements OnInit {
        } 
   }
 
+  ehMeuSonhoMetodh(sonho):boolean{
+    
+    let usuario =  this.util.PegarUsuarioLogado();
+    
+    if(usuario != null && usuario.id == sonho.idSonhador)
+      return true;
+    
+    return this.ehMeuSonho;
+  }
+
   IsLoggin = this.util.IsLoggin();
 
   ehRealizado = (sonho) => sonho.Status == "Realizado";

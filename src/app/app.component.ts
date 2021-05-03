@@ -143,7 +143,7 @@ export class AppComponent implements OnInit{
                       )
   }
   atualizarListaMeusSonhos(idSonhoDestaque){
-    
+   
     const usuario = this.sonhadorService.PegarUsuarioLogado();
    
     if(this.dreamWall.ehMeuSonho){
@@ -234,9 +234,8 @@ export class AppComponent implements OnInit{
       width: '500px',
       data: sonho
     });
-
     dialogRef.afterClosed().subscribe(result => {   
-      if(result !== null && result.msg == "atualizarListaMeusSonhos"){       
+      if(result != null && result.msg == "atualizarListaMeusSonhos"){       
         this.atualizarListaMeusSonhos(result.idSonhoDestaque);
       }
     });

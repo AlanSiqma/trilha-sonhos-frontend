@@ -30,7 +30,7 @@
         <span class="subTitle link-1" (click)="IrParaMeusSonhos();drawer.toggle();">
           Meus Sonhos</span>
       </div>
-      <div>
+      <div *ngIf="isLogged">
         <mat-form-field appearance="fill">
           <mat-label>Tema</mat-label>
           <mat-select (selectionChange)="alterarTema($event.value);drawer.toggle()">
