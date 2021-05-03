@@ -1,34 +1,52 @@
 <section class="grid grid-template-areas-1">
     <div class="item b"><img src="../assets/logo-bfd-2.png" class="circleImg"></div>
-  </section>
-  <div class="item a" style="color:#282d6c"><span>Registro de Sonho</span></div>
+</section>
+<div class="item a" style="color:#282d6c"><span>Registro de Sonho</span></div>
     <!-- <h1 mat-dialog-title class="subTitle" >Before I Die</h1> -->
-    <form novalidate [formGroup]="formUser" style="width: 100%;">
-      <input matInput formControlName="id" style="visibility:hidden;">
-      <mat-form-field class="fullWidth">
-        <mat-label>Eu quero...</mat-label>
-        <input matInput type="text" formControlName="descricaoSonho" autocomplete="false"> 
-        <button (click)="isEmojiPickerVisible = !isEmojiPickerVisible;" class="btn-emoji">😀</button>
-        <mat-error *ngIf="formUser.get('descricaoSonho').invalid">é necessário ao menos 6 digitos</mat-error>
-      </mat-form-field>
-      <emoji-mart [i18n]="{ search: 'Recherche', categories: { search: 'Résultats de recherche', recent: 'Récents' } }" class="emoji-mart" *ngIf="isEmojiPickerVisible" (emojiSelect)="addEmoji($event)" title="Choose your emoji"></emoji-mart>
-      <div class="toggle">
-        <p class="mp"> Público </p>
-        <!-- <mat-slide-toggle formControlName="isPrivate" color="warn">{{state}}</mat-slide-toggle> -->
-        <mat-slide-toggle formControlName="isPrivate" color="warn"> Privado </mat-slide-toggle>
-      </div>
-      <div class="toggle" *ngIf="btRealizar">
-        <p class="mp"> Em progresso </p>
-        <mat-slide-toggle formControlName="status" color="warn"> Realizado </mat-slide-toggle>
-      </div>
-    </form>
-  <!-- <div mat-dialog-actions class="buttons"> -->
-  <div class="buttons">
-    <button mat-flat-button color="primary" class="buttons" (click)='RegitrarSonho()' [disabled]="this.formUser.invalid">
-      <span class="iconRightButton">
-        <i class="fa fa-floppy-o" aria-hidden="true"></i>
-      </span>
-      Registrar Sonho</button>
+<form novalidate [formGroup]="formUser" style="width: 100%;">
+  <input matInput formControlName="id" style="visibility:hidden;">
+  <mat-form-field class="fullWidth">
+    <mat-label>Eu quero...</mat-label>
+    <input matInput type="text" formControlName="descricaoSonho" autocomplete="false"> 
+    <button (click)="isEmojiPickerVisible = !isEmojiPickerVisible;" class="btn-emoji">😀</button>
+    <mat-error *ngIf="formUser.get('descricaoSonho').invalid">é necessário ao menos 6 digitos</mat-error>
+  </mat-form-field>
+  <emoji-mart [i18n]="{ search: 'Recherche', categories: { search: 'Résultats de recherche', recent: 'Récents' } }" class="emoji-mart" *ngIf="isEmojiPickerVisible" (emojiSelect)="addEmoji($event)" title="Choose your emoji"></emoji-mart>
+  <div class="toggle">
+    <p class="mp"> Público </p>
+    <!-- <mat-slide-toggle formControlName="isPrivate" color="warn">{{state}}</mat-slide-toggle> -->
+    <mat-slide-toggle formControlName="isPrivate" color="warn"> Privado </mat-slide-toggle>
   </div>
+  <div class="toggle" *ngIf="btRealizar">
+    <p class="mp"> Em progresso </p>
+    <mat-slide-toggle formControlName="status" color="warn"> Realizado </mat-slide-toggle>
+  </div>
+  <div class="fullWidth">
+    <h2>Trilha</h2>
+    <div class="fullWidth" #div>
+
+    </div>
+    <div class="fullWidth">
+      <mat-form-field>
+        <mat-label>Tenho que fazer isso...</mat-label>
+        <input matInput formControlName="descricaoTrilha">
+      </mat-form-field>
+      <div class="fullWidth">
+        <button mat-flat-button color="primary" class="btn-site" (click)="AdicionarTrilha()">Adicionar</button>
+        <!-- AO ADICIONAR INCLUIR O SONHO COMO CHECKBOX NA DIV QUE POSSUI O ID div-checkbox-trilha-->
+      </div>
+    </div>
+    
+  </div>
+</form>
+  <!-- <div mat-dialog-actions class="buttons"> -->
+<div class="buttons">
+  <button mat-flat-button color="primary" class="buttons" (click)='RegitrarSonho()' [disabled]="this.formUser.invalid">
+    <span class="iconRightButton">
+      <i class="fa fa-floppy-o" aria-hidden="true"></i>
+    </span>
+    Registrar Sonho
+  </button>
+</div>
   
   

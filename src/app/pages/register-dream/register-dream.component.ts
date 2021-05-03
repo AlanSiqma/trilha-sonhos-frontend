@@ -2,8 +2,8 @@ import { VisibilidadeSonhoService } from '../../services/visibilidade-sonho.serv
 import { StatusService } from '../../services/status.service';
 import { UtilService } from '../../services/util.service';
 import { sonhadorLocal } from '../../models/sonhadorLocal';
-import { Component, Inject, OnInit,EventEmitter,Output } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, Inject, OnInit,EventEmitter,Output ,Renderer2,ElementRef,ViewChild} from '@angular/core';
+import { FormControl, FormGroup, Validators} from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { AppComponent } from 'src/app/app.component';
 import { SonhosService } from '../../services/sonhos.service';
@@ -28,6 +28,8 @@ export class RegisterDreamComponent implements OnInit {
   idSonhoDestaque;
   public isEmojiPickerVisible: boolean;
   @Output() registerEvent = new EventEmitter();
+  @ViewChild('div') div: ElementRef;
+  
 
   status = { Realizado: null, Em_Progresso: null };
   tipoVisbibilidade = { Publica: null, Privada: null };
@@ -41,6 +43,7 @@ export class RegisterDreamComponent implements OnInit {
  }
 
   constructor(
+    private renderer: Renderer2,
         private sonhosService: SonhosService,
         public dialogRef: MatDialogRef<AppComponent>,
         private util: UtilService,
@@ -91,7 +94,8 @@ export class RegisterDreamComponent implements OnInit {
       descricaoSonho: new FormControl('', [Validators.required, Validators.minLength(6)]),
       visibilidade: new FormControl(),
       isPrivate: new FormControl(false),
-      status: new FormControl()
+      status: new FormControl(),
+      descricaoTrilha: new FormControl()
     });
   }
 
@@ -122,6 +126,7 @@ export class RegisterDreamComponent implements OnInit {
       IdSonhador: this.usuario.id,
       Visibilidade: this.PopularTipoVisibilidade(this.visibilidade),
       Status: this.getIdStatus(),
+      Trilha:[],  
       Sonho: ''
     };
 
@@ -130,6 +135,17 @@ export class RegisterDreamComponent implements OnInit {
 
   getIdStatus(){
     return this.formUser.get('status').value == true ? this.status.Realizado : this.status.Em_Progresso;
+  }
+  
+  AdicionarTrilha(){
+    var descricaoTrilha = this.formUser.get('descricaoTrilha').value;
+    
+    if(descricaoTrilha != null && descricaoTrilha != "" && descricaoTrilha.length > 4){
+      const pAddTrail: HTMLParagraphElement = this.renderer.createElement('p');
+      pAddTrail.innerHTML = '<div><input type="checkbox">'+descricaoTrilha+'<div>'     
+      this.renderer.appendChild(this.div.nativeElement, pAddTrail)
+    }
+    this.formUser.get('descricaoTrilha').setValue("");
   }
 
   RegitrarSonho(){
