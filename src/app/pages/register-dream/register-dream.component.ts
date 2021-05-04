@@ -140,10 +140,19 @@ export class RegisterDreamComponent implements OnInit {
   AdicionarTrilha(){
     var descricaoTrilha = this.formUser.get('descricaoTrilha').value;
     
-    if(descricaoTrilha != null && descricaoTrilha != "" && descricaoTrilha.length > 4){
-      const pAddTrail: HTMLParagraphElement = this.renderer.createElement('p');
-      pAddTrail.innerHTML = '<div><input type="checkbox">'+descricaoTrilha+'<div>'     
-      this.renderer.appendChild(this.div.nativeElement, pAddTrail)
+    if(descricaoTrilha != null && descricaoTrilha != "" && descricaoTrilha.length > 4){ 
+      const divInternal:HTMLDivElement = this.renderer.createElement('div')
+      
+      const pAddTrail: HTMLParagraphElement = this.renderer.createElement('p');      
+      pAddTrail.innerHTML = '<input type="checkbox">'+descricaoTrilha 
+      divInternal.appendChild(pAddTrail)
+      
+      const buton = this.renderer.createElement('button');
+      const butonText = this.renderer.createText('x');   
+      divInternal.appendChild(buton)
+      this.renderer.appendChild(buton,butonText)
+      this.renderer.appendChild(this.div.nativeElement, divInternal)
+      this.renderer.listen(buton,'click',(element) => this.RemoveElement(element))      
     }
     this.formUser.get('descricaoTrilha').setValue("");
   }
@@ -173,6 +182,9 @@ export class RegisterDreamComponent implements OnInit {
                          );
     }
 
+  }
+  RemoveElement(element){   
+    element.path[1].remove()    
   }
 
   EditarSonho(){
