@@ -21,24 +21,32 @@
     <p class="mp"> Em progresso </p>
     <mat-slide-toggle formControlName="status" color="warn"> Realizado </mat-slide-toggle>
   </div>
-  <div class="fullWidth">
-    <h2>Trilha</h2>
-    <div class="fullWidth" #div>
-
-    </div>
-    <div class="fullWidth">
-      <mat-form-field>
-        <mat-label>Tenho que fazer isso...</mat-label>
-        <input matInput formControlName="descricaoTrilha" autocomplete="false">
-      </mat-form-field>
-      <div class="fullWidth">
-        <button mat-flat-button color="primary" class="btn-site" (click)="AdicionarTrilha()">Adicionar</button>
-        <!-- AO ADICIONAR INCLUIR O SONHO COMO CHECKBOX NA DIV QUE POSSUI O ID div-checkbox-trilha-->
-      </div>
-    </div>
-    
-  </div>
 </form>
+<div class="fullWidth">
+  <h2>Trilha</h2>
+  <div class="fullWidth" #div *ngFor="let item of arayTrilha">
+    <div>
+      <mat-checkbox [(ngModel)]="item.Valor"></mat-checkbox>
+      <div class="editable-cell" [hidden]="editId === item.Id" (click)="startEdit(item.Id)">
+        {{item.Descricao}}
+      </div>
+      <input [hidden]="editId !== item.Id" type="text" nz-input [(ngModel)]="item.Descricao" (blur)="stopEdit()" />     
+    </div>
+    <div>
+      <button (click)="RemoveElement(item.Id)">x</button>
+    </div>
+  </div>
+  <div class="fullWidth">
+    <mat-form-field>
+      <mat-label>Tenho que fazer isso...</mat-label>
+      <input matInput [(ngModel)]="descricaoTrilha" autocomplete="false">      
+    </mat-form-field>
+    <div class="fullWidth">
+      <button mat-flat-button color="primary" class="btn-site" (click)="AdicionarTrilha()">Adicionar</button>
+      <!-- AO ADICIONAR INCLUIR O SONHO COMO CHECKBOX NA DIV QUE POSSUI O ID div-checkbox-trilha-->
+    </div>
+  </div>
+</div>
   <!-- <div mat-dialog-actions class="buttons"> -->
 <div class="buttons">
   <button mat-flat-button color="primary" class="buttons" (click)='RegitrarSonho()' [disabled]="this.formUser.invalid">

@@ -8,6 +8,13 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { AppComponent } from 'src/app/app.component';
 import { SonhosService } from '../../services/sonhos.service';
 import { SonhoDto } from 'src/app/models/sonhoDto';
+import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
+
+export interface Trilha{
+  Id:string,
+  Descricao: string,
+  Valor: boolean
+}
 
 export interface DialogData {
   tipo: string;
@@ -26,10 +33,13 @@ export class RegisterDreamComponent implements OnInit {
   btRealizar = false;
   formUser: FormGroup;
   idSonhoDestaque;
+  editId: string | null = null;
   public isEmojiPickerVisible: boolean;
   @Output() registerEvent = new EventEmitter();
   @ViewChild('div') div: ElementRef;
-  
+  arayTrilha:Trilha[]=[];
+  descricaoTrilha:string= "";
+  i = 0;
 
   status = { Realizado: null, Em_Progresso: null };
   tipoVisbibilidade = { Publica: null, Privada: null };
@@ -66,7 +76,12 @@ export class RegisterDreamComponent implements OnInit {
     else
       this.btRealizar = false;
   }
-
+  startEdit(id: string): void {
+    this.editId = id;
+  }
+  stopEdit(): void {
+    this.editId = null;
+  }
   PopularForm(model){
     let sonho = JSON.parse(model.data);
     this.formUser.patchValue(
@@ -138,23 +153,21 @@ export class RegisterDreamComponent implements OnInit {
   }
   
   AdicionarTrilha(){
-    var descricaoTrilha = this.formUser.get('descricaoTrilha').value;
-    
+    // var descricaoTrilha = this.formUser.get('descricaoTrilha').value;
+    var descricaoTrilha = this.descricaoTrilha;
     if(descricaoTrilha != null && descricaoTrilha != "" && descricaoTrilha.length > 4){ 
-      const divInternal:HTMLDivElement = this.renderer.createElement('div')
       
-      const pAddTrail: HTMLParagraphElement = this.renderer.createElement('p');      
-      pAddTrail.innerHTML = '<input type="checkbox">'+descricaoTrilha 
-      divInternal.appendChild(pAddTrail)
+      this.arayTrilha = [... this.arayTrilha,{
+            Id: `${this.i}`,
+            Descricao:descricaoTrilha,
+            Valor:false
+        }
+    ];
+    this.i++;
       
-      const buton = this.renderer.createElement('button');
-      const butonText = this.renderer.createText('x');   
-      divInternal.appendChild(buton)
-      this.renderer.appendChild(buton,butonText)
-      this.renderer.appendChild(this.div.nativeElement, divInternal)
-      this.renderer.listen(buton,'click',(element) => this.RemoveElement(element))      
     }
-    this.formUser.get('descricaoTrilha').setValue("");
+    this.descricaoTrilha = "";
+    // this.formUser.get('descricaoTrilha').setValue("");
   }
 
   RegitrarSonho(){
@@ -183,8 +196,8 @@ export class RegisterDreamComponent implements OnInit {
     }
 
   }
-  RemoveElement(element){   
-    element.path[1].remove()    
+  RemoveElement(id: string){
+    this.arayTrilha =this.arayTrilha.filter(d => d.Id !== id);
   }
 
   EditarSonho(){
