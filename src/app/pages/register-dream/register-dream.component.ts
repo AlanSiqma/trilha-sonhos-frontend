@@ -40,6 +40,15 @@ export class RegisterDreamComponent implements OnInit {
   arayTrilha:Trilha[]=[];
   descricaoTrilha:string= "";
   i = 0;
+  progressBarTrail ():number{
+    let result = 0;
+    if( this.arayTrilha.length>0){
+      let valueTrue = this.arayTrilha.filter( d => d.Valor == true).length;
+      let lengthArayTrilha = this.arayTrilha.length;
+      result = (valueTrue/lengthArayTrilha)*100;
+    }
+    return result;
+  } 
 
   status = { Realizado: null, Em_Progresso: null };
   tipoVisbibilidade = { Publica: null, Privada: null };

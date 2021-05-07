@@ -24,6 +24,8 @@
 </form>
 <div class="fullWidth">
   <h2>Trilha</h2>
+  
+  <mat-progress-bar mode="determinate" [value]="progressBarTrail()"></mat-progress-bar>
   <div class="fullWidth" #div *ngFor="let item of arayTrilha">
     <div>
       <mat-checkbox [(ngModel)]="item.Valor"></mat-checkbox>
