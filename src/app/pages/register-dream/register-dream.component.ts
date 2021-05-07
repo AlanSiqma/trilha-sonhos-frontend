@@ -1,20 +1,13 @@
-import { VisibilidadeSonhoService } from '../../services/visibilidade-sonho.service';
-import { StatusService } from '../../services/status.service';
 import { UtilService } from '../../services/util.service';
 import { sonhadorLocal } from '../../models/sonhadorLocal';
-import { Component, Inject, OnInit,EventEmitter,Output ,Renderer2,ElementRef,ViewChild} from '@angular/core';
+import { Component, Inject, OnInit,EventEmitter,Output ,Renderer2} from '@angular/core';
 import { FormControl, FormGroup, Validators} from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { AppComponent } from 'src/app/app.component';
 import { SonhosService } from '../../services/sonhos.service';
 import { SonhoDto } from 'src/app/models/sonhoDto';
-import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
+import { Trilha } from 'src/app/models/Trilhadto';
 
-export interface Trilha{
-  Id:string,
-  Descricao: string,
-  Valor: boolean
-}
 
 export interface DialogData {
   tipo: string;
@@ -35,8 +28,7 @@ export class RegisterDreamComponent implements OnInit {
   idSonhoDestaque;
   editId: string | null = null;
   public isEmojiPickerVisible: boolean;
-  @Output() registerEvent = new EventEmitter();
-  @ViewChild('div') div: ElementRef;
+  @Output() registerEvent = new EventEmitter(); 
   arayTrilha:Trilha[]=[];
   descricaoTrilha:string= "";
   i = 0;
@@ -93,6 +85,16 @@ export class RegisterDreamComponent implements OnInit {
   }
   PopularForm(model){
     let sonho = JSON.parse(model.data);
+    this.i = sonho.trilha.length;
+    for(var interation = 0; interation <  sonho.trilha.length;interation++ ){
+      var interationId = interation.toString();
+      this.arayTrilha.push(
+                            {
+                             Id:interationId,
+                             Descricao:sonho.trilha[interation].descricao,
+                             Valor:sonho.trilha[interation].valor
+                            })
+    }
     this.formUser.patchValue(
       {
         id: sonho.id,
@@ -100,7 +102,7 @@ export class RegisterDreamComponent implements OnInit {
         usuarioId: sonho.idSonhador,
         visibilidade: sonho.private,
         isPrivate: sonho.private,
-        status: sonho.Status == this.status.Realizado
+        status: sonho.Status == this.status.Realizado,
       });
     }
 
@@ -135,8 +137,7 @@ export class RegisterDreamComponent implements OnInit {
   }
 
   SignIn(){
-    const user = this.formUser.get('email').value;
-    //this.dialogRef.close(user);
+    const user = this.formUser.get('email').value;  
     this.registerEvent.emit(user);
   }
 
@@ -150,7 +151,7 @@ export class RegisterDreamComponent implements OnInit {
       IdSonhador: this.usuario.id,
       Visibilidade: this.PopularTipoVisibilidade(this.visibilidade),
       Status: this.getIdStatus(),
-      Trilha:[],  
+      Trilhas:this.arayTrilha,  
       Sonho: ''
     };
 
@@ -161,11 +162,9 @@ export class RegisterDreamComponent implements OnInit {
     return this.formUser.get('status').value == true ? this.status.Realizado : this.status.Em_Progresso;
   }
   
-  AdicionarTrilha(){
-    // var descricaoTrilha = this.formUser.get('descricaoTrilha').value;
+  AdicionarTrilha(){   
     var descricaoTrilha = this.descricaoTrilha;
-    if(descricaoTrilha != null && descricaoTrilha != "" && descricaoTrilha.length > 4){ 
-      
+    if(descricaoTrilha != null && descricaoTrilha != "" && descricaoTrilha.length > 4){       
       this.arayTrilha = [... this.arayTrilha,{
             Id: `${this.i}`,
             Descricao:descricaoTrilha,
@@ -175,8 +174,7 @@ export class RegisterDreamComponent implements OnInit {
     this.i++;
       
     }
-    this.descricaoTrilha = "";
-    // this.formUser.get('descricaoTrilha').setValue("");
+    this.descricaoTrilha = "";   
   }
 
   RegitrarSonho(){
@@ -190,16 +188,14 @@ export class RegisterDreamComponent implements OnInit {
                               this.idSonhoDestaque=response.idSonhoDestaque;
                               var result={idSonhoDestaque:response.idSonhoDestaque,msg:'atualizarListaMeusSonhos' }
                               if(response != null){
-                                this.util.AlertSnack("Sonho registrado!","CADASTRADO!");
-                                //this.Close(result);
+                                this.util.AlertSnack("Sonho registrado!","CADASTRADO!");                               
                                 this.registerEvent.emit(result); 
                               }
                           },
                           error =>
                           {
-                            this.util.AlertSnack("Não foi possível efetuar o registro...", "Erro!");
-                              //this.Close();
-                              this.registerEvent.emit();
+                            this.util.AlertSnack("Não foi possível efetuar o registro...", "Erro!");                             
+                            this.registerEvent.emit();
                           }
                          );
     }

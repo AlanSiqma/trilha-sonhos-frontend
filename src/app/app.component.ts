@@ -47,7 +47,8 @@ export class AppComponent implements OnInit{
       idSonhador: item.idSonhador,
       Status: item.status,
       private: visibilidade.ehPrivada(item.visibilidade),
-      nomeSonhador: this.usuario == null ? "" : this.usuario.nome
+      nomeSonhador: this.usuario == null ? "" : this.usuario.nome,
+      trilha: item.trilhas
     }
 
     return dream;
@@ -180,6 +181,7 @@ export class AppComponent implements OnInit{
   }
 
   popularListaSonho(result){
+   
     this.listDreams = [];
     for (let i = 0; i < result.length; i++) {
       let sonho: any = result[i];
@@ -208,6 +210,7 @@ export class AppComponent implements OnInit{
   }
 
   abrirSonho(sonho) {
+   
     if(sonho != null){
 
       sonho = JSON.parse(sonho);
@@ -228,7 +231,8 @@ export class AppComponent implements OnInit{
   }
 
 
-  openRegistrarSonho(sonho = null): void {
+  openRegistrarSonho(sonho = null): void {   
+    console.log(sonho)
     const dialogRef = this.dialog.open(DialogRegisterDreamComponent, {
       width: '500px',
       data: sonho

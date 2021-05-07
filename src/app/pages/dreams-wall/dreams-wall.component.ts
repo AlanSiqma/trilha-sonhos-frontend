@@ -1,6 +1,7 @@
 import { UtilService } from '../../services/util.service';
 import { SonhoDto } from 'src/app/models/sonhoDto';
 import { Component,Renderer2 , EventEmitter, Input, OnInit, Output ,ElementRef,ViewChild } from '@angular/core';
+import { Trilha } from 'src/app/models/Trilhadto';
 
 export class Dreams {
   id: string;
@@ -10,6 +11,7 @@ export class Dreams {
   Status: string;
   nomeSonhador = '';
   idSonhador: string;
+  trilha:Trilha[];
   // ehEdicao = false;
 }
 
@@ -91,6 +93,7 @@ export class DreamsWallComponent implements OnInit {
   }
 
   Editar(sonho: SonhoDto){
+   
     let sonhoJson = JSON.stringify(sonho);
 
     let data = {
