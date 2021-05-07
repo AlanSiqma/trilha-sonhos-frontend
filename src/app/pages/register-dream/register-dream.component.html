@@ -22,32 +22,36 @@
     <mat-slide-toggle formControlName="status" color="warn"> Realizado </mat-slide-toggle>
   </div>
 </form>
-<div class="fullWidth">
+<div class="fullWidth-trilha">
   <h2>Trilha</h2>
   
-  <mat-progress-bar mode="determinate" [value]="progressBarTrail()"></mat-progress-bar>
-  <div class="fullWidth" #div *ngFor="let item of arayTrilha">
-    <div>
-      <mat-checkbox [(ngModel)]="item.Valor"></mat-checkbox>
-      <div class="editable-cell" [hidden]="editId === item.Id" (click)="startEdit(item.Id)">
-        {{item.Descricao}}
-      </div>
-      <input [hidden]="editId !== item.Id" type="text" nz-input [(ngModel)]="item.Descricao" (blur)="stopEdit()" />     
-    </div>
-    <div>
-      <button (click)="RemoveElement(item.Id)">x</button>
-    </div>
-  </div>
-  <div class="fullWidth">
+  <div class="center-content">
     <mat-form-field>
       <mat-label>Tenho que fazer isso...</mat-label>
       <input matInput [(ngModel)]="descricaoTrilha" autocomplete="false">      
     </mat-form-field>
-    <div class="fullWidth">
-      <button mat-flat-button color="primary" class="btn-site" (click)="AdicionarTrilha()">Adicionar</button>
+    
+      <button mat-mini-fab color="primary"  (click)="AdicionarTrilha()">
+        <mat-icon>
+          <span class="material-icons-outlined">add</span>
+        </mat-icon>
+      </button>
       <!-- AO ADICIONAR INCLUIR O SONHO COMO CHECKBOX NA DIV QUE POSSUI O ID div-checkbox-trilha-->
     </div>
+  <mat-progress-bar mode="determinate" [value]="progressBarTrail()"></mat-progress-bar>
+  <div  #div *ngFor="let item of arayTrilha">
+    <div>
+      <mat-checkbox color="primary" [(ngModel)]="item.Valor"></mat-checkbox>
+      <div class="editable-cell" [hidden]="editId === item.Id" (click)="startEdit(item.Id)">
+        {{item.Descricao}}
+      </div>
+      <input [hidden]="editId !== item.Id" type="text" nz-input [(ngModel)]="item.Descricao" (blur)="stopEdit()" />     
+      <button mat-icon-button color="warn" (click)="RemoveElement(item.Id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>    
   </div>
+
 </div>
   <!-- <div mat-dialog-actions class="buttons"> -->
 <div class="buttons">
