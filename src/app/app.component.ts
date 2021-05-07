@@ -1,4 +1,4 @@
-import { DialogComponent } from './shared/dialog/dialog.component';
+import { DialogComponent } from './dialogs/dialog/dialog.component';
 import { UtilService } from './services/util.service';
 import { DreamsWallComponent } from './pages/dreams-wall/dreams-wall.component';
 import { VisibilidadeSonhoDto } from './models/visibilidadeDto';

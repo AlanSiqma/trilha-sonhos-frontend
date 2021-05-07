@@ -21,7 +21,7 @@ import { InitialPageComponent } from './dialogs/initial-page/initial-page.compon
 import { MatIconModule} from '@angular/material/icon';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {DialogComponent} from './shared/dialog/dialog.component';
+import {DialogComponent} from './dialogs/dialog/dialog.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { PickerModule } from '@ctrl/ngx-emoji-mart';
 import {DemoMaterialModule} from '../app/material-module';
