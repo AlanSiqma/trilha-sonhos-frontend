@@ -1,5 +1,18 @@
-<h1 mat-dialog-title>{{sonho.nomeSonhador}}</h1>
-<div mat-dialog-content>{{sonho.descricaoSonho}}</div>
+<h1 mat-dialog-title>
+    {{sonho.nomeSonhador}}
+</h1>
+<div mat-dialog-content>
+  <div>
+    <h2>Sonho:</h2>
+    {{sonho.descricaoSonho}}
+  </div>
+  <div *ngIf="sonho.HaTrilha">
+    <h2>Trilha:</h2>
+    <div *ngFor="let item of sonho.trilha">
+      <p>{{item.descricao}}</p> 
+    </div>
+  </div>
+</div>
 <div mat-dialog-actions>
   <button mat-button mat-dialog-close>Fechar</button>
 </div>

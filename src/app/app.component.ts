@@ -212,7 +212,6 @@ export class AppComponent implements OnInit{
   abrirSonho(sonho) {
    
     if(sonho != null){
-
       sonho = JSON.parse(sonho);
       this.sonhadorService.pegarSonhador(sonho.idSonhador)
                           .subscribe(
@@ -220,9 +219,11 @@ export class AppComponent implements OnInit{
                             if( res )
                             {
                               let dataModel = { nomeSonhador: res.nome,
-                                                descricaoSonho: sonho.descricaoSonho }
+                                                descricaoSonho: sonho.descricaoSonho,
+                                                trilha:sonho.trilha,
+                                                HaTrilha:sonho.trilha.length>0 }
 
-                              this.dialog.open( DialogComponent, { data: JSON.stringify(dataModel) });
+                              this.dialog.open( DialogComponent, {   width: '500px',data: JSON.stringify(dataModel) });
                             }
                           },
                           error => this.util.AlertSnack('Não foi possível abrir o sonho.','Erro...')
@@ -232,7 +233,6 @@ export class AppComponent implements OnInit{
 
 
   openRegistrarSonho(sonho = null): void {   
-    console.log(sonho)
     const dialogRef = this.dialog.open(DialogRegisterDreamComponent, {
       width: '500px',
       data: sonho
