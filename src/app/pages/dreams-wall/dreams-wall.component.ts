@@ -37,7 +37,7 @@ export class DreamsWallComponent implements OnInit {
   changeText= false;
   ehMeuSonho = false;
   idSonhoDestaque;
-  tema= 'fundo-cinza-2.jpg';
+  tema= 'fundo-realista.jpg';
   renderer:Renderer2
 
     constructor( private util: UtilService) { 

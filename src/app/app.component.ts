@@ -25,7 +25,7 @@ export class AppComponent implements OnInit{
   listDreams: Dreams[] = [];
   title = 'before-i-die';
   usuario = this.util.PegarUsuarioLogado();
-  tema = "fundo-cinza-2.jpg";
+  tema = "fundo-realista.jpg";
   @ViewChild(NavbarComponent) navbar: NavbarComponent;
   @ViewChild(DreamsWallComponent) dreamWall: DreamsWallComponent;
 
