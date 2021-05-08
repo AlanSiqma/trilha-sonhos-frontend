@@ -37,20 +37,23 @@
         </mat-icon>
       </button>
       <!-- AO ADICIONAR INCLUIR O SONHO COMO CHECKBOX NA DIV QUE POSSUI O ID div-checkbox-trilha-->
+      <mat-progress-bar mode="determinate" [value]="progressBarTrail()"></mat-progress-bar>
     </div>
+
     <div class="overflow">
-  <mat-progress-bar mode="determinate" [value]="progressBarTrail()"></mat-progress-bar>
-  <div  #div *ngFor="let item of arayTrilha">
-    
-      <div>
+      <div  #div *ngFor="let item of arayTrilha">
+        <div >
+          
         <mat-checkbox color="primary" [(ngModel)]="item.Valor"></mat-checkbox>
         <div class="editable-cell" *ngIf="editId!==item.Id" (click)="startEdit(item.Id)">
           {{item.Descricao}}
         </div>
         <input [hidden]="editId !== item.Id" type="text" nz-input [(ngModel)]="item.Descricao" (blur)="stopEdit()" />     
+        
         <button mat-icon-button color="warn" (click)="RemoveElement(item.Id)">
           <mat-icon>delete</mat-icon>
         </button>
+        
       </div> 
     </div>   
   </div>
