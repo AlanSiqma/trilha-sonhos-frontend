@@ -6,10 +6,21 @@
 
 .buttons{
   width: 100%;
-  margin-top: 14px;
+  margin-top: 10px;
   margin-bottom: 1px;
 }
+.btn-add{
+  width: 25px;
+  height: 25px;
+  position:relative;
+  top:6px;
 
+}
+.btn-add span{
+margin-bottom: 10px;
+position: relative;
+bottom:7px;
+}
 .link:hover{
   color: midnightblue;
   font-size: 12px;
@@ -33,10 +44,16 @@
  
 }
 .fullWidth-trilha{
-  width: 100%;
+  position:relative;
+  width: 95%;
   border:1px solid rgba(211, 202, 202, 0.521);
   border-radius: 10px;
-  margin-top: 20px;
+  margin-top: 20px ;
+  margin-left:auto;
+  max-height: 180px;
+  margin-inline: auto;
+  padding: 0 10px 0 10px;
+  
 }
 .fullWidth-trilha h2{
   margin:auto;
@@ -47,6 +64,7 @@
 .center-content{
   text-align: center;
   width: 100%;
+  position:relative;
 }
 .toggle{
   text-align: right;
@@ -131,10 +149,13 @@
 
 input{
   height: 120%;
+    
 }
 #input-passo{
   margin-left: 20%;
+ 
 }
+
 .btn-site{
   margin-left: 3%;
   width:20px ;
@@ -163,4 +184,14 @@ input{
 }
 .centredText{
  text-align: center;
+}
+.overflow{
+  overflow-y: auto;
+  max-height: 80px;
+}
+.overflow input{
+  margin-left: 5px;
+  border:rgba(211, 202, 202, 0.521) 1px solid;
+  font-size: 16px;
+  font-style: italic;
 }

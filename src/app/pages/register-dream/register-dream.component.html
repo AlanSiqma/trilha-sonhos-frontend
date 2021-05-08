@@ -31,25 +31,28 @@
       <input matInput [(ngModel)]="descricaoTrilha" autocomplete="false">      
     </mat-form-field>
     
-      <button mat-mini-fab color="primary"  (click)="AdicionarTrilha()">
+      <button mat-mini-fab color="primary" class="btn-add" (click)="AdicionarTrilha()">
         <mat-icon>
           <span class="material-icons-outlined">add</span>
         </mat-icon>
       </button>
       <!-- AO ADICIONAR INCLUIR O SONHO COMO CHECKBOX NA DIV QUE POSSUI O ID div-checkbox-trilha-->
     </div>
+    <div class="overflow">
   <mat-progress-bar mode="determinate" [value]="progressBarTrail()"></mat-progress-bar>
   <div  #div *ngFor="let item of arayTrilha">
-    <div>
-      <mat-checkbox color="primary" [(ngModel)]="item.Valor"></mat-checkbox>
-      <div class="editable-cell" [hidden]="editId === item.Id" (click)="startEdit(item.Id)">
-        {{item.Descricao}}
-      </div>
-      <input [hidden]="editId !== item.Id" type="text" nz-input [(ngModel)]="item.Descricao" (blur)="stopEdit()" />     
-      <button mat-icon-button color="warn" (click)="RemoveElement(item.Id)">
-        <mat-icon>delete</mat-icon>
-      </button>
-    </div>    
+    
+      <div>
+        <mat-checkbox color="primary" [(ngModel)]="item.Valor"></mat-checkbox>
+        <div class="editable-cell" *ngIf="editId!==item.Id" (click)="startEdit(item.Id)">
+          {{item.Descricao}}
+        </div>
+        <input [hidden]="editId !== item.Id" type="text" nz-input [(ngModel)]="item.Descricao" (blur)="stopEdit()" />     
+        <button mat-icon-button color="warn" (click)="RemoveElement(item.Id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div> 
+    </div>   
   </div>
 
 </div>
