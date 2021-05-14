@@ -1,76 +1,78 @@
-
-
-.extrabold{
-  font-weight: 520;
+.extrabold {
+    font-weight: 520;
 }
 
-.buttons{
-  width: 100%;
-  margin-top: 10px;
-  margin-bottom: 1px;
-}
-.btn-add{
-  width: 25px;
-  height: 25px;
-  position:relative;
-  top:6px;
-
-}
-.btn-add span{
-margin-bottom: 10px;
-position: relative;
-bottom:7px;
-}
-.link:hover{
-  color: midnightblue;
-  font-size: 12px;
+.buttons {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 1px;
 }
 
-.link{
-  color: dimgray;
-  font-size: 12px;
+.btn-add {
+    width: 25px;
+    height: 25px;
+    position: relative;
+    top: 6px;
 }
 
-.center{
-  width: auto;
+.btn-add span {
+    margin-bottom: 10px;
+    position: relative;
+    bottom: 7px;
 }
 
-.fullWidth{
-  width: 100%;
-
-}
-.fullWidth-center{
-  width: 100%;
- 
-}
-.fullWidth-trilha{
-  position:relative;
-  width: 95%;
-  border:1px solid rgba(211, 202, 202, 0.521);
-  border-radius: 10px;
-  margin-top: 20px ;
-  margin-left:auto;
-  max-height: 180px;
-  margin-inline: auto;
-  padding: 0 10px 0 10px;
-  
-}
-.fullWidth-trilha h2{
-  margin:auto;
-  margin-left: 45%;
-  font-weight: bold;
-  font-variant:all-petite-caps;
-}
-.center-content{
-  text-align: center;
-  width: 100%;
-  position:relative;
-}
-.toggle{
-  text-align: right;
+.link:hover {
+    color: midnightblue;
+    font-size: 12px;
 }
 
-.circleImg{
+.link {
+    color: dimgray;
+    font-size: 12px;
+}
+
+.center {
+    width: auto;
+}
+
+.fullWidth {
+    width: 100%;
+}
+
+.fullWidth-center {
+    width: 100%;
+}
+
+.fullWidth-trilha {
+    position: relative;
+    width: 95%;
+    border: 1px solid rgba(211, 202, 202, 0.521);
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-left: auto;
+    max-height: 180px;
+    margin-inline: auto;
+    padding: 0 10px 0 10px;
+}
+
+.fullWidth-trilha h2 {
+    margin: auto;
+    margin-left: 45%;
+    font-weight: bold;
+    font-variant: all-petite-caps;
+}
+
+.center-content {
+    text-align: center;
+    width: 100%;
+    position: relative;
+}
+
+.toggle {
+    text-align: right;
+}
+
+.circleImg {
     border-radius: 50%;
     width: 50px;
 }
@@ -81,31 +83,29 @@ bottom:7px;
 
 .a {
     grid-area: a;
-  align-self: center;
-  font-size: 25px;
-  font-weight: 500;
-  padding-right: 4px;
+    align-self: center;
+    font-size: 25px;
+    font-weight: 500;
+    padding-right: 4px;
 }
 
 .b {
     grid-area: b;
-  align-self: center;
-  padding-left: 2px;
+    align-self: center;
+    padding-left: 2px;
 }
-
-
 
 .grid-template-areas-1 {
     grid-template-columns: 65px auto;
     grid-template-rows: 70px;
-      grid-template-areas:
-        "b a"
-        ;
+    grid-template-areas: "b a";
 }
 
+
 /* Grid Item */
+
 .item {
-  color:blueviolet;
+    color: blueviolet;
     margin: 3px;
     /* background: tomato; */
     text-align: center;
@@ -116,94 +116,119 @@ bottom:7px;
     text-align: right;
 }
 
-.subTitle{
-  text-align: center;
-  font-size: 20px;
+.subTitle {
+    text-align: center;
+    font-size: 20px;
 }
 
-.mp{
-  margin: 0px;
-  margin-right: 6px;
-  padding: 0px;
-  text-align: center;
-  display: inline;
+.mp {
+    margin: 0px;
+    margin-right: 6px;
+    padding: 0px;
+    text-align: center;
+    display: inline;
 }
 
-.iconRightButton{
-  padding-right: 6px;
+.iconRightButton {
+    padding-right: 6px;
 }
 
-.buttons:hover span{
-  color:#00FA9A;
-  margin-right: 2px;
+.buttons:hover span {
+    color: #00FA9A;
+    margin-right: 2px;
 }
 
-
-.btn-emoji{
-  background: transparent;
-  border: 0;
-  cursor: pointer;
-  text-align: left;
-  float: right;
+.btn-emoji {
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    text-align: left;
+    float: right;
 }
 
-input{
-  height: 120%;
-    
-}
-#input-passo{
-  margin-left: 20%;
- 
+input {
+    height: 120%;
 }
 
-.btn-site{
-  margin-left: 3%;
-  width:20px ;
-  padding:2px;
-  font-size: smaller;
-  
+#input-passo {
+    margin-left: 20%;
 }
-#checkbox{
-  float:left;
-  margin-left: 5px;
-  position: relative;
-}
-.editable-cell{
-  font-size: 16px;
-  font-style: italic;
-  margin-left: 5px;
-  display:inline-block;
-  
-}
-#buttonRemove{
- float:right;
- margin-right: 10px;
- background-color: rgb(177, 37, 37);
- border:#202221 1px solid;
 
+.btn-site {
+    margin-left: 3%;
+    width: 20px;
+    padding: 2px;
+    font-size: smaller;
 }
-.centredText{
- text-align: center;
+
+#checkbox {
+    float: left;
+    margin-left: 5px;
+    position: relative;
 }
-.overflow{
-  overflow-y: auto;
-  max-height: 80px;
-  position:relative;
+
+.editable-cell {
+    font-size: 16px;
+    font-style: italic;
+    margin-left: 5px;
+    display: inline-block;
 }
-.overflow input{
-  margin-left: 5px;
-  border:rgba(211, 202, 202, 0.521) 1px solid;
-  font-size: 16px;
-  font-style: italic;
+
+#buttonRemove {
+    float: right;
+    margin-right: 10px;
+    background-color: rgb(177, 37, 37);
+    border: #202221 1px solid;
 }
-.overflow input:focus{
-  margin-left: 5px;
-  border:rgba(211, 202, 202, 0.521) 1px solid !important;
-  font-size: 16px;
-  font-style: italic;
+
+.centredText {
+    text-align: center;
 }
+
+.overflow {
+    overflow-y: auto;
+    max-height: 80px;
+    position: relative;
+}
+
+.overflow input {
+    margin-left: 5px;
+    border: rgba(211, 202, 202, 0.521) 1px solid;
+    font-size: 16px;
+    font-style: italic;
+}
+
+.overflow input:focus {
+    margin-left: 5px;
+    border: rgba(211, 202, 202, 0.521) 1px solid !important;
+    font-size: 16px;
+    font-style: italic;
+}
+
 
 /* #btn-delete{
   float:right !important;
   bottom:9px !important;
 } */
+
+.cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+    opacity: 0;
+}
+
+.cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.example-box:last-child {
+    border: none;
+}
+
+.example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}

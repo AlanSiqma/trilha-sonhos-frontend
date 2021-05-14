@@ -7,6 +7,7 @@ import { AppComponent } from 'src/app/app.component';
 import { SonhosService } from '../../services/sonhos.service';
 import { SonhoDto } from 'src/app/models/sonhoDto';
 import { Trilha } from 'src/app/models/Trilhadto';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
 
 export interface DialogData {
@@ -161,7 +162,9 @@ export class RegisterDreamComponent implements OnInit {
   getIdStatus(){
     return this.formUser.get('status').value == true ? this.status.Realizado : this.status.Em_Progresso;
   }
-  
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.arayTrilha, event.previousIndex, event.currentIndex);
+  } 
   AdicionarTrilha(){   
     var descricaoTrilha = this.descricaoTrilha;
     if(descricaoTrilha != null && descricaoTrilha != "" && descricaoTrilha.length > 4){       
