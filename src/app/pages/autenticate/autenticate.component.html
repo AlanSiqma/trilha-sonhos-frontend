@@ -1,36 +1,35 @@
-<h1 mat-dialog-title  class="login extrabold inline titleRegister">
+<h1 mat-dialog-title class="login extrabold inline titleRegister">
     <span class="iconRightButton">
       <i class="fa fa-user-o fa-1x" aria-hidden="true"></i>
-    </span>
-    Login
-  </h1>
-  
-  <ng-template #register>
+    </span> Login
+</h1>
+
+<ng-template #register>
     <span>
       <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
     </span>
     <h1 mat-dialog-title class="extrabold inline titleRegister">Register</h1>
-  </ng-template>
-  
-  <div mat-dialog-content>
+</ng-template>
+
+<div mat-dialog-content>
     <form novalidate [formGroup]="formUser" style="width: 100%;" (ngSubmit)="onSubmit()">
-      <span *ngIf="isRegistrar">
+        <span *ngIf="isRegistrar">
         <mat-form-field class="fullWidth">
           <mat-label>Nome</mat-label>
           <input matInput formControlName="nome">
         </mat-form-field>
       </span>
-      <mat-form-field class="fullWidth">
-        <mat-label>Email</mat-label>
-        <input matInput formControlName="email" type="email">
-        <mat-error>Email incorret</mat-error>
-      </mat-form-field>
-      <mat-form-field class="fullWidth">
-        <mat-label>Senha</mat-label>
-        <input matInput type="password" formControlName="senha">
-        <mat-error>Minimum 6 characters</mat-error>
-      </mat-form-field>
-      <span *ngIf="isRegistrar">
+        <mat-form-field class="fullWidth">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" type="email">
+            <mat-error>Email incorret</mat-error>
+        </mat-form-field>
+        <mat-form-field class="fullWidth">
+            <mat-label>Senha</mat-label>
+            <input matInput type="password" formControlName="senha">
+            <mat-error>Minimum 6 characters</mat-error>
+        </mat-form-field>
+        <span *ngIf="isRegistrar">
         <mat-form-field class="fullWidth" *ngIf="isRegistrar">
           <mat-label>Confirmar senha</mat-label>
           <input matInput type="password" formControlName="confirm_password">
@@ -38,38 +37,33 @@
           <mat-error *ngIf="f.confirm_password.touched && f.confirm_password.invalid && f.confirm_password.errors.required">Campo obrigatório.</mat-error>
         </mat-form-field>
       </span>
-      <div style="margin-top: 12px">
-        <button *ngIf="!isRegistrar" mat-flat-button color="primary" class="buttons" (click)="Logar();">
+        <div style="margin-top: 12px">
+            <button *ngIf="!isRegistrar" mat-flat-button color="primary" class="buttons" (click)="Logar();">
           <span class="iconRightButton" *ngIf="!carregando" >
             <i class="fa fa-sign-in" aria-hidden="true"></i>
           </span>
           <i class="fa fa-spinner fa-spin" *ngIf="carregando" ></i>
           Login</button>
-      </div>
+        </div>
     </form>
-  </div>
-  
-  <span *ngIf="isRegistrar; else btLogar">
+</div>
+
+<span *ngIf="isRegistrar; else btLogar">
     <button mat-flat-button  (click)="Registrar()" color="primary" class="buttons" [disabled]="!formUser.valid">
       <span class="iconRightButton">
         <i class="fa fa-check-square-o" aria-hidden="true"></i>
-      </span>
-      Register
-    </button>
-    <div mat-dialog-actions >
-      <p (click)="AtualizarStatusRegistrar()" class="center link">back</p>
+      </span> Register
+</button>
+<div mat-dialog-actions>
+    <p (click)="AtualizarStatusRegistrar()" class="center link">back</p>
+</div>
+</span>
+
+<ng-template #btLogar>
+    <div class="buttons" (click)="RecuperarSenha()">
+        <p class="center link">Forgot your password?</p>
     </div>
-  </span>
-  
-  <ng-template #btLogar>
     <div class="buttons">
-      <p class="center link">Forgot your password?</p>
+        <p (click)="AtualizarStatusRegistrar()" class="center link">Novo no Before I Die? Crie sua conta gratuitamente aqui</p>
     </div>
-    <div class="buttons">
-      <p (click)="AtualizarStatusRegistrar()" class="center link">Novo no Before I Die?
-        Crie sua conta gratuitamente aqui</p>
-    </div>
-  </ng-template>
-  
-  
-  
+</ng-template>

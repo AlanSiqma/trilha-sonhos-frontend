@@ -28,7 +28,9 @@ import {DemoMaterialModule} from '../app/material-module';
 import {MatNativeDateModule} from '@angular/material/core';
 import { AutenticateComponent } from './pages/autenticate/autenticate.component';
 import {RegisterDreamComponent} from './pages/register-dream/register-dream.component';
-import { MotivationComponent } from './pages/motivation/motivation.component'
+import { MotivationComponent } from './pages/motivation/motivation.component';
+import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
+import { DialogForgotPasswordComponent } from './dialogs/dialog-forgot-password/dialog-forgot-password.component'
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { MotivationComponent } from './pages/motivation/motivation.component'
     DialogComponent,
     InitialPageComponent,
     AutenticateComponent,
-    MotivationComponent
+    MotivationComponent,
+    ForgotPasswordComponent,
+    DialogForgotPasswordComponent
   ],
   imports: [
     PickerModule,
