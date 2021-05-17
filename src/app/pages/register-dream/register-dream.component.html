@@ -50,9 +50,9 @@
                 </div>
                 <input [hidden]="editId !== item.Id" type="text" nz-input [(ngModel)]="item.Descricao" (blur)="stopEdit()" />
 
-                <button mat-icon-button color="warn" (click)="RemoveElement(item.Id)">
-          <mat-icon>delete</mat-icon>
-        </button>
+            <button mat-icon-button color="warn" (click)="RemoveElement(item.Id)">
+                <mat-icon>delete</mat-icon>
+            </button>
 
             </div>
         </div>

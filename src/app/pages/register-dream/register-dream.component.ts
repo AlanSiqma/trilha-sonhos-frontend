@@ -205,7 +205,10 @@ export class RegisterDreamComponent implements OnInit {
 
   }
   RemoveElement(id: string){
-    this.arayTrilha =this.arayTrilha.filter(d => d.Id !== id);
+
+    if(confirm('Tem certeza que deseja apagar este passo da trilha?')){
+      this.arayTrilha =this.arayTrilha.filter(d => d.Id !== id);
+    }
   }
 
   EditarSonho(){

@@ -1,0 +1,12 @@
+.dialog-ExibeSonho{
+    position:relative;
+}
+.dialog-ExibeSonho h1{
+    float:left;
+}
+.dialog-ExibeSonho button{
+    float:right;
+}
+div{
+    clear:both;
+}
