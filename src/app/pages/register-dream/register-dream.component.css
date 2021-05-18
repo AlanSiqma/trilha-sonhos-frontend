@@ -144,6 +144,13 @@
     cursor: pointer;
     text-align: left;
     float: right;
+    position:absolute;
+    right:20px;
+}
+.btn-personalize{
+    position:absolute;
+    right:-10px;
+    bottom:-8px;
 }
 
 input {

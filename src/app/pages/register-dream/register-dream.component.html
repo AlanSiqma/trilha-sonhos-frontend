@@ -9,6 +9,11 @@
         <mat-label>Eu quero...</mat-label>
         <input matInput type="text" formControlName="descricaoSonho" autocomplete="false">
         <button (click)="isEmojiPickerVisible = !isEmojiPickerVisible;" class="btn-emoji">😀</button>
+        <button mat-icon-button class="btn-personalize"  matTooltip="Personalizar">
+            <mat-icon>
+                <span class="material-icons-outlined">edit</span>
+            </mat-icon>
+        </button>
         <mat-error *ngIf="formUser.get('descricaoSonho').invalid">é necessário ao menos 6 digitos</mat-error>
     </mat-form-field>
     <emoji-mart [i18n]="{ search: 'Recherche', categories: { search: 'Résultats de recherche', recent: 'Récents' } }" class="emoji-mart" *ngIf="isEmojiPickerVisible" (emojiSelect)="addEmoji($event)" title="Choose your emoji"></emoji-mart>
