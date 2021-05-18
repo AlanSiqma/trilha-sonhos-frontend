@@ -85,9 +85,16 @@
             </span>
           </a>       
       </div>
+   
       <div class="item-full-screen">
-        <div class="item b">
-          <h4>Basic native select</h4>
+      
+        <div class="itens_nav">
+          <button mat-mini-fab color="primary"  matTooltip="Modelos de Trilha">
+            <mat-icon>
+                <span class="material-icons-outlined" >post_add</span>
+            </mat-icon>
+        </button>
+          <!-- <h4>Basic native select</h4> (removido)-->
           <mat-form-field appearance="fill">
             <mat-label>Tema</mat-label>
             <mat-select (selectionChange)="alterarTema($event.value)">
@@ -99,6 +106,7 @@
               <mat-option value="fundo-realista-2.jpg">Realistic Wall 2</mat-option>          
             </mat-select>
           </mat-form-field>
+     
           <span class="subTitle link-1" (click)="IrParaMeusSonhos();">
             Meus Sonhos</span>
         </div>
@@ -123,6 +131,7 @@
             <mat-icon>menu</mat-icon>
           </button>
       </div>
+   
     </section>
   </ng-template>
 </div>

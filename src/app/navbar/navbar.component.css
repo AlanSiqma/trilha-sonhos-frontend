@@ -161,6 +161,7 @@ p{
     text-align: left;
     align-self: center;
     padding-left: 16px;
+   
   }
 
 }
@@ -170,7 +171,27 @@ p{
 	/* margin: 3px; */
 	/* text-align: center; */
   font-size: 12px;
+  
 }
+/* -----------Div de itens no menu , distribuição e alinhamento----- */
+.itens_nav{
+ 
+  grid-area: b;
+  padding-left: 16px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+ 
+}
+
+.itens_nav button, .itens_nav span{
+  margin: 0px 20px 0px 20px;
+}
+.itens_nav button span{
+  margin:0;
+}
+/* -----fim itens do menu---- */
 
 .title{
   color: rgb(36, 36, 36);
