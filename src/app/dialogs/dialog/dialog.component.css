@@ -13,3 +13,47 @@ div{
 .btn-report{
     margin-left: auto !important;
 }
+/* --------- alterando cor de elemento Angular ------------ */
+.mat-report{
+    color: #ffbf00;
+}
+.div-sonho{
+    margin-top: 20px;
+}
+.div-sonho p{
+    text-align: center;
+    font-size: larger;
+    font-family: cursive;
+    margin: 10px 0 40px 0;
+}
+.fullWidth-trilha {
+    position: relative;
+    width: 95%;
+    border: 1px dashed rgba(211, 202, 202, 0.521);
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-inline: auto;
+    padding: 0 10px 0 10px;
+}
+h1{
+    font-size: x-large;
+    margin: 5px 0 5px 0;
+    font-weight: bold;
+    font-variant: traditional;
+    text-transform: capitalize;
+    color: #1f367c;
+}
+h2 {
+    font-size: x-large;
+    margin: 0px 0 10px 0;
+    margin-left: 45%;
+    font-weight: bold;
+    font-variant: all-petite-caps;
+    color: #808080;
+}
+.overflow {
+    overflow-y: auto;
+    max-height: 220px;
+    position: relative;
+}

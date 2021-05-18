@@ -9,20 +9,22 @@
 </button>
 </div>
 <div mat-dialog-content>
-  <div>
-    <h2>Sonho:</h2>
-    {{sonho.descricaoSonho}}
+  <div class="div-sonho">
+    <h2>Sonho</h2>
+    <p>{{sonho.descricaoSonho}}</p>
   </div>
-  <div *ngIf="sonho.HaTrilha">
-    <h2>Trilha:</h2>
+  <div *ngIf="sonho.HaTrilha" class="fullWidth-trilha">
+    <h2>Trilha</h2>
+    <div class="overflow">
     <div *ngFor="let item of sonho.trilha">
       <p>{{item.descricao}}</p> 
     </div>
   </div>
+  </div>
 </div>
 <div mat-dialog-actions>
-  <button mat-button mat-dialog-close>Fechar</button>
-  <button mat-icon-button color="warn" class="btn-report" matTooltip="Denunciar sonho">
+  <button mat-stroked-button mat-dialog-close>Fechar</button>
+  <button mat-icon-button color="report" class="btn-report" matTooltip="Denunciar sonho">
     <mat-icon>
       <span class="material-icons-outlined">report</span>
     </mat-icon>
