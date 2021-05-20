@@ -17,27 +17,32 @@ div{
 .mat-report{
     color: #ffbf00;
 }
+.mat-itens{
+    color: #808080;
+}
 .div-sonho{
     margin-top: 20px;
+    overflow: hidden;
 }
 .div-sonho p{
     text-align: center;
     font-size: larger;
-    font-family: cursive;
-    margin: 10px 0 40px 0;
+    font-weight: bold;
+    margin: 10px 0 30px 0;
+    font-family: 'Roboto';
 }
 .fullWidth-trilha {
     position: relative;
     width: 95%;
-    border: 1px dashed rgba(211, 202, 202, 0.521);
-    border-radius: 10px;
+    /* border: 1px dashed rgba(211, 202, 202, 0.521);
+    border-radius: 10px; */
     margin-top: 20px;
     margin-left: auto;
     margin-inline: auto;
     padding: 0 10px 0 10px;
 }
 h1{
-    font-size: x-large;
+    font-size: small;
     margin: 5px 0 5px 0;
     font-weight: bold;
     font-variant: traditional;
@@ -45,15 +50,42 @@ h1{
     color: #1f367c;
 }
 h2 {
-    font-size: x-large;
-    margin: 0px 0 10px 0;
+    font-size: large;
+    margin: 5px 0 10px 0;
     margin-left: 45%;
     font-weight: bold;
     font-variant: all-petite-caps;
     color: #808080;
 }
+hr{
+    margin-top:10px;
+    margin-bottom: -10px;
+    border-color: rgba(0, 128, 128, 0.137);
+    
+}
 .overflow {
     overflow-y: auto;
     max-height: 220px;
     position: relative;
+}
+div ::-webkit-scrollbar{
+    width: 12px;
+    
+    
+}
+div ::-webkit-scrollbar-track{
+    border-radius: 20px;
+     background: rgba(74, 125, 219, 0.473);
+}
+div ::-webkit-scrollbar-thumb{
+    border-radius: 20px;
+    background: rgb(43, 59, 153);
+}
+.dialog-itens{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.span-itens{
+    vertical-align: -webkit-baseline-middle;
 }

@@ -17,3 +17,4 @@ export class DialogComponent implements OnInit {
   }
 
 }
+export class MenuIconsExample {}
