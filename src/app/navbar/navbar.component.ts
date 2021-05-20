@@ -77,5 +77,11 @@ export class NavbarComponent implements OnInit {
   alterarTema(event ){
     this.myEvent.emit({tipo: 'Alterar-Tema',tema:event});
   }
+  EmDesenvolvimento(){
+
+    alert('\n[Futura Funcionalidade] \nEstamos trabalhando em seu desenvolvimento. \nEm breve, ela será liberada.\n:) Obrigado.')
+     
+    }
 }
+export class MenuIconsExample {}
 

@@ -18,7 +18,7 @@
         </span>
     </div>
     <div class="grdPhoto item-minimal-screen grdPhoto-minimal-screen">
-      <button mat-icon-button color="primary" (click)="drawer.toggle()" aria-label="Example icon button with a menu icon">
+      <button mat-icon-button color="warn" (click)="drawer.toggle()" aria-label="Example icon button with a menu icon">
         <mat-icon>menu</mat-icon>
       </button>
     </div>
@@ -89,11 +89,28 @@
       <div class="item-full-screen">
       
         <div class="itens_nav">
-          <button mat-mini-fab color="primary"  matTooltip="Modelos de Trilha">
-            <mat-icon>
-                <span class="material-icons-outlined" >post_add</span>
-            </mat-icon>
-        </button>
+
+
+          <button mat-mini-fab color="primary" [matMenuTriggerFor]="menu" matTooltip="Modelos de Trilha">
+            <mat-icon>list_alt</mat-icon>
+          </button>
+
+          <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="EmDesenvolvimento()">
+                  <mat-icon>
+                      <span class="material-icons-outlined">post_add</span>
+                  </mat-icon>
+                  <span>Criar Trilha</span>
+                </button>
+        
+                <button mat-menu-item (click)="EmDesenvolvimento()">
+                  <mat-icon>
+                    <span class="material-icons-outlined">list_alt</span>
+                  </mat-icon>
+                  <span>Ver Trilhas</span>
+                </button>
+        </mat-menu>
+
           <!-- <h4>Basic native select</h4> (removido)-->
           <mat-form-field appearance="fill">
             <mat-label>Tema</mat-label>
