@@ -27,9 +27,10 @@
   <mat-drawer #drawer [mode]="mode.value" class="item-minimal-screen">
     <div class="menu">
       <div *ngIf="isLogged">
-        <span class="subTitle link-1" (click)="IrParaMeusSonhos();drawer.toggle();">
+         <span class="subTitle link-1" (click)="IrParaMeusSonhos();drawer.toggle();">
           Meus Sonhos</span>
       </div>
+
       <div *ngIf="isLogged">
         <mat-form-field appearance="fill">
           <mat-label>Tema</mat-label>
@@ -111,9 +112,17 @@
                 </button>
         </mat-menu>
 
+        <button mat-mini-fab color="primary" (click)="IrParaMeusSonhos();" matTooltip="Meus Sonhos">
+          <mat-icon>
+            <span class="material-icons-outlined">filter_drama</span>
+          </mat-icon>
+          <!-- <span > Meus Sonhos</span> -->
+          </button>
           <!-- <h4>Basic native select</h4> (removido)-->
-          <mat-form-field appearance="fill">
+          <mat-form-field class="tema-select" appearance="outline" >
+
             <mat-label>Tema</mat-label>
+            
             <mat-select (selectionChange)="alterarTema($event.value)">
               <mat-option value="fundo-cinza-2.jpg">Balloon Girl</mat-option>
               <mat-option value="fundo-cinza.jpg">Floating Love</mat-option>
@@ -124,8 +133,9 @@
             </mat-select>
           </mat-form-field>
      
-          <span class="subTitle link-1" (click)="IrParaMeusSonhos();">
-            Meus Sonhos</span>
+
+          <!-- <span class="subTitle link-1" (click)="IrParaMeusSonhos();">
+            Meus Sonhos</span> -->
         </div>
       </div>
       <div class="item grdPhoto item-full-screen">

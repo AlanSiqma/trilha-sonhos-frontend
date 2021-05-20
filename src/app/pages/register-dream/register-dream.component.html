@@ -9,7 +9,7 @@
         <mat-label>Eu quero...</mat-label>
         <input matInput type="text" formControlName="descricaoSonho" autocomplete="false">
         <button (click)="isEmojiPickerVisible = !isEmojiPickerVisible;" class="btn-emoji">😀</button>
-        <button mat-icon-button color="primary" class="btn-personalize"  matTooltip="Personalizar">
+        <button mat-icon-button color="primary" class="btn-personalize" (click)="EmDesenvolvimento()" matTooltip="Personalizar">
             <mat-icon>
                 <span class="material-icons-outlined">edit</span>
             </mat-icon>
