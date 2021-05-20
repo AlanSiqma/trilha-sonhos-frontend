@@ -7,7 +7,7 @@
 </button>
 
 <mat-menu #menu="matMenu">
-  <button mat-menu-item >
+  <button mat-menu-item (click)="EmDesenvolvimento()" >
     <mat-icon>
       <span class="material-icons-outlined">report</span>
     </mat-icon>
@@ -35,14 +35,14 @@
 <hr>
 <div mat-dialog-actions class="dialog-itens">
  
-  <button mat-flat-button color="itens" matTooltip="Apoiar">
+  <button mat-flat-button color="itens" (click)="EmDesenvolvimento()">
   <mat-icon>
     <span class="material-icons-outlined">thumb_up</span>
   </mat-icon>
   <span > Curtir</span>
   </button>
 
-  <button mat-flat-button color="itens" matTooltip="Apoiar">
+  <button mat-flat-button color="itens" (click)="EmDesenvolvimento()">
     <mat-icon>
       <span class="material-icons-outlined">volunteer_activism</span>
     </mat-icon>
@@ -50,7 +50,7 @@
   </button>
   
   
-  <button mat-flat-button color="itens" matTooltip="Compartilhar">
+  <button mat-flat-button color="itens" (click)="EmDesenvolvimento()">
     <mat-icon>
       <span class="material-icons-outlined">upload</span>
     </mat-icon>
