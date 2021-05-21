@@ -90,10 +90,17 @@
       <div class="item-full-screen">
       
         <div class="itens_nav">
+          
+          <button mat-mini-fab color="btn-menu" matTooltip="Home" (click)="IrParaHome()">
+            <mat-icon>
+            home
+            </mat-icon>
+          </button>
 
-
-          <button mat-mini-fab color="primary" [matMenuTriggerFor]="menu" matTooltip="Modelos de Trilha">
-            <mat-icon>list_alt</mat-icon>
+          <button mat-mini-fab color="btn-menu" [matMenuTriggerFor]="menu" matTooltip="Modelos de Trilha">
+            <mat-icon>
+              <span class="material-icons-outlined">list_alt</span>
+            </mat-icon>
           </button>
 
           <mat-menu #menu="matMenu">
@@ -112,7 +119,7 @@
                 </button>
         </mat-menu>
 
-        <button mat-mini-fab color="primary" (click)="IrParaMeusSonhos();" matTooltip="Meus Sonhos">
+        <button mat-mini-fab color="btn-menu" (click)="IrParaMeusSonhos();" matTooltip="Meus Sonhos">
           <mat-icon>
             <span class="material-icons-outlined">filter_drama</span>
           </mat-icon>

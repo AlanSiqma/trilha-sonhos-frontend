@@ -189,15 +189,31 @@ p{
   display: flex;
   justify-content: flex-end;
   align-items: center;
- 
+}
+/* .itens_nav span{
+  border: 1px solid red;
+  } */
+.mat-btn-menu{
+  color: #808080;;
+  border: 2px solid #808080;
+  border-color: #808080;
+}
+.itens_nav button, .itens_nav span{
+  margin: 0px 40px 0px 0px;
+}
+.itens_nav button:hover{
+  color: #253ca1;
+  border-color: #253ca1;
+}
+.itens_nav button:active{
+  color: #253ca1;
+  border-color: #253ca1;
 }
 
-.itens_nav button, .itens_nav span{
-  margin: 0px 20px 0px 20px;
-}
 .itens_nav button span{
   margin:0;
-}
+  padding: 0;
+} 
 /* -----fim itens do menu---- */
 
 .title{
