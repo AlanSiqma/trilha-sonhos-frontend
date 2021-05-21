@@ -225,4 +225,9 @@ export class RegisterDreamComponent implements OnInit {
         }
       );
   }
+  EmDesenvolvimento(){
+
+    alert('\n[Futura Funcionalidade] \nEstamos trabalhando em seu desenvolvimento. \nEm breve, ela será liberada.\n:) Obrigado.')
+     
+    }
 }

@@ -15,5 +15,11 @@ export class DialogComponent implements OnInit {
    }
   ngOnInit(): void {
   }
+ 
+  EmDesenvolvimento(){
 
+    alert('\n[Futura Funcionalidade] \nEstamos trabalhando em seu desenvolvimento. \nEm breve, ela será liberada.\n:) Obrigado.')
+     
+    }
 }
+export class MenuIconsExample {}

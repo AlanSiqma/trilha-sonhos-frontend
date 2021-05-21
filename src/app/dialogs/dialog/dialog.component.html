@@ -2,18 +2,28 @@
 <h1 mat-dialog-title>
     {{sonho.nomeSonhador}}
 </h1>
-<button mat-mini-fab color="primary" matTooltip="Oferecer ajuda">
-  <mat-icon>
-    <span class="material-icons-outlined">volunteer_activism</span>
-  </mat-icon>
+<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+  <mat-icon>more_vert</mat-icon>
 </button>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="EmDesenvolvimento()" >
+    <mat-icon>
+      <span class="material-icons-outlined">report</span>
+    </mat-icon>
+    <span>Denunciar</span>
+  </button>
+</mat-menu>
 </div>
+
 <div mat-dialog-content>
   <div class="div-sonho">
     <h2>Sonho</h2>
     <p>{{sonho.descricaoSonho}}</p>
   </div>
+  
   <div *ngIf="sonho.HaTrilha" class="fullWidth-trilha">
+    <hr>
     <h2>Trilha</h2>
     <div class="overflow">
     <div *ngFor="let item of sonho.trilha">
@@ -22,11 +32,31 @@
   </div>
   </div>
 </div>
-<div mat-dialog-actions>
-  <button mat-stroked-button mat-dialog-close>Fechar</button>
-  <button mat-icon-button color="report" class="btn-report" matTooltip="Denunciar sonho">
-    <mat-icon>
-      <span class="material-icons-outlined">report</span>
-    </mat-icon>
+<hr>
+<div mat-dialog-actions class="dialog-itens">
+ 
+  <button mat-flat-button color="itens" (click)="EmDesenvolvimento()">
+  <mat-icon>
+    <span class="material-icons-outlined">thumb_up</span>
+  </mat-icon>
+  <span > Curtir</span>
   </button>
+
+  <button mat-flat-button color="itens" (click)="EmDesenvolvimento()">
+    <mat-icon>
+      <span class="material-icons-outlined">volunteer_activism</span>
+    </mat-icon>
+    <span class="span-itens"> Oferecer Ajuda</span>
+  </button>
+  
+  
+  <button mat-flat-button color="itens" (click)="EmDesenvolvimento()">
+    <mat-icon>
+      <span class="material-icons-outlined">upload</span>
+    </mat-icon>
+    <span >Compartilhar</span>
+  </button>
+  
+  <!-- <button mat-stroked-button mat-dialog-close>Fechar</button> -->
+
 </div>

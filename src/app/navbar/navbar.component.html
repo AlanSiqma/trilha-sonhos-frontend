@@ -18,7 +18,7 @@
         </span>
     </div>
     <div class="grdPhoto item-minimal-screen grdPhoto-minimal-screen">
-      <button mat-icon-button color="primary" (click)="drawer.toggle()" aria-label="Example icon button with a menu icon">
+      <button mat-icon-button color="warn" (click)="drawer.toggle()" aria-label="Example icon button with a menu icon">
         <mat-icon>menu</mat-icon>
       </button>
     </div>
@@ -27,9 +27,10 @@
   <mat-drawer #drawer [mode]="mode.value" class="item-minimal-screen">
     <div class="menu">
       <div *ngIf="isLogged">
-        <span class="subTitle link-1" (click)="IrParaMeusSonhos();drawer.toggle();">
+         <span class="subTitle link-1" (click)="IrParaMeusSonhos();drawer.toggle();">
           Meus Sonhos</span>
       </div>
+
       <div *ngIf="isLogged">
         <mat-form-field appearance="fill">
           <mat-label>Tema</mat-label>
@@ -89,14 +90,39 @@
       <div class="item-full-screen">
       
         <div class="itens_nav">
-          <button mat-mini-fab color="primary"  matTooltip="Modelos de Trilha">
-            <mat-icon>
-                <span class="material-icons-outlined" >post_add</span>
-            </mat-icon>
-        </button>
+
+
+          <button mat-mini-fab color="primary" [matMenuTriggerFor]="menu" matTooltip="Modelos de Trilha">
+            <mat-icon>list_alt</mat-icon>
+          </button>
+
+          <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="EmDesenvolvimento()">
+                  <mat-icon>
+                      <span class="material-icons-outlined">post_add</span>
+                  </mat-icon>
+                  <span>Criar Trilha</span>
+                </button>
+        
+                <button mat-menu-item (click)="EmDesenvolvimento()">
+                  <mat-icon>
+                    <span class="material-icons-outlined">list_alt</span>
+                  </mat-icon>
+                  <span>Ver Trilhas</span>
+                </button>
+        </mat-menu>
+
+        <button mat-mini-fab color="primary" (click)="IrParaMeusSonhos();" matTooltip="Meus Sonhos">
+          <mat-icon>
+            <span class="material-icons-outlined">filter_drama</span>
+          </mat-icon>
+          <!-- <span > Meus Sonhos</span> -->
+          </button>
           <!-- <h4>Basic native select</h4> (removido)-->
-          <mat-form-field appearance="fill">
+          <mat-form-field class="tema-select" appearance="outline" >
+
             <mat-label>Tema</mat-label>
+            
             <mat-select (selectionChange)="alterarTema($event.value)">
               <mat-option value="fundo-cinza-2.jpg">Balloon Girl</mat-option>
               <mat-option value="fundo-cinza.jpg">Floating Love</mat-option>
@@ -107,8 +133,9 @@
             </mat-select>
           </mat-form-field>
      
-          <span class="subTitle link-1" (click)="IrParaMeusSonhos();">
-            Meus Sonhos</span>
+
+          <!-- <span class="subTitle link-1" (click)="IrParaMeusSonhos();">
+            Meus Sonhos</span> -->
         </div>
       </div>
       <div class="item grdPhoto item-full-screen">
