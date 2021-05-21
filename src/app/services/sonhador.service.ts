@@ -7,7 +7,8 @@ import { SonhadorDto } from 'src/app/models/sonhadorDto';
 import { AlterarSonhadorDto } from 'src/app/models/alterarSonhadorDto';
 import { sonhadorLocal } from 'src/app/models/sonhadorLocal';
 import { AlteracaoSenhaDto } from '../models/alteracaoSenhaDto';
-
+import { ValidarTokenDto } from '../models/ValidarTokenDto';
+import { SolicitarAlteraracaoSenhaDto } from '../models/SolicitarAlteraracaoSenhaDto';
 const apiUrl = environment;
 
 @Injectable({
@@ -76,6 +77,10 @@ export class SonhadorService {
       );
   }
 
+  validarToken(data: ValidarTokenDto): Observable<any> {
+    return this.httpClient.put(`${apiUrl.apiBase}/${apiUrl.validarToken}`, data);
+  }
+
   alterar(data: SonhadorDto): Observable<any> {
     return this.httpClient.put(`${apiUrl.apiBase}/${apiUrl.alterarConta}`, data);
   }
@@ -85,6 +90,9 @@ export class SonhadorService {
 
   solicitarAlteracaoSenhaSonhador(data: AlteracaoSenhaDto): Observable<any> {
     return this.httpClient.put(`${apiUrl.apiBase}/${apiUrl.soliitarAlteracaoSenha}`, data);
+  }
+  alteracaoSenhaSonhador(data: SolicitarAlteraracaoSenhaDto): Observable<any> {
+    return this.httpClient.put(`${apiUrl.apiBase}/${apiUrl.alterarSenha}`, data);
   }
 
   apagar(id): Observable<any> {

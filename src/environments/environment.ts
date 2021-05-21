@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   // apiBase:"http://localhost:1080/api",
-  apiBase: "https://localhost:5001/api",
+  apiBase: "https://localhost:44332/api",
 
   // Sonho
   listarSonhos: 'sonho',
@@ -22,6 +22,8 @@ export const environment = {
   entrar: 'sonhador/entrar',
   registrar: 'sonhador/nova-conta',
   alterarConta: 'sonhador/alterar-conta',
+  validarToken: 'sonhador/validar-token',
+  alterarSenha: 'sonhador/alterar-senha',
   soliitarAlteracaoSenha: 'sonhador/solicitar-alteracao-senha',
   deletarSonhador: 'sonhador/',
 
