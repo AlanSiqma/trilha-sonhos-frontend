@@ -29,7 +29,8 @@ export class DialogDefaultComponent implements OnInit {
             this.solicitarAlteraracaoSenha = {
               Email: result.email,
               ConfirmationPassword: "",
-              Password: ""
+              Password: "",
+              Token: this.actRoute.snapshot.params.tokenId
             }
             console.log(this.solicitarAlteraracaoSenha);
             this.openDialog();

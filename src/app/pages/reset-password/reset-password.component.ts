@@ -24,7 +24,7 @@ export class ResetPasswordComponent implements OnInit {
 
     this.formResetPassword = fb.group(
       {
-        email: [this.data.solicitarAlteraracaoSenhaDto.Email, [Validators.required, Validators.email]],
+        email: [{ value: this.data.solicitarAlteraracaoSenhaDto.Email, disabled: true }, [Validators.required, Validators.email]],
         password: ['', [Validators.required, Validators.minLength(6)]],
         confirmationPassword: ['', [Validators.required]]
       },
@@ -38,28 +38,29 @@ export class ResetPasswordComponent implements OnInit {
   }
   AlterarSenha() {
     if (this.formResetPassword.valid) {
-      let dto:SolicitarAlteraracaoSenhaDto ={
-        Email:this.data.solicitarAlteraracaoSenhaDto.Email,
+      let dto: SolicitarAlteraracaoSenhaDto = {
+        Email: this.data.solicitarAlteraracaoSenhaDto.Email,
         Password: this.formResetPassword.get('password').value,
-        ConfirmationPassword: this.formResetPassword.get('confirmationPassword').value
+        ConfirmationPassword: this.formResetPassword.get('confirmationPassword').value,
+        Token: this.data.solicitarAlteraracaoSenhaDto.Token
       }
       this.sonhadorService.alteracaoSenhaSonhador(dto)
-                          .subscribe(
-                                (sucess) => { 
-                                  console.log(sucess);
-                                  this.util.AlertSnack('Reset realizado', 'Tente se logar!');
-                                  this.Redirecionamento();
-                                   
-                                }, 
-                                (error) => { 
-                                  this.util.AlertSnack('Erro ao alterar a senha', 'Tente mais tarde!');
-                                  this.Redirecionamento();
-                                });    
+        .subscribe(
+          (sucess) => {
+            console.log(sucess);
+            this.util.AlertSnack('Reset realizado', 'Tente se logar!');
+            this.Redirecionamento();
+
+          },
+          (error) => {
+            this.util.AlertSnack('Erro ao alterar a senha', 'Tente mais tarde!');
+            this.Redirecionamento();
+          });
     }
   }
-  Redirecionamento(){
-     setTimeout(()=>{
-                     window.location.href = './';
-                }, 1000);
+  Redirecionamento() {
+    setTimeout(() => {
+      window.location.href = './';
+    }, 1000);
   }
 }
