@@ -25,14 +25,16 @@ export class DialogDefaultComponent implements OnInit {
     this.sonhadorService.validarToken(token)
       .subscribe(
         (result) => {
-          if (result.Email = ! "") {
+          if (result.email !== "") {
             this.solicitarAlteraracaoSenha = {
               Email: result.email,
               ConfirmationPassword: "",
               Password: ""
             }
+            console.log(this.solicitarAlteraracaoSenha);
             this.openDialog();
-          } else {
+          }
+          else {
             this.util.AlertSnack("token invalido", 'Erro');
             window.location.href = './';
           }
