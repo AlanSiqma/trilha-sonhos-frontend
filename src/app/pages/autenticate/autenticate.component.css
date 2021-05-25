@@ -6,7 +6,9 @@
     width: 100%;
     margin-top: 10px;
   }
-  
+  p{
+    text-align: center;
+  }
   
   
   .link:hover{
