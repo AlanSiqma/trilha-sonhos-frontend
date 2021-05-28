@@ -28,6 +28,7 @@ export class RegisterDreamComponent implements OnInit {
   formUser: FormGroup;
   idSonhoDestaque;
   editId: string | null = null;
+  descricaoFake: string | null = null;
   public isEmojiPickerVisible: boolean;
   @Output() registerEvent = new EventEmitter();
   arayTrilha: Trilha[] = [];
@@ -77,10 +78,15 @@ export class RegisterDreamComponent implements OnInit {
     else
       this.btRealizar = false;
   }
-  startEdit(id: string): void {
+  startEdit(id: string, descricaoFake: string): void {
     this.editId = id;
+    this.descricaoFake = descricaoFake;
   }
-  stopEdit(): void {
+  stopEdit(item): void {
+    if (item.Descricao.trim() == "") {
+      item.Descricao = this.descricaoFake;
+      this.descricaoFake = null;
+    }
     this.editId = null;
   }
   PopularForm(model) {
@@ -225,9 +231,9 @@ export class RegisterDreamComponent implements OnInit {
         }
       );
   }
-  EmDesenvolvimento(){
+  EmDesenvolvimento() {
 
     alert('\n[Futura Funcionalidade] \nEstamos trabalhando em seu desenvolvimento. \nEm breve, ela será liberada.\n:) Obrigado.')
-     
-    }
+
+  }
 }

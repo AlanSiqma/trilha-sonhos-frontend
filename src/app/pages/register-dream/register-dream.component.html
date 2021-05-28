@@ -1,4 +1,4 @@
- <!-- <section class="grid grid-template-areas-1">
+<!-- <section class="grid grid-template-areas-1">
      <div class="item b"><img src="../assets/logo-bfd-2.png" class="circleImg"></div> 
 </section>  -->
 <div class="item a" style="color:#282d6c"><span>Registro de Sonho</span></div>
@@ -48,21 +48,23 @@
     <div class="overflow" cdkDropList (cdkDropListDropped)="drop($event)">
         <div #div *ngFor="let item of arayTrilha" cdkDrag>
             <div>
-
                 <mat-checkbox color="primary" [(ngModel)]="item.Valor"></mat-checkbox>
-                <div class="editable-cell" *ngIf="editId!==item.Id" (click)="startEdit(item.Id)">
+                <div class="editable-cell" *ngIf="editId!==item.Id" (click)="startEdit(item.Id,item.Descricao)">
                     {{item.Descricao}}
                 </div>
-                <input [hidden]="editId !== item.Id" type="text" nz-input [(ngModel)]="item.Descricao" (blur)="stopEdit()" />
-
-            <button mat-icon-button color="warn" (click)="RemoveElement(item.Id)">
-                <mat-icon>delete</mat-icon>
-            </button>
-
+                <input type="text" [hidden]="editId !== item.Id" [(ngModel)]="item.Descricao" nz-input (blur)="stopEdit(item)" minlength="1" />
+                <!-- <div [hidden]="editId !== item.Id">
+                    <mat-form-field>
+                        <mat-label>Descricao</mat-label>
+                        <textarea matInput (blur)="stopEdit(item)" [(ngModel)]="item.Descricao" cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5"></textarea>
+                    </mat-form-field>
+                </div> -->
+                <button mat-icon-button color="warn" (click)="RemoveElement(item.Id)">
+                    <mat-icon>delete</mat-icon>
+                </button>
             </div>
         </div>
     </div>
-
 </div>
 <!-- <div mat-dialog-actions class="buttons"> -->
 <div class="buttons">
