@@ -23,6 +23,7 @@ grid-template-rows: minmax(100px, auto) minmax(100px, auto) minmax(100px, auto) 
 grid-auto-rows: auto;
 grid-auto-flow: column;
 grid-auto-columns: 350px;
+border: 1px red solid;
 }
 
 @media only screen and (max-height: 550px) {

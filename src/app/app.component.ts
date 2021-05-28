@@ -231,8 +231,8 @@ export class AppComponent implements OnInit {
 
   openRegistrarSonho(sonho = null): void {
     const dialogRef = this.dialog.open(DialogRegisterDreamComponent, {
-      width: '500px',
-      height: '500px',
+      width: '600px',
+      height: '600px',
 
       data: sonho
     });

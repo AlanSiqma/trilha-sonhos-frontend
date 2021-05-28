@@ -1,3 +1,6 @@
+dialog{
+border: 1px red solid;
+}
 .extrabold {
     font-weight: 520;
 }
@@ -50,7 +53,7 @@
     border-radius: 10px;
     margin-top: 20px;
     margin-left: auto;
-    max-height: 180px;
+    /* max-height: 180px; */
     margin-inline: auto;
     padding: 0 10px 0 10px;
 }
@@ -194,7 +197,7 @@ input {
 
 .overflow {
     overflow-y: auto;
-    max-height: 80px;
+    max-height: 220px;
     position: relative;
 }
 
@@ -211,7 +214,19 @@ input {
     font-size: 16px;
     font-style: italic;
 }
-
+div ::-webkit-scrollbar{
+    width: 12px;
+    
+    
+}
+div ::-webkit-scrollbar-track{
+    border-radius: 20px;
+     background: rgba(74, 125, 219, 0.473);
+}
+div ::-webkit-scrollbar-thumb{
+    border-radius: 20px;
+    background: rgb(43, 59, 153);
+}
 
 /* #btn-delete{
   float:right !important;
