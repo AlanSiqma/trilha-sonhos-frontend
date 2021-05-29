@@ -1,5 +1,6 @@
 .dialog-ExibeSonho{
     position:relative;
+    max-height: 600px;
 }
 .dialog-ExibeSonho h1{
     float:left;
