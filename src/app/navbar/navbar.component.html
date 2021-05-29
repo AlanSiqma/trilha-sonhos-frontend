@@ -23,16 +23,44 @@
       </button>
     </div>
   </section>
-
+<!--  ------------------Nav Mobile--------------------- -->
   <mat-drawer #drawer [mode]="mode.value" class="item-minimal-screen">
     <div class="menu">
-      <div *ngIf="isLogged">
-         <span class="subTitle link-1" (click)="IrParaMeusSonhos();drawer.toggle();">
-          Meus Sonhos</span>
-      </div>
+      <div class="nav-mobile-perfil">
+        <img class="foto-perfil-mob" [src]="user.photo">
+      <span class="usName" >
+      {{user.name}}
+      </span>
+         
+      </div>  
+    <hr> 
+    
+
 
       <div *ngIf="isLogged">
-        <mat-form-field appearance="fill">
+        <div class="nav-mobile-interacao">
+          <button mat-flat-button color="btn-menu-mob" (click)="IrParaMeusSonhos()" (blur)="close()">
+            <mat-icon>
+              <span class="material-icons-outlined">filter_drama</span>
+            </mat-icon>
+            <span >&nbsp; Meus Sonhos</span>
+            </button>
+            <button mat-flat-button color="btn-menu-mob" (click)="EmDesenvolvimento()">
+              <mat-icon>
+                <span class="material-icons-outlined">list_alt</span>
+              </mat-icon>
+              <span >&nbsp; Ver Trilhas</span>
+            </button>
+            <button mat-flat-button color="btn-menu-mob" (click)="EmDesenvolvimento()">
+                <mat-icon>
+                  <span class="material-icons-outlined">post_add</span>
+                </mat-icon>
+                <span >&nbsp; Adicionar Trilha</span>
+            </button>
+     
+     
+      <div *ngIf="isLogged">
+        <mat-form-field class="tema-select" appearance="outline">
           <mat-label>Tema</mat-label>
           <mat-select (selectionChange)="alterarTema($event.value);drawer.toggle()">
             <mat-option value="fundo-cinza-2.jpg">Balloon Girl</mat-option>
@@ -44,6 +72,9 @@
           </mat-select>
         </mat-form-field>
       </div>
+      </div>
+    </div>
+      <hr>
       <div>
         <a href="https://forms.gle/A3afNJSrLFxCNRh78" target="_blank" class="byttons"  mat-flat-button color="warn" (click)="drawer.toggle()">
           Feedback

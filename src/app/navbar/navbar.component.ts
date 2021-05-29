@@ -65,6 +65,7 @@ export class NavbarComponent implements OnInit {
 
   IrParaMeusSonhos(){
     this.myEvent.emit({tipo: 'MeusSonhos'});
+  
   }
 
   IrParaHome(){
