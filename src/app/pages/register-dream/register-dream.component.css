@@ -213,11 +213,12 @@ input {
     font-style: italic;
 }
 div ::-webkit-scrollbar{
-    width: 12px;
+    width: 20px;
     
     
 }
 div ::-webkit-scrollbar-track{
+    
     border-radius: 20px;
      background: rgba(74, 125, 219, 0.473);
 }

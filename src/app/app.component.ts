@@ -204,7 +204,7 @@ export class AppComponent implements OnInit {
         }
       );
   }
-
+/*Visualizar sonho registrado DIALOG*/
   abrirSonho(sonho) {
 
     if (sonho != null) {
@@ -220,7 +220,7 @@ export class AppComponent implements OnInit {
                 HaTrilha: sonho.trilha.length > 0
               }
 
-              this.dialog.open(DialogComponent, { width: '500px', data: JSON.stringify(dataModel) });
+              this.dialog.open(DialogComponent, {maxWidth: "98vw", width: '600px', data: JSON.stringify(dataModel) });
             }
           },
           error => this.util.AlertSnack('Não foi possível abrir o sonho.', 'Erro...')
@@ -231,6 +231,8 @@ export class AppComponent implements OnInit {
 /*Janela de Registro de Sonho*/
   openRegistrarSonho(sonho = null): void {
     const dialogRef = this.dialog.open(DialogRegisterDreamComponent, {
+      maxHeight:'148vw',
+      maxWidth: "98vw",
       width: '700px',
       height: '600px',
 
