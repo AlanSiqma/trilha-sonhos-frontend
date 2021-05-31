@@ -4,7 +4,7 @@ import { SonhadorService } from 'src/app/services/sonhador.service';
 import { UtilService } from 'src/app/services/util.service';
 import { ConfirmedValidator } from 'src/app/confirmed.validator';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { SolicitarAlteraracaoSenhaDto } from 'src/app/models/SolicitarAlteraracaoSenhaDto';
+import { SolicitarAlteraracaoSenhaDto } from 'src/app/models/solicitarAlteraracaoSenhaDto';
 
 
 @Component({

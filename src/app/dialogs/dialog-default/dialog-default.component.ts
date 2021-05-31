@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
-import { SolicitarAlteraracaoSenhaDto } from 'src/app/models/SolicitarAlteraracaoSenhaDto';
-import { ValidarTokenDto } from 'src/app/models/ValidarTokenDto';
+import { SolicitarAlteraracaoSenhaDto } from 'src/app/models/solicitarAlteraracaoSenhaDto';
+import { ValidarTokenDto } from 'src/app/models/validarTokenDto';
 import { ResetPasswordComponent } from 'src/app/pages/reset-password/reset-password.component';
 import { SonhadorService } from 'src/app/services/sonhador.service';
 import { UtilService } from 'src/app/services/util.service';

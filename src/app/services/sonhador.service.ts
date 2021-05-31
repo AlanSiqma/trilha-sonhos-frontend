@@ -7,8 +7,8 @@ import { SonhadorDto } from 'src/app/models/sonhadorDto';
 import { AlterarSonhadorDto } from 'src/app/models/alterarSonhadorDto';
 import { sonhadorLocal } from 'src/app/models/sonhadorLocal';
 import { AlteracaoSenhaDto } from '../models/alteracaoSenhaDto';
-import { ValidarTokenDto } from '../models/ValidarTokenDto';
-import { SolicitarAlteraracaoSenhaDto } from '../models/SolicitarAlteraracaoSenhaDto';
+import { ValidarTokenDto } from '../models/validarTokenDto';
+import { SolicitarAlteraracaoSenhaDto } from '../models/solicitarAlteraracaoSenhaDto';
 const apiUrl = environment;
 
 @Injectable({
