@@ -34,6 +34,10 @@ export class RegisterDreamComponent implements OnInit {
   arayTrilha: Trilha[] = [];
   descricaoTrilha: string = "";
   i = 0;
+  passosRealizados(): number{
+    return this.arayTrilha.filter(x => x.Valor == true).length;
+  }
+
   progressBarTrail(): number {
     let result = 0;
     if (this.arayTrilha.length > 0) {

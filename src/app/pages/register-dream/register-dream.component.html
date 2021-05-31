@@ -43,6 +43,7 @@
       </button>
         <!-- AO ADICIONAR INCLUIR O SONHO COMO CHECKBOX NA DIV QUE POSSUI O ID div-checkbox-trilha-->
         <mat-progress-bar mode="determinate" [value]="progressBarTrail()"></mat-progress-bar>
+        <div>{{passosRealizados()}}/{{arayTrilha.length}}</div>
     </div>
 
     <div class="overflow" cdkDropList (cdkDropListDropped)="drop($event)">
