@@ -7,7 +7,7 @@ export const environment = {
 
   // apiBase: 'https://localhost:44332/api',
   // apiBase: "http://26.27.214.133/BeforeIDie/api",
-  apiBase:"https://before-i-die.azurewebsites.net/api",
+  apiBase: "https://before-i-die.azurewebsites.net/api",
   // apiBase: "http://localhost:8070",
 
   // Sonho
@@ -25,6 +25,9 @@ export const environment = {
   entrar: 'sonhador/entrar',
   registrar: 'sonhador/nova-conta',
   alterarConta: 'sonhador/alterar-conta',
+  validarToken: 'sonhador/validar-token',
+  alterarSenha: 'sonhador/alterar-senha',
+  soliitarAlteracaoSenha: 'sonhador/solicitar-alteracao-senha',
   deletarSonhador: 'sonhador/',
 
   // Visibilidade
