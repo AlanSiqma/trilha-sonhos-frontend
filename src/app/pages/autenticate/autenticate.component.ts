@@ -3,7 +3,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { UtilService } from 'src/app/services/util.service';
 import { SonhadorDto } from 'src/app/models/sonhadorDto';
 import { loginDto } from "src/app/models/loginDto";
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { AppComponent } from 'src/app/app.component';
 import { User } from 'src/app/models/user';
 import { ConfirmedValidator } from 'src/app/confirmed.validator';
@@ -24,14 +24,14 @@ export class AutenticateComponent implements OnInit {
   isRegistrar = false;
   isChecked = true;
   submitted = false;
-  formUser: FormGroup = new FormGroup({});;
+  formUser: UntypedFormGroup = new UntypedFormGroup({});;
   users: User[];
   @Output() authEvent = new EventEmitter();
 
 
   constructor(public dialog: MatDialog,
     private util: UtilService,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private sonhadorServ: SonhadorService) {
 
     this.formUser = fb.group(

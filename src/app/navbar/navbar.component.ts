@@ -1,7 +1,7 @@
 import { UtilService } from '../services/util.service';
 import { AppComponent } from 'src/app/app.component';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-navbar',
@@ -22,8 +22,8 @@ export class NavbarComponent implements OnInit {
   }
 
 
-  showDelay = new FormControl(500);
-  hideDelay = new FormControl(200);
+  showDelay = new UntypedFormControl(500);
+  hideDelay = new UntypedFormControl(200);
   mode ={value: "side"};
   hasBackdrop = {value:true};
   

@@ -1,7 +1,7 @@
 import { UtilService } from '../../services/util.service';
 import { sonhadorLocal } from '../../models/sonhadorLocal';
 import { Component, Inject, OnInit, EventEmitter, Output, Renderer2 } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { AppComponent } from 'src/app/app.component';
 import { SonhosService } from '../../services/sonhos.service';
@@ -25,7 +25,7 @@ export interface DialogData {
 export class RegisterDreamComponent implements OnInit {
 
   btRealizar = false;
-  formUser: FormGroup;
+  formUser: UntypedFormGroup;
   idSonhoDestaque;
   editId: string | null = null;
   descricaoFake: string | null = null;
@@ -124,14 +124,14 @@ export class RegisterDreamComponent implements OnInit {
   }
 
   GerarForm() {
-    this.formUser = new FormGroup({
-      id: new FormControl(),
-      usuarioId: new FormControl(),
-      descricaoSonho: new FormControl('', [Validators.required, Validators.minLength(6)]),
-      visibilidade: new FormControl(),
-      isPrivate: new FormControl(false),
-      status: new FormControl(),
-      descricaoTrilha: new FormControl()
+    this.formUser = new UntypedFormGroup({
+      id: new UntypedFormControl(),
+      usuarioId: new UntypedFormControl(),
+      descricaoSonho: new UntypedFormControl('', [Validators.required, Validators.minLength(6)]),
+      visibilidade: new UntypedFormControl(),
+      isPrivate: new UntypedFormControl(false),
+      status: new UntypedFormControl(),
+      descricaoTrilha: new UntypedFormControl()
     });
   }
 

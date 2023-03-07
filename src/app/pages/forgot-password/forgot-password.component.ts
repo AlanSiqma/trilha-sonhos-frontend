@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core'
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { AlteracaoSenhaDto } from 'src/app/models/alteracaoSenhaDto';
 import { SonhadorService } from 'src/app/services/sonhador.service';
 import { UtilService } from 'src/app/services/util.service';
@@ -11,10 +11,10 @@ import { UtilService } from 'src/app/services/util.service';
 })
 export class ForgotPasswordComponent implements OnInit {
   @Output() registerEvent = new EventEmitter();
-  formRecUser: FormGroup = new FormGroup({});
+  formRecUser: UntypedFormGroup = new UntypedFormGroup({});
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private sonhadorService: SonhadorService,
     private util: UtilService) {
     this.formRecUser = fb.group(

@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output, Inject } from '@angular/core'
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { SonhadorService } from 'src/app/services/sonhador.service';
 import { UtilService } from 'src/app/services/util.service';
 import { ConfirmedValidator } from 'src/app/confirmed.validator';
@@ -14,10 +14,10 @@ import { SolicitarAlteraracaoSenhaDto } from 'src/app/models/solicitarAlteraraca
 })
 export class ResetPasswordComponent implements OnInit {
   @Output() registerEvent = new EventEmitter();
-  formResetPassword: FormGroup = new FormGroup({});
+  formResetPassword: UntypedFormGroup = new UntypedFormGroup({});
 
 
-  constructor(private fb: FormBuilder,
+  constructor(private fb: UntypedFormBuilder,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private sonhadorService: SonhadorService,
     private util: UtilService) {
