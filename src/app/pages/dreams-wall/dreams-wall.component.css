@@ -167,6 +167,7 @@ p {
 
 .dreams-wall-contain-item-card {
   display: grid;
+  cursor: pointer;
 }
 
 .left {
