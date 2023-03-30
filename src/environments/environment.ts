@@ -3,8 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: true,
-  apiBase: "https://www.api.trilhasonhos.com.br/api",
+  production: false,
+  apiBase: "https://localhost:44332/api",
 
   // Sonho
   listarSonhos: 'sonho',
