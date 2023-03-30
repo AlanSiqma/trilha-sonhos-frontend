@@ -3,54 +3,55 @@
   <button mat-fab color="primary" (click)="EmitterAdd()" class="btn-adicionar-float">
     <mat-icon>add_task</mat-icon>
   </button>
-  <div class="contain">
-    <div class="item-" *ngFor="let sonho of this.listDreams; let i = index" id="{{i}}">
+  <div class="dreams-wall-contain">
+    <div class="dreams-wall-contain-item" *ngFor="let sonho of this.listDreams; let i = index" id="{{i}}">
       <div
         [ngClass]="{'descricao-sonho-destaque':sonho.id==idSonhoDestaque, 'descricaoSonho':sonho.id!=idSonhoDestaque}">
         <div *ngIf="sonho.id==idSonhoDestaque">
           <a href="#" id="descricao-sonho-destaque" #widgetsContent autofocus></a>
         </div>
-        <div style="display: grid;">
-          <div (click)="exibirSonho(sonho)">
+        <div class="dreams-wall-contain-item-card">
+          <div class="dreams-wall-contain-item-card-title" (click)="exibirSonho(sonho)">
             <p>
               {{LimitarTexto(sonho)}}
             </p>
           </div>
-          <div style="display: grid; grid-template-columns: auto auto; margin-bottom: 1px;">
-            <div *ngIf="ehRealizado(sonho)">
-              <p class="nome status">
-                <i class="fa fa-check" style="color: #beff40;"></i>
-                realizado!
+          <div class="dreams-wall-contain-item-card-body">
+            <div class="dreams-wall-contain-item-card-body-item">
+              <p class="nome status left" (click)='Editar(sonho)' *ngIf="ehMeuSonhoMetodh(sonho)">
+                <span style="color: rgb(202, 202, 202);">
+                  <i class="fa fa-pencil" style="color: rgb(252, 206, 57);"></i>
+                  Editar
+                </span>
+              </p>
+              <p class="nome status right" (click)='Apagar(sonho)' *ngIf="ehMeuSonhoMetodh(sonho)">
+                <span style="color: rgb(202, 202, 202);">
+                  <i class="fa fa-times" style="color: rgb(245, 77, 85);"></i>
+                  Apagar
+                </span>
               </p>
             </div>
-            <div *ngIf="ehPrivado(sonho)">
-              <p class="nome status">
-                <i class="fa fa-lock" style="color: #ff9a33;" aria-hidden="true"></i>
-                privado
-              </p>
+            <div class="dreams-wall-contain-item-card-body-item">
+              <div *ngIf="ehRealizado(sonho)">
+                <p class="nome status left">
+                  <i class="fa fa-check" style="color: #beff40;"></i>
+                  Realizado!
+                </p>
+              </div>
+              <div *ngIf="ehPrivado(sonho)">
+                <p class="nome status right">
+                  <i class="fa fa-lock" style="color: #ff9a33;" aria-hidden="true"></i>
+                  Privado
+                </p>
+              </div>
             </div>
-          </div>
-
-          <div *ngIf="ehMeuSonhoMetodh(sonho)">
-            <p class="nome status" (click)='Editar(sonho)'>
-              <span style="color: rgb(202, 202, 202);">
-                <i class="fa fa-pencil" style="color: rgb(252, 206, 57);"></i>
-                Editar
-              </span>
-            </p>
-            <p class="nome status" (click)='Apagar(sonho)'>
-              <span style="color: rgb(202, 202, 202);">
-                <i class="fa fa-times" style="color: rgb(245, 77, 85);"></i>
-                Apagar
-              </span>
-            </p>
           </div>
         </div>
       </div>
     </div>
-    <div class="item-">
-      <div class="descricaoSonho">
-        <div style="display: grid;">
+    <div class="dreams-wall-contain-item">
+      <div class="dreams-wall-contain-item-descricao-sonho">
+        <div class="dreams-wall-contain-item-descricao-sonho-div">
           <button mat-fab color="primary" (click)="EmitterAdd()">
             <mat-icon>add_task</mat-icon>
           </button>
