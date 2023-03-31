@@ -1,21 +1,22 @@
 <div class="nav">
   <section class="grid grid-template-areas-1" *ngIf="!isLogged; else logged">
     <div class="item a left">
-      <img class="logo" [src]="logoBfd" (click)="IrParaHome()"/>
-      <a href="https://forms.gle/A3afNJSrLFxCNRh78" target="_blank" class="byttons item-full-screen" mat-flat-button color="secundary">
+      <img class="logo" [src]="logoBfd" (click)="IrParaHome()" />
+      <a href="https://forms.gle/A3afNJSrLFxCNRh78" target="_blank" class="byttons item-full-screen" mat-flat-button
+        color="secundary">
         Feedback
         <span>
           <i class="fa fa-commenting-o" aria-hidden="true"></i>
         </span>
       </a>
-    </div>  
+    </div>
     <div class="item right b item-full-screen">
-        <span class="mt">
-          <button mat-flat-button color="primary" (click)="Logar()" class="buttons">
-            Sign-in
-            <span><i class="fa fa-sign-in"></i></span>
-          </button>
-        </span>
+      <span class="mt">
+        <button mat-flat-button color="primary" (click)="Logar()" class="buttons">
+          Sign-in
+          <span><i class="fa fa-sign-in"></i></span>
+        </button>
+      </span>
     </div>
     <div class="grdPhoto item-minimal-screen grdPhoto-minimal-screen">
       <button mat-icon-button color="warn" (click)="drawer.toggle()" aria-label="Example icon button with a menu icon">
@@ -23,76 +24,72 @@
       </button>
     </div>
   </section>
-<!--  ------------------Nav Mobile--------------------- -->
+  <!--  ------------------Nav Mobile--------------------- -->
   <mat-drawer #drawer [mode]="mode.value" class="item-minimal-screen">
     <div class="menu">
       <div class="nav-mobile-perfil">
         <img class="foto-perfil-mob" [src]="user.photo">
-      <span class="usName" >
-      {{user.name}}
-      </span>
-         
-      </div>  
-    <hr> 
-    
+        <span class="usName">
+          {{user.name}}
+        </span>
 
-
+      </div>
+      <hr>
       <div *ngIf="isLogged">
         <div class="nav-mobile-interacao">
           <button mat-flat-button color="btn-menu-mob" (click)="IrParaMeusSonhos()" (blur)="close()">
             <mat-icon>
               <span class="material-icons-outlined">filter_drama</span>
             </mat-icon>
-            <span >&nbsp; Meus Sonhos</span>
-            </button>
-            <button mat-flat-button color="btn-menu-mob" (click)="EmDesenvolvimento()">
-              <mat-icon>
-                <span class="material-icons-outlined">list_alt</span>
-              </mat-icon>
-              <span >&nbsp; Ver Trilhas</span>
-            </button>
-            <button mat-flat-button color="btn-menu-mob" (click)="EmDesenvolvimento()">
-                <mat-icon>
-                  <span class="material-icons-outlined">post_add</span>
-                </mat-icon>
-                <span >&nbsp; Adicionar Trilha</span>
-            </button>
-     
-     
-      <div *ngIf="isLogged">
-        <mat-form-field class="tema-select" appearance="outline">
-          <mat-label>Tema</mat-label>
-          <mat-select (selectionChange)="alterarTema($event.value);drawer.toggle()">
-            <mat-option value="fundo-cinza-2.jpg">Balloon Girl</mat-option>
-            <mat-option value="fundo-cinza.jpg">Floating Love</mat-option>
-            <mat-option value="fundo-ceu.jpg">Blue Sky</mat-option>
-            <mat-option value="fundo-imaginario.jpg">Blackboard</mat-option>
-            <mat-option value="fundo-realista.jpg">Realistic Wall 1</mat-option>
-            <mat-option value="fundo-realista-2.jpg">Realistic Wall 2</mat-option>          
-          </mat-select>
-        </mat-form-field>
+            <span>&nbsp; Meus Sonhos</span>
+          </button>
+          <button mat-flat-button color="btn-menu-mob" (click)="EmDesenvolvimento()">
+            <mat-icon>
+              <span class="material-icons-outlined">list_alt</span>
+            </mat-icon>
+            <span>&nbsp; Ver Trilhas</span>
+          </button>
+          <button mat-flat-button color="btn-menu-mob" (click)="EmDesenvolvimento()">
+            <mat-icon>
+              <span class="material-icons-outlined">post_add</span>
+            </mat-icon>
+            <span>&nbsp; Adicionar Trilha</span>
+          </button>
+          <div *ngIf="isLogged">
+            <mat-form-field class="tema-select" appearance="outline">
+              <mat-label>Tema</mat-label>
+              <mat-select (selectionChange)="alterarTema($event.value);drawer.toggle()">
+                <mat-option value="fundo-cinza-2.jpg">Balloon Girl</mat-option>
+                <mat-option value="fundo-cinza.jpg">Floating Love</mat-option>
+                <mat-option value="fundo-ceu.jpg">Blue Sky</mat-option>
+                <mat-option value="fundo-imaginario.jpg">Blackboard</mat-option>
+                <mat-option value="fundo-realista.jpg">Realistic Wall 1</mat-option>
+                <mat-option value="fundo-realista-2.jpg">Realistic Wall 2</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
       </div>
-      </div>
-    </div>
       <hr>
       <div>
-        <a href="https://forms.gle/A3afNJSrLFxCNRh78" target="_blank" class="byttons"  mat-flat-button color="warn" (click)="drawer.toggle()">
+        <a href="https://forms.gle/A3afNJSrLFxCNRh78" target="_blank" class="byttons" mat-flat-button color="warn"
+          (click)="drawer.toggle()">
           Feedback
           <span>
             <i class="fa fa-commenting-o" aria-hidden="true"></i>
           </span>
-        </a> 
+        </a>
       </div>
       <div *ngIf="isLogged">
-        <button  (click)="logOff();drawer.toggle()" mat-flat-button color="primary" class="buttons">
+        <button (click)="logOff();drawer.toggle()" mat-flat-button color="primary" class="buttons">
           Sair
           <span class="material-icons">
             logout
-            </span>
-        </button> 
+          </span>
+        </button>
       </div>
-      <div *ngIf="!isLogged"> 
-        <button  (click)="Logar();drawer.toggle();" mat-flat-button color="primary" color="primary" class="buttons" >
+      <div *ngIf="!isLogged">
+        <button (click)="Logar();drawer.toggle();" mat-flat-button color="primary" color="primary" class="buttons">
           Sign-in
           <span>
             <i class="fa fa-sign-in"></i>
@@ -100,103 +97,81 @@
         </button>
       </div>
     </div>
-  </mat-drawer> 
-
+  </mat-drawer>
   <mat-drawer-container class="example-container" [hasBackdrop]="hasBackdrop.value">
-    
   </mat-drawer-container>
-  
   <ng-template #logged>
     <section class="grid grid-template-areas-1">
-      <div class="item a left ">        
-          <img class="logo" [src]="logoBfd" (click)="IrParaHome()"/>       
-          <a href="https://forms.gle/A3afNJSrLFxCNRh78" target="_blank" class="byttons item-full-screen"  mat-flat-button color="secundary">
-            Feedback
-            <span>
-              <i class="fa fa-commenting-o" aria-hidden="true"></i>
-            </span>
-          </a>       
+      <div class="item a left ">
+        <img class="logo" [src]="logoBfd" (click)="IrParaHome()" />
+        <a href="https://forms.gle/A3afNJSrLFxCNRh78" target="_blank" class="byttons item-full-screen" mat-flat-button
+          color="secundary">
+          Feedback
+          <span>
+            <i class="fa fa-commenting-o" aria-hidden="true"></i>
+          </span>
+        </a>
       </div>
-   
       <div class="item-full-screen">
-      
         <div class="itens_nav">
-          
           <button mat-mini-fab color="btn-menu" matTooltip="Home" (click)="IrParaHome()">
             <mat-icon>
-            home
+              home
             </mat-icon>
           </button>
-
           <button mat-mini-fab color="btn-menu" [matMenuTriggerFor]="menu" matTooltip="Modelos de Trilha">
             <mat-icon>
               <span class="material-icons-outlined">list_alt</span>
             </mat-icon>
           </button>
-
           <mat-menu #menu="matMenu">
-                <button mat-menu-item (click)="EmDesenvolvimento()">
-                  <mat-icon>
-                      <span class="material-icons-outlined">post_add</span>
-                  </mat-icon>
-                  <span>Criar Trilha</span>
-                </button>
-        
-                <button mat-menu-item (click)="EmDesenvolvimento()">
-                  <mat-icon>
-                    <span class="material-icons-outlined">list_alt</span>
-                  </mat-icon>
-                  <span>Ver Trilhas</span>
-                </button>
-        </mat-menu>
-
-        <button mat-mini-fab color="btn-menu" (click)="IrParaMeusSonhos();" matTooltip="Meus Sonhos">
-          <mat-icon>
-            <span class="material-icons-outlined">filter_drama</span>
-          </mat-icon>
-          <!-- <span > Meus Sonhos</span> -->
+            <button mat-menu-item (click)="EmDesenvolvimento()">
+              <mat-icon>
+                <span class="material-icons-outlined">post_add</span>
+              </mat-icon>
+              <span>Criar Trilha</span>
+            </button>
+            <button mat-menu-item (click)="EmDesenvolvimento()">
+              <mat-icon>
+                <span class="material-icons-outlined">list_alt</span>
+              </mat-icon>
+              <span>Ver Trilhas</span>
+            </button>
+          </mat-menu>
+          <button mat-mini-fab color="btn-menu" (click)="IrParaMeusSonhos();" matTooltip="Meus Sonhos">
+            <mat-icon>
+              <span class="material-icons-outlined">filter_drama</span>
+            </mat-icon>
           </button>
-          <!-- <h4>Basic native select</h4> (removido)-->
-          <mat-form-field class="tema-select" appearance="outline" >
-
+          <mat-form-field class="tema-select" appearance="outline">
             <mat-label>Tema</mat-label>
-            
             <mat-select (selectionChange)="alterarTema($event.value)">
               <mat-option value="fundo-cinza-2.jpg">Balloon Girl</mat-option>
               <mat-option value="fundo-cinza.jpg">Floating Love</mat-option>
               <mat-option value="fundo-ceu.jpg">Blue Sky</mat-option>
               <mat-option value="fundo-imaginario.jpg">Blackboard</mat-option>
               <mat-option value="fundo-realista.jpg">Realistic Wall 1</mat-option>
-              <mat-option value="fundo-realista-2.jpg">Realistic Wall 2</mat-option>          
+              <mat-option value="fundo-realista-2.jpg">Realistic Wall 2</mat-option>
             </mat-select>
           </mat-form-field>
-     
-
-          <!-- <span class="subTitle link-1" (click)="IrParaMeusSonhos();">
-            Meus Sonhos</span> -->
         </div>
       </div>
       <div class="item grdPhoto item-full-screen">
-          <img [src]="user.photo"
-               class="circleImg"
-               (click)="IrParaHome()"
-               matTooltip="Deslogar?"
-               [matTooltipShowDelay]="showDelay.value"
-               [matTooltipHideDelay]="hideDelay.value" (click)="logOff()">
+        <img [src]="user.photo" class="circleImg" (click)="IrParaHome()" matTooltip="Deslogar?"
+          [matTooltipShowDelay]="showDelay.value" [matTooltipHideDelay]="hideDelay.value" (click)="logOff()">
       </div>
       <div class="item grdUser item-full-screen">
-        <span class="usName" matTooltip="Deslogar?"
-                            [matTooltipShowDelay]="showDelay.value"
-                            [matTooltipHideDelay]="hideDelay.value" (click)="logOff()">
+        <span class="usName" matTooltip="Deslogar?" [matTooltipShowDelay]="showDelay.value"
+          [matTooltipHideDelay]="hideDelay.value" (click)="logOff()">
           {{user.name}}
         </span>
       </div>
       <div class="grdPhoto item-minimal-screen grdPhoto-minimal-screen">
-          <button mat-icon-button color="primary" (click)="drawer.toggle()" aria-label="Example icon button with a menu icon">
-            <mat-icon>menu</mat-icon>
-          </button>
+        <button mat-icon-button color="primary" (click)="drawer.toggle()"
+          aria-label="Example icon button with a menu icon">
+          <mat-icon>menu</mat-icon>
+        </button>
       </div>
-   
     </section>
   </ng-template>
 </div>
