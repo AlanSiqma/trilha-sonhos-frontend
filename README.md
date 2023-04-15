@@ -41,11 +41,7 @@ https://trello.com/invite/b/kSX8ETYE/6420a6e8d004c02a0f400d2e18da7616/trilha-son
 ## RODANDO APLICAÇÃO LOCALMENTE
 
 ## PRÉ REQUESITO
-Mongo DB
+Aplicação backend 
 
-### RODANDO MONGO VIA DOCKER:
-- Instale o [docker](https://docs.docker.com/engine/install/)
-- Abra o prompt de comando e digite: docker pull mongo 
-- Apos baixar a imagem via prompt de comando digite o comando: 
-
-    `docker run --name mongo_trilha_sonhos -d -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=trilha-sonhos -e MONGO_INITDB_ROOT_PASSWORD=e296cd9f mongo`
+Execute os passos no readme da aplicação backend antes de executar o frontend :) 
+Você pode acessar o repositorio pelo [link](https://github.com/AlanSiqma/trilha-sonhos-backend)
