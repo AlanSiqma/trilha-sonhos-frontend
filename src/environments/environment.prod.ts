@@ -4,7 +4,7 @@
 
 export const environment = {
   production: true,
-  apiBase: "http://www.api.trilhasonhos.com.br/api",
+  apiBase: "https://www.trilhasonhosapi.alansiqma.com/api",
 
 
   // Sonho

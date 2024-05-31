@@ -55,8 +55,8 @@ export class AppComponent implements OnInit {
   }
 
   EventNavBar(val: any) {
+   
     switch (val.tipo) {
-
       case 'MeusSonhos':
         this.AtualizarSonhosPorSonhador();
         break;
@@ -133,7 +133,7 @@ export class AppComponent implements OnInit {
     this.sonhosService.listarSonhosPorSonhador(usuario.id)
       .subscribe(
         result => {
-          this.popularListaSonho(result);
+          this.popularListaSonho(result.sonhos);
           this.dreamWall.ehMeuSonho = true;
         },
         error => {
@@ -151,7 +151,7 @@ export class AppComponent implements OnInit {
       this.sonhosService.listarSonhosPorSonhador(usuario.id)
         .subscribe(
           result => {
-            this.popularListaSonho(result);
+            this.popularListaSonho(result.sonhos);
             this.dreamWall.idSonhoDestaque = idSonhoDestaque;
             this.dreamWall.ehMeuSonho = true;
           },
@@ -164,7 +164,7 @@ export class AppComponent implements OnInit {
       this.sonhosService.listarSonhosPublicos()
         .subscribe(
           result => {
-            this.popularListaSonho(result);
+            this.popularListaSonho(result.sonhos);
             this.dreamWall.idSonhoDestaque = idSonhoDestaque;
             this.dreamWall.ehMeuSonho = false;
           },
@@ -184,7 +184,7 @@ export class AppComponent implements OnInit {
       let sonho: any = result[i];
       this.listDreams.push(this.PopularDream(sonho));
     };
-
+ 
     this.dreamWall.atualizarListaSonhos(this.listDreams);
   }
 
@@ -199,7 +199,8 @@ export class AppComponent implements OnInit {
     this.sonhosService.listarSonhosPublicos()
       .subscribe(
         (res: any) => {
-          this.popularListaSonho(res);
+          
+          this.popularListaSonho(res.sonhos);
           this.dreamWall.ehMeuSonho = false;
         }
       );
@@ -212,6 +213,7 @@ export class AppComponent implements OnInit {
       this.sonhadorService.pegarSonhador(sonho.idSonhador)
         .subscribe(
           res => {
+            console.log(res)
             if (res) {
               let dataModel = {
                 nomeSonhador: res.nome,

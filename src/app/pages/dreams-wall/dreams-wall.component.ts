@@ -45,7 +45,6 @@ export class DreamsWallComponent implements OnInit {
     }
 
   ngOnInit(): void {
-     
      if(!this.IsLoggin){
           this.openEvent.emit({tipo: 'openLoginDialog'});
        } 
@@ -95,7 +94,7 @@ export class DreamsWallComponent implements OnInit {
   Editar(sonho: SonhoDto){
    
     let sonhoJson = JSON.stringify(sonho);
-
+    console.log(sonho)
     let data = {
       tipo: 'editar',
       data:  sonhoJson
