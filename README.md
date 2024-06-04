@@ -5,17 +5,7 @@ A aplicação oferece diversas ferramentas para ajudar os usuários a alcançare
 
 O Mural dos Sonhos é uma plataforma inclusiva e acolhedora, que valoriza a autenticidade e a diversidade. Todos os usuários são bem-vindos, independentemente da idade, gênero, raça ou religião. A aplicação está sempre em evolução, buscando novas formas de ajudar os usuários a realizar seus sonhos e aprimorar a experiência de todos os membros da comunidade.
 
-Gerado em [.net](https://dotnet.microsoft.com/en-us/download/dotnet/3.1) versao 3.1
-
-Você pode acessar a aplicação pelo [link](https://www.trilhasonhos.com.br/)
-
-## ENTRE NO DISCORD
-https://discord.gg/q7wfgyqM
-
-## LÁ NO DISCORD
-- Se apresente. Nome, cidade, profissão, e principais habilidades.
-- Pergunte sobre as tarefas em aberto.
-- Troque uma ideia com o time técnico. Comente como planeja solucionar. Ouça os conselhos dos devs mais experientes. Esse alinhamento é super importante pra aumentar significativamente as chances do seu PULL REQUEST ser aprovado depois.
+Você pode acessar a aplicação pelo [link](https://www.trilhasonhos.alansiqma.com/)
 
 ## FAÇA PARTE DA EQUIPE NO TRELLO
 
